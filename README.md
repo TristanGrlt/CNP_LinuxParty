@@ -36,6 +36,15 @@ exécuté afin :
 - de configurer le VPN du département d'informatique
 - d'installer les certificats racines du département d'informatique
 
+> [!IMPORTANT]
+> Ce script fonctionne **uniquement** pour les distributions basées sur 
+> **Debian**.
+> 
+> Il a été testé et validé uniquement sur les environnements suivants :
+> - *Ubuntu 26.04*
+> - *Linuxmint-22.3 (cinnamon)*
+> - *Linuxmint-22.3 (xfce)*
+
 Vous pouvez lancer ce script grâce à la commande suivante :
 
 ```bash
