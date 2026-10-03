@@ -25,4 +25,4 @@ Party 2026"** par des bénévoles étudiants de Master informatique de l'ufr des
 sciences et techinique de l'université de Rouen Normandie **car l'UFR ne veut 
 plus financer l'événement oficiel.**
 
-![Affiche de "Ceci n'est pas une Linux Party."](./visuels/affiche/affiche.png)
+![bannière horizontale de "Ceci n'est pas une Linux Party."](./visuels/banniere_h/bannière_h.png)
