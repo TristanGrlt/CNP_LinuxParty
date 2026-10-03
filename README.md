@@ -20,9 +20,29 @@
 
 ---
 
-Ce dépot contien un ensemble d'élément produit pour **"Ceci n'est pas une Linux
-Party 2026"** par des bénévoles étudiants de Master informatique de l'ufr des 
-sciences et techinique de l'université de Rouen Normandie **car l'UFR ne veut 
-plus financer l'événement oficiel.**
+Ce dépôt contient un ensemble d'éléments produits pour **"Ceci n'est pas une Linux
+Party 2026"** par des bénévoles étudiants des Masters d'informatique de l'UFR des
+sciences et techniques de l'Université de Rouen Normandie **car l'UFR ne veut
+plus financer l'événement officiel.**
+
+## Script de post-installation
+
+À la suite de l'installation de la distribution Linux, ce script peut être
+exécuté afin :
+
+- de mettre à jour le système
+- d'installer une suite de paquets recommandée pour l'université
+- de configurer le réseau Eduroam
+- de configurer le VPN du département d'informatique
+- d'installer les certificats racines du département d'informatique
+
+Vous pouvez lancer ce script grâce à la commande suivante :
+
+```bash
+# Exécute l'ensemble du script et demande la saisie de l'identifiant universitaire ainsi qu'éventuellement du mot de passe
+curl -s "https://raw.githubusercontent.com/TristanGrlt/CNP_LinuxParty/refs/heads/main/setup.sh" | sudo bash -s -- --ask
+```
+
+## Bannière de l'événement
 
 ![bannière horizontale de "Ceci n'est pas une Linux Party."](./visuels/banniere_h/banniere_h.png)
