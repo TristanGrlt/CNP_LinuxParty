@@ -166,8 +166,8 @@ parse_arguments() {
 prompt_credentials() {
   if [[ "$ASK_VPN" == true ]]; then
     echo -e "\n${CYAN}=== Configuration des identifiants ===${NC}"
-    read -p "Entrez l'identifiant universitaire/multipass : " VPN_USER
-    read -s -p "Entrez le mot de passe (laisser vide pour demander à la connexion) : " VPN_PASS
+    read -p "Entrez l'identifiant universitaire/multipass : " VPN_USER </dev/tty
+    read -s -p "Entrez le mot de passe (laisser vide pour demander à la connexion) : " VPN_PASS </dev/tty
     echo ""
     echo -e "${CYAN}======================================================${NC}\n"
   fi
