@@ -42,6 +42,7 @@ exécuté afin :
 > 
 > Il a été testé et validé uniquement sur les environnements suivants :
 > - *Ubuntu 26.04*
+> - *Ubuntu 24.04*
 > - *Linuxmint 22.3 (cinnamon)*
 > - *Linuxmint 22.3 (xfce)*
 > - *Xubuntu 26.04*
