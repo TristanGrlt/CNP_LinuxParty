@@ -58,8 +58,7 @@ APT_APPS=(
 
 CUSTOM_APPS=(
   "typst:Alternative moderne, rapide et simple à LaTeX"
-  "sqlplus:Client Oracle SQL*Plus utilisé en TP"
-  "sqlcl:Client Oracle SQLcl (pareil que sqlplus mais en beacoup mieux)"
+  "sqlplus:Client Oracle SQL*Plus"
 )
 
 # =============================================================================
@@ -467,15 +466,6 @@ setup_oracle() {
     apt-get install -y libaio1t64
     ln -sf /usr/lib/x86_64-linux-gnu/libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1 || true
   }
-
-  if [ ! -d "/opt/sqlcl" ]; then
-    wget -qO /tmp/sqlcl.zip "https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip"
-    unzip -q /tmp/sqlcl.zip -d /opt/
-    rm -f /tmp/sqlcl.zip
-  fi
-
-  rm -f /usr/local/bin/sqlcl
-  ln -sf /opt/sqlcl/bin/sql /usr/local/bin/sqlcl
 
   if [ ! -d "/opt/oracle/instantclient_21_15" ]; then
     wget -qO /tmp/instantclient.zip "https://download.oracle.com/otn_software/linux/instantclient/2115000/instantclient-basic-linux.x64-21.15.0.0.0dbru.zip"
