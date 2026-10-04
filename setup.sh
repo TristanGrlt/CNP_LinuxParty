@@ -534,6 +534,7 @@ main() {
   setup_eduroam
   setup_vpn
   install_dpi_certificates
+  setup_oracle
   clean_system
 
   print_recap
