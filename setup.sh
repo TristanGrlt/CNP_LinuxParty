@@ -59,7 +59,7 @@ APT_APPS=(
 CUSTOM_APPS=(
   "typst:Alternative moderne, rapide et simple à LaTeX"
   "sqlplus:Client Oracle SQL*Plus utilisé en TP"
-  "sqlcl:Client Oracle SQLcl (pareil que sqlplus mais en beacoup mieu)"
+  "sqlcl:Client Oracle SQLcl (pareil que sqlplus mais en beacoup mieux)"
 )
 
 # =============================================================================
@@ -463,12 +463,20 @@ setup_oracle() {
   log_info "Configuration de SQLPlus / SQLcl..."
   
   apt-get install -y unzip
-  apt-get install -y libaio1 || apt-get install -y libaio1t64
+  apt-get install -y libaio1 || {
+    apt-get install -y libaio1t64
+    ln -sf /usr/lib/x86_64-linux-gnu/libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1 || true
+  }
 
   if [ ! -f "/usr/local/bin/sqlcl" ]; then
     wget -qO /tmp/sqlcl.zip "https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip"
     unzip -q /tmp/sqlcl.zip -d /opt/
-    ln -sf /opt/sqlcl/bin/sql /usr/local/bin/sqlcl
+    
+    cat <<'EOF' > /usr/local/bin/sqlcl
+#!/bin/bash
+exec /opt/sqlcl/bin/sql "$@"
+EOF
+    chmod +x /usr/local/bin/sqlcl
     rm -f /tmp/sqlcl.zip
   fi
 
@@ -503,7 +511,7 @@ EOF
 
   cat <<'EOF' > /etc/profile.d/oracle.sh
 export TNS_ADMIN=/etc/oracle
-export TWO_TASK = "dbetu";
+export TWO_TASK="dbetu"
 EOF
   
   chmod +x /etc/profile.d/oracle.sh
