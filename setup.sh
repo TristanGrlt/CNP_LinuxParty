@@ -12,9 +12,9 @@ CYAN='\033[0;36m'
 RED='\033[0;31m'
 NC='\033[0m' 
 
-VPN_USER=""
-VPN_PASS=""
-ASK_VPN=false
+UNIV_USER=""
+UNIV_PASS=""
+ASK_CRED=false
 VPN_ONLY=false
 
 APT_APPS=(
@@ -139,15 +139,15 @@ parse_arguments() {
         exit 0
         ;;
       -u|--user)
-        VPN_USER="$2"
+        UNIV_USER="$2"
         shift 2
         ;;
       -p|--password)
-        VPN_PASS="$2"
+        UNIV_PASS="$2"
         shift 2
         ;;
       -a|--ask)
-        ASK_VPN=true
+        ASK_CRED=true
         shift
         ;;
       --vpn-only)
@@ -165,10 +165,10 @@ parse_arguments() {
 }
 
 prompt_credentials() {
-  if [[ "$ASK_VPN" == true ]]; then
+  if [[ "$ASK_CRED" == true ]]; then
     echo -e "\n${CYAN}=== Configuration des identifiants ===${NC}"
-    read -p "Entrez l'identifiant universitaire/multipass : " VPN_USER </dev/tty
-    read -s -p "Entrez le mot de passe (laisser vide pour demander à la connexion) : " VPN_PASS </dev/tty
+    read -p "Entrez l'identifiant universitaire/multipass : " UNIV_USER </dev/tty
+    read -s -p "Entrez le mot de passe (laisser vide pour demander à la connexion) : " UNIV_PASS </dev/tty
     echo ""
     echo -e "${CYAN}======================================================${NC}\n"
   fi
@@ -272,11 +272,11 @@ ipsec-ike=aes256-sha1-modp2048!
 ipsec-esp=aes128-sha1!
 EOF
 
-  if [[ -n "$VPN_USER" ]]; then
-    echo "user=$VPN_USER" >> "$nm_file"
+  if [[ -n "$UNIV_USER" ]]; then
+    echo "user=$UNIV_USER" >> "$nm_file"
   fi
 
-  if [[ -n "$VPN_PASS" ]]; then
+  if [[ -n "$UNIV_PASS" ]]; then
     echo "password-flags=0" >> "$nm_file"
   else
     echo "password-flags=1" >> "$nm_file"
@@ -288,8 +288,8 @@ EOF
 ipsec-psk=ZqYP3Dmex09aqc0UIJ0I
 EOF
 
-  if [[ -n "$VPN_PASS" ]]; then
-    echo "password=$VPN_PASS" >> "$nm_file"
+  if [[ -n "$UNIV_PASS" ]]; then
+    echo "password=$UNIV_PASS" >> "$nm_file"
   fi
 
   cat <<EOF >> "$nm_file"
@@ -332,13 +332,13 @@ phase2-auth=mschapv2
 system-ca-certs=true
 EOF
 
-  if [[ -n "$VPN_USER" ]]; then
-    echo "identity=$VPN_USER" >> "$nm_file"
+  if [[ -n "$UNIV_USER" ]]; then
+    echo "identity=$UNIV_USER" >> "$nm_file"
   fi
 
-  if [[ -n "$VPN_PASS" ]]; then
+  if [[ -n "$UNIV_PASS" ]]; then
     echo "password-flags=0" >> "$nm_file"
-    echo "password=$VPN_PASS" >> "$nm_file"
+    echo "password=$UNIV_PASS" >> "$nm_file"
   else
     echo "password-flags=1" >> "$nm_file"
   fi
