@@ -468,19 +468,16 @@ setup_oracle() {
     ln -sf /usr/lib/x86_64-linux-gnu/libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1 || true
   }
 
-  if [ ! -f "/usr/local/bin/sqlcl" ]; then
+  if [ ! -d "/opt/sqlcl" ]; then
     wget -qO /tmp/sqlcl.zip "https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip"
     unzip -q /tmp/sqlcl.zip -d /opt/
-    
-    cat <<'EOF' > /usr/local/bin/sqlcl
-#!/bin/bash
-exec /opt/sqlcl/bin/sql "$@"
-EOF
-    chmod +x /usr/local/bin/sqlcl
     rm -f /tmp/sqlcl.zip
   fi
 
-  if [ ! -f "/usr/local/bin/sqlplus" ]; then
+  rm -f /usr/local/bin/sqlcl
+  ln -sf /opt/sqlcl/bin/sql /usr/local/bin/sqlcl
+
+  if [ ! -d "/opt/oracle/instantclient_21_15" ]; then
     wget -qO /tmp/instantclient.zip "https://download.oracle.com/otn_software/linux/instantclient/2115000/instantclient-basic-linux.x64-21.15.0.0.0dbru.zip"
     wget -qO /tmp/sqlplus.zip "https://download.oracle.com/otn_software/linux/instantclient/2115000/instantclient-sqlplus-linux.x64-21.15.0.0.0dbru.zip"
     
@@ -488,12 +485,14 @@ EOF
     unzip -q /tmp/instantclient.zip -d /opt/oracle/
     unzip -q /tmp/sqlplus.zip -d /opt/oracle/
     
-    ln -sf /opt/oracle/instantclient_21_15/sqlplus /usr/local/bin/sqlplus
     echo "/opt/oracle/instantclient_21_15" > /etc/ld.so.conf.d/oracle-instantclient.conf
     ldconfig
     
     rm -f /tmp/instantclient.zip /tmp/sqlplus.zip
   fi
+
+  rm -f /usr/local/bin/sqlplus
+  ln -sf /opt/oracle/instantclient_21_15/sqlplus /usr/local/bin/sqlplus
 
   mkdir -p /etc/oracle
   
@@ -513,8 +512,8 @@ EOF
 export TNS_ADMIN=/etc/oracle
 export TWO_TASK="dbetu"
 EOF
-  
   chmod +x /etc/profile.d/oracle.sh
+
   log_success "Configuration Oracle terminée."
 }
 
