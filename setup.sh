@@ -245,6 +245,9 @@ install_packages() {
 setup_vpn() {
   log_info "Configuration du VPN L2TP du département..."
 
+  apt-get update -y >/dev/null 2>&1
+  apt-get install -y network-manager-l2tp-gnome
+
   mkdir -p /etc/strongswan.d/
   cat <<'EOF' > /etc/strongswan.d/99-dpi-vpn.conf
 libstrongswan {
