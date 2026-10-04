@@ -58,6 +58,8 @@ APT_APPS=(
 
 CUSTOM_APPS=(
   "typst:Alternative moderne, rapide et simple à LaTeX"
+  "sqlplus:Client Oracle SQL*Plus utilisé en TP"
+  "sqlcl:Client Oracle SQLcl (pareil que sqlplus mais en beacoup mieu)"
 )
 
 # =============================================================================
@@ -453,6 +455,59 @@ EOF
 
   update-ca-certificates >/dev/null 2>&1
   log_success "Certificats racines installés avec succès."
+}
+# =============================================================================
+# Oracle
+# =============================================================================
+setup_oracle() {
+  log_info "Configuration de SQLPlus / SQLcl..."
+  
+  apt-get install -y unzip
+  apt-get install -y libaio1 || apt-get install -y libaio1t64
+
+  if [ ! -f "/usr/local/bin/sqlcl" ]; then
+    wget -qO /tmp/sqlcl.zip "https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-latest.zip"
+    unzip -q /tmp/sqlcl.zip -d /opt/
+    ln -sf /opt/sqlcl/bin/sql /usr/local/bin/sqlcl
+    rm -f /tmp/sqlcl.zip
+  fi
+
+  if [ ! -f "/usr/local/bin/sqlplus" ]; then
+    wget -qO /tmp/instantclient.zip "https://download.oracle.com/otn_software/linux/instantclient/2115000/instantclient-basic-linux.x64-21.15.0.0.0dbru.zip"
+    wget -qO /tmp/sqlplus.zip "https://download.oracle.com/otn_software/linux/instantclient/2115000/instantclient-sqlplus-linux.x64-21.15.0.0.0dbru.zip"
+    
+    mkdir -p /opt/oracle
+    unzip -q /tmp/instantclient.zip -d /opt/oracle/
+    unzip -q /tmp/sqlplus.zip -d /opt/oracle/
+    
+    ln -sf /opt/oracle/instantclient_21_15/sqlplus /usr/local/bin/sqlplus
+    echo "/opt/oracle/instantclient_21_15" > /etc/ld.so.conf.d/oracle-instantclient.conf
+    ldconfig
+    
+    rm -f /tmp/instantclient.zip /tmp/sqlplus.zip
+  fi
+
+  mkdir -p /etc/oracle
+  
+  cat <<'EOF' > /etc/oracle/tnsnames.ora
+dbetu =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = inf-oracle.univ-rouen.fr)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SID = dbetu)
+    )
+  )
+EOF
+
+  cat <<'EOF' > /etc/profile.d/oracle.sh
+export TNS_ADMIN=/etc/oracle
+export TWO_TASK = "dbetu";
+EOF
+  
+  chmod +x /etc/profile.d/oracle.sh
+  log_success "Configuration Oracle terminée."
 }
 
 # =============================================================================
