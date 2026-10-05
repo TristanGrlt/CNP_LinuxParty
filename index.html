@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceci n'est pas une Linux Party</title>
+    <!-- Les couleurs et polices officielles -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace'],
+                    },
+                    colors: {
+                        offwhite: '#F4F4F0', /* Blanc cassé */
+                        offblack: '#1C1C1C', /* Noir cassé */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: theme('colors.offwhite');
+            color: theme('colors.offblack');
+        }
+        /* Style net et plat, sans l'effet de décalage */
+        .strict-border {
+            border: 2px solid theme('colors.offblack');
+        }
+        .btn-strict {
+            border: 2px solid theme('colors.offblack');
+            background-color: theme('colors.offblack');
+            color: theme('colors.offwhite');
+            transition: all 0.2s ease;
+        }
+        .btn-strict:hover {
+            background-color: theme('colors.offwhite');
+            color: theme('colors.offblack');
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col selection:bg-offblack selection:text-offwhite">
+    
+    <main class="flex-grow container mx-auto px-4 py-16 max-w-4xl">
+        
+        <!-- En-tête -->
+        <header class="mb-16 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 uppercase tracking-tighter">Ceci n'est pas<br>une Linux Party</h1>
+            <p class="font-mono text-lg font-bold border-t-2 border-b-2 border-offblack py-2 inline-block mt-4">Vendredi 16 Octobre 2026 • 9h - 17h • Salle U2.2.54</p>
+        </header>
+
+        <!-- Réservation -->
+        <section class="text-center mb-16">
+            <a href="#" class="bg-offblack text-offwhite inline-block font-mono font-bold text-lg px-8 py-4 btn-strict uppercase tracking-wider">
+                Réserver une installation
+            </a>
+            <p class="mt-4 text-sm font-mono opacity-80">
+                Afin de vous garantir un créneau, nous vous invitons à réserver votre place.
+            </p>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Le Contexte -->
+            <section class="bg-offwhite p-8 strict-border">
+                <h2 class="text-2xl font-bold mb-4 uppercase border-b-2 border-offblack pb-2">Le Contexte</h2>
+                <p class="mb-4 text-justify leading-relaxed">
+                    L'édition 2026-2027 de la traditionnelle Linux Party a été annulée par l'UFR en raison d'une situation financière compliquée. 
+                </p>
+                <p class="text-justify leading-relaxed">
+                    Face à cette décision, et refusant de laisser les nouveaux arrivants sans accompagnement, les étudiants des Masters Informatique ont décidé de prendre le relais avec l'association ATACC. L'événement devient indépendant, mais l'esprit d'entraide reste intact.
+                </p>
+            </section>
+
+            <!-- Pourquoi Linux -->
+            <section class="bg-offwhite p-8 strict-border">
+                <h2 class="text-2xl font-bold mb-4 uppercase border-b-2 border-offblack pb-2">Pourquoi Linux ?</h2>
+                <ul class="space-y-3 leading-relaxed">
+                    <li><strong>Libre & Gratuit :</strong> Un système ouvert, auditable et gratuit, soutenu par une immense communauté.</li>
+                    <li><strong>Performant :</strong> Parfait pour redonner vie aux anciens PC ou exploiter pleinement les machines récentes.</li>
+                    <li><strong>Riche :</strong> Une logithèque intégrée de dizaines de milliers de logiciels accessibles facilement.</li>
+                    <li><strong>Personnalisable :</strong> Une interface qui s'adapte à vous, et non l'inverse.</li>
+                    <li><strong>Fin de support Windows 10 :</strong> Avec l'abandon imminent de Windows 10, des milliers de PC parfaitement fonctionnels vont devenir obsolètes et vulnérables. Linux est la solution idéale pour leur offrir une seconde vie sécurisée sans avoir à racheter du matériel.</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Découverte et installation -->
+        <section class="bg-offwhite p-8 strict-border mb-12">
+            <h2 class="text-2xl font-bold mb-6 uppercase text-center">Découverte & Accompagnement</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-mono font-bold mb-2 text-lg">>_ Explorer</h3>
+                    <p class="leading-relaxed text-sm text-justify">
+                        Testez Linux directement sur votre ordinateur via une clé USB (Live USB), sans rien installer ni modifier sur votre disque dur. Vous pourrez découvrir l'interface et vérifier que tout votre matériel fonctionne parfaitement.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-mono font-bold mb-2 text-lg">>_ Installer</h3>
+                    <p class="leading-relaxed text-sm text-justify">
+                        Si l'expérience vous convainc, nous vous assistons pour installer le système proprement. Il est tout à fait possible de le faire cohabiter avec votre Windows ou macOS actuel (Dual-Boot), vous laissant le choix au démarrage.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-mono font-bold mb-2 text-lg">>_ Configurer</h3>
+                    <p class="leading-relaxed text-sm text-justify">
+                        Pour les étudiants en informatique, nous avons développé un script d'installation automatisé. Il configure votre machine pour retrouver des outils similaire qu'en salle TP. Il configure aussi la connexion au réseau Wi-Fi Eduroam, la configuration du VPN du département d'info, l'installation des certificats racines et de la base de données Oracle (SQL*Plus) entre autres.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avant de venir -->
+        <section class="bg-offblack text-offwhite p-8 strict-border mb-12">
+            <h2 class="text-2xl font-bold mb-6 uppercase text-center">Avant de venir</h2>
+            <ul class="space-y-4 font-mono text-sm">
+                <li class="flex items-start">
+                    <span class="mr-3 text-xl">></span>
+                    <span><strong>Sauvegardez vos données :</strong> L'installation nécessite de faire de la place sur le disque. Bien que les risques soient minimes, une sauvegarde complète est indispensable.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="mr-3 text-xl">></span>
+                    <span><strong>Prenez votre matériel :</strong> N'oubliez pas votre chargeur (indispensable pour l'installation) et vos adaptateurs (réseau/USB) si vous possédez un ultra-portable ou un Mac.</span>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="border-t-2 border-offblack py-8 mt-auto flex flex-col items-center font-mono text-sm">
+        <div class="flex items-center justify-center gap-8 mb-6">
+            <img src="./visuels/logo/logo.png" alt="Logo Ceci n'est pas une Linux Party" class="h-16 md:h-20 w-auto strict-border">
+            
+            <img src="./visuels/image/atacc_logo.svg" alt="Logo ATACC" class="h-16 md:h-20 w-auto">
+        </div>
+        <p>© 2026 - Ceci n'est pas une Linux Party.</p>
+    </footer>
+
+</body>
+</html>
