@@ -35,6 +35,7 @@ exécuté afin :
 - de configurer le réseau Eduroam
 - de configurer le VPN du département d'informatique
 - d'installer les certificats racines du département d'informatique
+- de congigurer sqlplus pour le server de BDD Oracle de la fac
 
 > [!IMPORTANT]
 > Ce script fonctionne **uniquement** pour les distributions basées sur 
