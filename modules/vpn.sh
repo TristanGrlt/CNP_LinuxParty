@@ -1,4 +1,3 @@
-
 setup_vpn() {
   log_info "Configuration du VPN L2TP du département..."
 
@@ -30,6 +29,8 @@ EOF
 
   if [[ -n "$UNIV_USER" ]]; then
     echo "user=$UNIV_USER" >> "$nm_file"
+  else
+    log_info "WARN: No user defined"
   fi
 
   if [[ -n "$UNIV_PASS" ]]; then

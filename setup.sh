@@ -12,10 +12,10 @@ CYAN='\033[0;36m'
 RED='\033[0;31m'
 NC='\033[0m' 
 
-UNIV_USER=""
-UNIV_PASS=""
-ASK_CRED=false
-VPN_ONLY=false
+export UNIV_USER=""
+export UNIV_PASS=""
+export ASK_CRED=false
+export VPN_ONLY=false
 
 # =============================================================================
 # Utilis 
@@ -151,7 +151,7 @@ main() {
 
   if [[ "$VPN_ONLY" == true ]]; then
     log_info "Mode VPN uniquement activé."
-    setup_vpn
+    ./modules/vpn.sh    
     log_success "Configuration VPN terminée."
     exit 0
   fi
