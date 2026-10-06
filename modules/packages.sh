@@ -49,13 +49,6 @@ update_system() {
   log_success "System is now up to date."
 }
 
-clean_system() {
-  log_info "Cleaning up unused packages..."
-  apt-get autoremove -y
-  apt-get clean
-  log_success "Cleaning complete."
-}
-
 install_apt() {
   log_info "Installing standard packages..."
   
