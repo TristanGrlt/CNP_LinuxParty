@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visuels - CNP Linux Party</title>
+    <link rel="icon" type="image/png" href="./visuels/icon/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['"Space Grotesk"', 'sans-serif'], mono: ['"Space Mono"', 'monospace'] }, colors: { offwhite: '#F4F4F0', offblack: '#1C1C1C' } } }
+        }
+    </script>
+    <style>
+        body { background-color: theme('colors.offwhite'); color: theme('colors.offblack'); }
+        .strict-border { border: 2px solid theme('colors.offblack'); }
+        .btn-strict { border: 2px solid theme('colors.offblack'); background-color: theme('colors.offblack'); color: theme('colors.offwhite'); transition: all 0.2s ease; }
+        .btn-strict:hover { background-color: theme('colors.offwhite'); color: theme('colors.offblack'); }
+        .nav-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+    </style>
+    <script src="components.js" defer></script>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col selection:bg-offblack selection:text-offwhite">
+    <site-header></site-header>
+
+    <main class="flex-grow container mx-auto px-4 py-12 max-w-5xl">
+        <h1 class="text-4xl font-bold mb-4 uppercase tracking-tighter border-b-2 border-offblack pb-4">Ressources Visuelles</h1>
+        <p class="mb-10 text-lg">Retrouvez ici tous les visuels créés pour l'événement. Vous pouvez les télécharger dans différents formats pour appuyer votre communication.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Affiche -->
+            <div class="bg-white strict-border p-4 flex flex-col">
+                <div class="bg-gray-100 h-48 mb-4 strict-border flex items-center justify-center p-2">
+                    <img src="../visuels/affiche/affiche.png" alt="Affiche" class="max-h-full w-auto object-contain">
+                </div>
+                <h3 class="font-bold text-xl mb-3">Affiche</h3>
+                <div class="mt-auto flex flex-wrap gap-2 font-mono text-xs">
+                    <a href="../visuels/affiche/affiche.png" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">PNG</a>
+                    <a href="../visuels/affiche/affiche_a4.pdf" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">PDF A4</a>
+                    <a href="../visuels/affiche/affiche_a3.pdf" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">PDF A3</a>
+                    <a href="../visuels/affiche/affiche.xcf" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">XCF</a>
+                </div>
+            </div>
+
+            <!-- Bannière Horizontale -->
+            <div class="bg-white strict-border p-4 flex flex-col">
+                <div class="bg-gray-100 h-48 mb-4 strict-border flex items-center justify-center p-2">
+                    <img src="../visuels/banniere_h/banniere_h.png" alt="Bannière H" class="max-h-full w-auto object-contain">
+                </div>
+                <h3 class="font-bold text-xl mb-3">Bannière Horizontale</h3>
+                <div class="mt-auto flex flex-wrap gap-2 font-mono text-xs">
+                    <a href="../visuels/banniere_h/banniere_h.png" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">PNG</a>
+                    <a href="../visuels/banniere_h/banniere_h_a4.pdf" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">PDF</a>
+                    <a href="../visuels/banniere_h/banniere_h.xcf" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">XCF</a>
+                </div>
+            </div>
+
+            <!-- Bannière Verticale -->
+            <div class="bg-white strict-border p-4 flex flex-col">
+                <div class="bg-gray-100 h-48 mb-4 strict-border flex items-center justify-center p-2">
+                    <img src="../visuels/banniere_v/banniere_v.png" alt="Bannière V" class="max-h-full w-auto object-contain">
+                </div>
+                <h3 class="font-bold text-xl mb-3">Bannière Verticale</h3>
+                <div class="mt-auto flex flex-wrap gap-2 font-mono text-xs">
+                    <a href="../visuels/banniere_v/banniere_v.png" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">PNG</a>
+                    <a href="../visuels/banniere_v/banniere_v.xcf" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">XCF</a>
+                </div>
+            </div>
+
+            <!-- Post Réseaux Sociaux -->
+            <div class="bg-white strict-border p-4 flex flex-col">
+                <div class="bg-gray-100 h-48 mb-4 strict-border flex items-center justify-center p-2">
+                    <img src="../visuels/post/post.png" alt="Post" class="max-h-full w-auto object-contain">
+                </div>
+                <h3 class="font-bold text-xl mb-3">Post (Réseaux Sociaux)</h3>
+                <div class="mt-auto flex flex-wrap gap-2 font-mono text-xs">
+                    <a href="../visuels/post/post.png" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">PNG</a>
+                    <a href="../visuels/post/post.xcf" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">XCF</a>
+                </div>
+            </div>
+
+            <!-- Logo -->
+            <div class="bg-white strict-border p-4 flex flex-col">
+                <div class="bg-gray-100 h-48 mb-4 strict-border flex items-center justify-center p-2">
+                    <img src="../visuels/logo/logo.png" alt="Logo" class="max-h-full w-auto object-contain">
+                </div>
+                <h3 class="font-bold text-xl mb-3">Logo Officiel</h3>
+                <div class="mt-auto flex flex-wrap gap-2 font-mono text-xs">
+                    <a href="../visuels/logo/logo.png" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">PNG</a>
+                    <a href="../visuels/logo/logo.xcf" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">XCF</a>
+                </div>
+            </div>
+
+            <!-- Icône -->
+            <div class="bg-white strict-border p-4 flex flex-col">
+                <div class="bg-gray-100 h-48 mb-4 strict-border flex items-center justify-center p-2">
+                    <img src="../visuels/icon/icon.png" alt="Icône" class="max-h-full w-auto object-contain">
+                </div>
+                <h3 class="font-bold text-xl mb-3">Icône</h3>
+                <div class="mt-auto flex flex-wrap gap-2 font-mono text-xs">
+                    <a href="../visuels/icon/icon.png" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">PNG</a>
+                    <a href="../visuels/icon/icon.xcf" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">XCF</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <site-footer></site-footer>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - CNP Linux Party</title>
+    <link rel="icon" type="image/png" href="./visuels/icon/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['"Space Grotesk"', 'sans-serif'], mono: ['"Space Mono"', 'monospace'] }, colors: { offwhite: '#F4F4F0', offblack: '#1C1C1C' } } }
+        }
+    </script>
+    <style>
+        body { background-color: theme('colors.offwhite'); color: theme('colors.offblack'); }
+        .strict-border { border: 2px solid theme('colors.offblack'); }
+        .btn-strict { border: 2px solid theme('colors.offblack'); background-color: theme('colors.offblack'); color: theme('colors.offwhite'); transition: all 0.2s ease; }
+        .btn-strict:hover:not(:disabled) { background-color: theme('colors.offwhite'); color: theme('colors.offblack'); }
+        .nav-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+    </style>
+    <script src="components.js" defer></script>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col selection:bg-offblack selection:text-offwhite">
+
+    <site-header></site-header>
+
+    <main class="flex-grow container mx-auto px-4 py-12 max-w-5xl">
+        <h1 class="text-4xl font-bold mb-4 uppercase tracking-tighter border-b-2 border-offblack pb-4">Documentation Officielle</h1>
+        <p class="mb-10 text-lg">Retrouvez ici tous les documents utiles, guides et fiches pratiques qui seront distribués lors de l'événement.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div class="bg-white strict-border p-6 flex flex-col">
+                <h3 class="font-bold text-xl mb-3">Guide : Installation</h3>
+                <p class="text-sm mb-6 flex-grow text-gray-600">Le guide pas-à-pas pour installer Linux aux côtés de Windows ou MacOS (Dual-Boot) en toute sécurité.</p>
+                <button disabled class="inline-block text-center font-mono font-bold px-4 py-3 btn-strict opacity-50 cursor-not-allowed">Bientôt disponible (PDF)</button>
+            </div>
+
+            <div class="bg-white strict-border p-6 flex flex-col">
+                <h3 class="font-bold text-xl mb-3">Cheat Sheet : Commandes</h3>
+                <p class="text-sm mb-6 flex-grow text-gray-600">Les commandes terminal essentielles pour survivre et naviguer dans votre nouvel environnement Linux.</p>
+                <button disabled class="inline-block text-center font-mono font-bold px-4 py-3 btn-strict opacity-50 cursor-not-allowed">Bientôt disponible (PDF)</button>
+            </div>
+
+            <div class="bg-white strict-border p-6 flex flex-col">
+                <h3 class="font-bold text-xl mb-3">Fiche : Présentation Linux</h3>
+                <p class="text-sm mb-6 flex-grow text-gray-600">Qu'est-ce que Linux ? Pourquoi l'utiliser ? Les distributions existantes et les grands avantages du Libre.</p>
+                <button disabled class="inline-block text-center font-mono font-bold px-4 py-3 btn-strict opacity-50 cursor-not-allowed">Bientôt disponible (PDF)</button>
+            </div>
+
+            <div class="bg-white strict-border p-6 flex flex-col bg-gray-100">
+                <h3 class="font-bold text-xl mb-3">Décharge de responsabilité</h3>
+                <p class="text-sm mb-6 flex-grow text-gray-600">Document légal et administratif à lire et signer avant toute manipulation sur votre machine par un de nos bénévoles.</p>
+                <button disabled class="inline-block text-center font-mono font-bold px-4 py-3 btn-strict opacity-50 cursor-not-allowed">Bientôt disponible (PDF)</button>
+            </div>
+
+        </div>
+    </main>
+
+    <site-footer></site-footer>
+
+</body>
+</html>

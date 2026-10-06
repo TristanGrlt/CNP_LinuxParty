@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licence - CNP Linux Party</title>
+    <link rel="icon" type="image/png" href="../visuels/icon/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['"Space Grotesk"', 'sans-serif'], mono: ['"Space Mono"', 'monospace'] }, colors: { offwhite: '#F4F4F0', offblack: '#1C1C1C' } } } }
+    </script>
+    <style>
+        body { background-color: theme('colors.offwhite'); color: theme('colors.offblack'); }
+        .strict-border { border: 2px solid theme('colors.offblack'); }
+        .scrollbar-custom::-webkit-scrollbar { width: 10px; }
+        .scrollbar-custom::-webkit-scrollbar-track { background: theme('colors.offwhite'); border-left: 2px solid theme('colors.offblack'); }
+        .scrollbar-custom::-webkit-scrollbar-thumb { background: theme('colors.offblack'); }
+    </style>
+    <script src="components.js" defer></script>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col selection:bg-offblack selection:text-offwhite">
+    
+    <site-header></site-header>
+
+    <main class="flex-grow container mx-auto px-4 py-12 max-w-4xl">
+        <h1 class="text-4xl font-bold mb-8 uppercase tracking-tighter border-b-2 border-offblack pb-4">Licence Libre & Open Source</h1>
+        
+        <section class="bg-offwhite p-8 strict-border mb-12">
+            <h2 class="text-2xl font-bold mb-4 uppercase">Notre engagement</h2>
+            <p class="mb-4 text-justify leading-relaxed">
+                Parce que cet événement fait la promotion du Libre, l'ensemble de notre travail suit la même philosophie. 
+                Que ce soit le script d'installation bash, les visuels, les logos, ou le code source de ce site web : <strong>absolument tout est distribué sous licence libre</strong>.
+            </p>
+            <p class="mb-4 text-justify leading-relaxed">
+                Vous pouvez retrouver l'intégralité du code source, des ressources et des scripts sur notre dépôt GitHub. N'hésitez pas à l'étudier, le copier ou proposer des améliorations.
+            </p>
+            <div class="text-center my-6">
+                <a href="https://github.com/TristanGrlt/CNP_LinuxParty" target="_blank" rel="noopener noreferrer" class="inline-block border-2 border-offblack bg-offblack text-offwhite font-mono font-bold px-6 py-3 hover:bg-offwhite hover:text-offblack transition-colors">
+                    >_ Accéder au dépôt GitHub
+                </a>
+            </div>
+            <p class="text-justify leading-relaxed">
+                Cela signifie que vous êtes totalement libres d'utiliser, de copier, de modifier et de redistribuer ces contenus pour vos propres événements, vos projets personnels ou au sein de vos associations étudiantes, sous réserve de respecter les termes de la <strong>GNU General Public License v3.0 (GPLv3)</strong> détaillée ci-dessous.
+            </p>
+        </section>
+
+        <section class="bg-white strict-border p-6 shadow-md">
+            <h3 class="font-mono font-bold mb-4 text-lg">>_ Fichier LICENSE (GPLv3)</h3>
+            
+            <div class="bg-gray-100 border-2 border-offblack h-96 overflow-y-scroll scrollbar-custom relative">
+                <pre id="license-content" class="p-4 font-mono text-xs whitespace-pre-wrap text-gray-800 leading-tight">Chargement de la licence...</pre>
+            </div>
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+
+    <script>
+        fetch('../LICENSE')
+            .then(response => {
+                if (!response.ok) throw new Error('Fichier non trouvé');
+                return response.text();
+            })
+            .then(text => {
+                document.getElementById('license-content').textContent = text;
+            })
+            .catch(error => {
+                document.getElementById('license-content').textContent = "Impossible de charger le fichier LICENSE automatiquement à cause des sécurités locales du navigateur.\nLe fichier se trouve à la racine du dépôt GitHub.";
+            });
+    </script>
+</body>
+</html>
