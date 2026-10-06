@@ -18,6 +18,7 @@
       devShells = forEachSystem (pkgs: {
         default = pkgs.mkShell {
           packages = with pkgs; [
+            typst
             gimp
             gnumake
             img2pdf
