@@ -62,4 +62,4 @@ EOF
   log_success "VPN configuré."
 }
 
-setup_vpn()
+setup_vpn
