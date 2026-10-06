@@ -2,7 +2,7 @@
 
 // Application du template avec les informations du document
 #show: cnp_template.with(
-  title: "Lorem ipsum dolor sit amet",
+  title: "Ceci n'est pas une procédure d'installation",
   subtitle: "Consectetur adipiscing elit sed do eiusmod",
   author: "Lorem Ipsum",
   date: "16 Octobre 2026"
