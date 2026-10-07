@@ -72,7 +72,7 @@ add_third_party_repos() {
   apt-get update -y
 }
 
-
+update_system
 add_third_party_repos
 install_apt
 log_success "All tools successfully installed."

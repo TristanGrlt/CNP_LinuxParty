@@ -1,7 +1,3 @@
-
-# =============================================================================
-# Oracle
-# =============================================================================
 setup_oracle() {
   log_info "Configuration de SQLPlus / SQLcl..."
   
@@ -51,3 +47,5 @@ EOF
   log_success "Configuration Oracle terminée."
 }
 
+
+setup_oracle
