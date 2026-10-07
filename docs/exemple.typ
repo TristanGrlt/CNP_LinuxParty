@@ -4,7 +4,7 @@
 #show: cnp_template.with(
   title: "Ceci n'est pas une procédure d'installation",
   subtitle: "Consectetur adipiscing elit sed do eiusmod",
-  author: "Lorem Ipsum",
+  authors: ("Lorem Ipsum",),
   date: "16 Octobre 2026"
 )
 
