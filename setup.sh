@@ -151,21 +151,21 @@ main() {
 
   if [[ "$VPN_ONLY" == true ]]; then
     log_info "Mode VPN uniquement activé."
-    ./modules/vpn.sh    
+    source ./modules/vpn.sh 
     log_success "Configuration VPN terminée."
     exit 0
   fi
 
   log_info "Starting setup..."
 
-  ./modules/packages.sh
-  ./modules/eduroam.sh
-  ./modules/vpn.sh
-  ./modules/sqlplus.sh
+  source ./modules/packages.sh
+  source ./modules/eduroam.sh
+  source ./modules/vpn.sh
+  source ./modules/sqlplus.sh
   clean_system
 
   log_success "Done!"
-  # print_recap
+  print_recap
 }
 
 main "$@"

@@ -72,22 +72,6 @@ add_third_party_repos() {
   apt-get update -y
 }
 
-# install_typst() {
-#   if command -v typst >/dev/null 2>&1; then
-#     log_success "Typst est déjà installé, on ignore."
-#     return 0
-#   fi
-
-#   log_info "Installing official Typst binary..."
-  
-#   wget -qO /tmp/typst.tar.xz "https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz"
-#   tar -xf /tmp/typst.tar.xz -C /tmp/
-#   mv -f /tmp/typst-x86_64-unknown-linux-musl/typst /usr/local/bin/
-#   chmod +x /usr/local/bin/typst
-  
-#   rm -rf /tmp/typst*
-# }
-
 
 add_third_party_repos
 install_apt
