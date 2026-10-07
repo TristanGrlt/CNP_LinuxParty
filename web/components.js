@@ -6,8 +6,8 @@ class SiteHeader extends HTMLElement {
       currentPath === "visuels.html" ? "underline text-underline-offset-4" : "";
     const isDocs =
       currentPath === "docs.html" ? "underline text-underline-offset-4" : "";
-    const isLicence =
-      currentPath === "licence.html" ? "underline text-underline-offset-4" : "";
+    const isPropos =
+      currentPath === "propos.html" ? "underline text-underline-offset-4" : "";
     const isIndex =
       currentPath === "index.html" || currentPath === ""
         ? "underline text-underline-offset-4"
@@ -23,7 +23,7 @@ class SiteHeader extends HTMLElement {
                         <a href="index.html" class="hover:underline ${isIndex}">Accueil</a>
                         <a href="visuels.html" class="hover:underline ${isVisuels}">Visuels</a>
                         <a href="docs.html" class="hover:underline ${isDocs}">Documentation</a>
-                        <a href="licence.html" class="hover:underline ${isLicence}">Licence</a>
+                        <a href="propos.html" class="hover:underline ${isPropos}">À propos</a>
                     </div>
                 </div>
             </nav>
