@@ -160,6 +160,7 @@ main() {
 
   source ./modules/packages.sh
   source ./modules/eduroam.sh
+  source ./modules/certs.sh
   source ./modules/vpn.sh
   source ./modules/sqlplus.sh
   clean_system
