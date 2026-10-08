@@ -53,23 +53,6 @@ EOF
   echo -e "${BLUE}=== Script de Post-Installation Étudiant ===${NC}\n"
 }
 
-print_recap() {
-  echo -e "\n${GREEN}=============================================================================${NC}"
-  echo -e "${CYAN}  INSTALLATION TERMINÉE ! Voici les outils désormais disponibles :${NC}"
-  echo -e "${GREEN}=============================================================================${NC}"
-  
-  printf "${BLUE}%-30s${NC} | %s\n" "LOGICIEL" "DESCRIPTION"
-  echo -e "-------------------------------|---------------------------------------------"
-  
-  for item in "${APT_APPS[@]}" "${CUSTOM_APPS[@]}"; do
-    local pkg="${item%%:*}"
-    local desc="${item#*:}"
-    printf "${GREEN}%-30s${NC} | %s\n" "$pkg" "$desc"
-  done
-  
-  echo -e "${GREEN}=============================================================================${NC}"
-}
-
 show_help() {
   echo "Setup script for Debian-based systems"
   echo "Usage: sudo ./setup.sh [OPTIONS]"
@@ -177,11 +160,6 @@ main() {
   run_step "Configurer le VPN du DPI" setup_vpn
   run_step "Configurer Oracle SQLPlus" setup_oracle
   run_step "Nettoyer le système (autoremove/clean)" clean_system
-
-  log_success "Done!"
-  if type print_recap &>/dev/null; then
-    print_recap
-  fi
 }
 
 main "$@"

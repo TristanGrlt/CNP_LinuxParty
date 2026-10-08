@@ -55,6 +55,23 @@ add_third_party_repos() {
   log_success "All tools successfully installed."
 }
 
+print_recap() {
+  echo -e "\n${GREEN}=============================================================================${NC}"
+  echo -e "${CYAN}  Voici les outils désormais disponibles :${NC}"
+  echo -e "${GREEN}=============================================================================${NC}"
+  
+  printf "${BLUE}%-30s${NC} | %s\n" "LOGICIEL" "DESCRIPTION"
+  echo -e "-------------------------------|---------------------------------------------"
+  
+  for item in "${APT_APPS[@]}" "${CUSTOM_APPS[@]}"; do
+    local pkg="${item%%:*}"
+    local desc="${item#*:}"
+    printf "${GREEN}%-30s${NC} | %s\n" "$pkg" "$desc"
+  done
+  
+  echo -e "${GREEN}=============================================================================${NC}"
+}
+
 install_apt() {
   log_info "Installing standard packages..."
   
@@ -67,4 +84,5 @@ install_apt() {
   done
 
   apt-get install -y "${packages[@]}"
+  print_recap
 }
