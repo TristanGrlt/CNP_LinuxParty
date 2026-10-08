@@ -36,5 +36,3 @@ EOF
   systemctl restart NetworkManager
   log_success "Profil Eduroam configuré."
 }
-
-setup_eduroam

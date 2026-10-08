@@ -46,6 +46,3 @@ EOF
 
   log_success "Configuration Oracle terminée."
 }
-
-
-setup_oracle

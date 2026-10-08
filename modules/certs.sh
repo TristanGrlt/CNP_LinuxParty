@@ -6,5 +6,3 @@ install_dpi_certificates() {
   update-ca-certificates >/dev/null 2>&1
   log_success "Certificats racines installés avec succès."
 }
-
-install_dpi_certificates

@@ -62,5 +62,3 @@ EOF
   systemctl restart NetworkManager
   log_success "VPN configuré."
 }
-
-setup_vpn

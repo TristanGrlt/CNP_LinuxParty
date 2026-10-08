@@ -42,17 +42,6 @@ update_system() {
   log_success "System is now up to date."
 }
 
-install_apt() {
-  log_info "Installing standard packages..."
-  
-  local packages=()
-  for item in "${APT_APPS[@]}"; do
-    packages+=("${item%%:*}")
-  done
-
-  apt-get install -y "${packages[@]}"
-}
-
 add_third_party_repos() {
   log_info "Adding third-party repositories..."
   apt-get install -y wget curl gpg apt-transport-https ca-certificates
@@ -63,9 +52,19 @@ add_third_party_repos() {
   echo "deb [signed-by=/etc/apt/keyrings/vscodium-archive-keyring.gpg] https://download.vscodium.com/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list
 
   apt-get update -y
+  log_success "All tools successfully installed."
 }
 
-update_system
-add_third_party_repos
-install_apt
-log_success "All tools successfully installed."
+install_apt() {
+  log_info "Installing standard packages..."
+  
+  update_system
+  add_third_party_repos
+
+  local packages=()
+  for item in "${APT_APPS[@]}"; do
+    packages+=("${item%%:*}")
+  done
+
+  apt-get install -y "${packages[@]}"
+}
