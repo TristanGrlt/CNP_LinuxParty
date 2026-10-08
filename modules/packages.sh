@@ -2,7 +2,6 @@ APT_APPS=(
   # Desktop & Web
   "thunderbird:Client de messagerie électronique"
   "chromium:Navigateur web (version libre)"
-  "pdfarranger:Outil visuel pour fusionner/découper des PDF"
   # Editors & IDEs
   "vim:Éditeur de code en ligne de commande"
   "geany:IDE léger et rapide"
@@ -18,21 +17,15 @@ APT_APPS=(
   "manpages-dev:Documentation développeur (Man pages C)"
   "manpages-posix-dev:Documentation POSIX (Man pages)"
   # Languages & Parsing
-  "flex:Générateur d'analyseur lexical"
-  "bison:Générateur d'analyseur syntaxique"
   "python3:Interpréteur Python 3"
   "python3-pip:Gestionnaire de paquets Python"
   "python3-venv:Environnements virtuels Python"
   "default-jdk:Environnement de développement Java"
   # CLI & Monitoring
   "curl:Client HTTP en ligne de commande"
-  "wget:Outil de téléchargement de fichiers"
   "htop:Moniteur système interactif"
   "btop:Moniteur système avancé et esthétique"
   "tree:Affichage en arborescence des dossiers"
-  # Text
-  "tmux:Multiplexeur de terminal"
-  "texlive-latex-extra:Distribution LaTeX complète"
   # VPN
   "network-manager-l2tp-gnome:Plugin VPN L2TP pour NetworkManager"
 )
