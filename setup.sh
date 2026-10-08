@@ -171,7 +171,7 @@ main() {
 
   log_info "Starting setup..."
 
-  run_step "Mettre à jour et installer les paquets" install_packages
+  run_step "Mettre à jour et installer les paquets" install_apt
   run_step "Configurer le réseau Eduroam" setup_eduroam
   run_step "Installer les certificats DPI" install_dpi_certificates
   run_step "Configurer le VPN du DPI" setup_vpn
