@@ -54,7 +54,7 @@ Vous pouvez lancer ce script grâce à la commande suivante :
 
 ```bash
 # Exécute l'ensemble du script et demande la saisie de l'identifiant universitaire ainsi qu'éventuellement du mot de passe
-wget -qO- "https://github.com/TristanGrlt/CNP_LinuxParty/archive/refs/heads/main.tar.gz" | cd /tmp && tar -xz && cd CNP_LinuxParty-main && sudo ./setup.sh --ask && cd .. && rm -rf CNP_LinuxParty-main
+cd /tmp; wget -qO- "https://github.com/TristanGrlt/CNP_LinuxParty/releases/latest/download/setup-cnp.tar.gz" | tar xz && sudo ./setup.sh --ask
 ```
 
 ## Bannière de l'événement
