@@ -43,16 +43,19 @@ update_system() {
 }
 
 add_third_party_repos() {
-  log_info "Adding third-party repositories..."
-  apt-get install -y wget curl gpg apt-transport-https ca-certificates
+  log_info "Ajout des depots tiers et PPAs..."
+  
+  apt-get install -y software-properties-common wget curl gpg apt-transport-https ca-certificates
+
+  add-apt-repository -y ppa:xtradeb/apps
 
   # VSCodium
   install -m 0755 -d /etc/apt/keyrings
   curl -fsSL "https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg" | gpg --dearmor --yes -o /etc/apt/keyrings/vscodium-archive-keyring.gpg
   echo "deb [signed-by=/etc/apt/keyrings/vscodium-archive-keyring.gpg] https://download.vscodium.com/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list
-
-  apt-get update -y
-  log_success "All tools successfully installed."
+  
+  apt-get update -y >/dev/null 2>&1
+  log_success "Depots tiers et PPAs configures."
 }
 
 print_recap() {
