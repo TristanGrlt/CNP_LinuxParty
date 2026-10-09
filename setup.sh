@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
+# =============================================================================
+# Setup Script - Ceci n'est pas une Linux Party
+# =============================================================================
+
 set -euo pipefail
 export DEBIAN_FRONTEND=noninteractive
 
 # =============================================================================
-# Variables & Couleurs
+# Configuration & State Variables
 # =============================================================================
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -17,10 +21,42 @@ export UNIV_PASS=""
 export ASK_CRED=false
 export VPN_ONLY=false
 export INTERACTIVE=false
+export TUI_CHOICES=""
+
+export NEWT_COLORS="
+  root=white,black
+  window=white,black
+  border=cyan,black
+  shadow=black,black
+  title=cyan,black
+  button=black,cyan
+  actbutton=white,cyan
+  checkbox=cyan,black
+  actcheckbox=black,cyan
+  entry=cyan,black
+  label=white,black
+  listbox=white,black
+  actlistbox=black,cyan
+  sellistbox=white,black
+  actsellistbox=black,cyan
+  textbox=white,black
+  acttextbox=black,cyan
+"
+
+# Format: "ID|Function_Name|Description|Default_State|Requires_Credentials(1/0)"
+TASKS=(
+  "apt|install_apt|Mettre a jour et installer les paquets|ON|0"
+  "eduroam|setup_eduroam|Configurer le reseau Eduroam|ON|1"
+  "certs|install_dpi_certificates|Installer les certificats DPI|ON|0"
+  "vpn|setup_vpn|Configurer le VPN du DPI|ON|1"
+  "oracle|setup_oracle|Configurer Oracle SQLPlus|ON|0"
+  "clean|clean_system|Nettoyer le systeme|ON|0"
+)
 
 # =============================================================================
-# Utilis 
+# Utilities
 # =============================================================================
+
 log_info()    { echo -e "${BLUE}[INFO]   ${NC} $1"; }
 log_success() { echo -e "${GREEN}[SUCCESS]${NC} $1"; }
 log_error()   { echo -e "${RED}[ERROR]  ${NC} $1"; }
@@ -38,7 +74,6 @@ print_banner() {
      \ \____/ \ \_\ \_\ \_\           \ \____/ \ \_\ \_\ \_\ \____//\_/\_\     
       \/___/   \/_/\/_/\/_/            \/___/   \/_/\/_/\/_/\/___/ \//\/_/     
                                                                                
-                                                                               
    ____                 __                  ___       __      ___      ____    
   /\  _`\              /\ \__             /'___`\   /'__`\  /'___`\   /'___\   
   \ \ \L\ \ __     _ __\ \ ,_\  __  __   /\_\ /\ \ /\ \/\ \/\_\ /\ \ /\ \__/   
@@ -50,8 +85,49 @@ print_banner() {
                                     \/__/                                      
 EOF
   echo -e "${NC}"
-  echo -e "${BLUE}=== Script de Post-Installation Étudiant ===${NC}\n"
+  echo -e "${BLUE}=== Script de Post-Installation Etudiant ===${NC}\n"
 }
+
+check_root() {
+  if [ "$EUID" -ne 0 ]; then
+    log_error "This script must be executed as root (sudo)."
+    exit 1
+  fi
+}
+
+load_modules() {
+  local module_dir="./modules"
+  local files=("packages.sh" "eduroam.sh" "certs.sh" "vpn.sh" "sqlplus.sh")
+
+  for file in "${files[@]}"; do
+    if [[ -f "$module_dir/$file" ]]; then
+      source "$module_dir/$file"
+    fi
+  done
+}
+
+ensure_whiptail() {
+  if ! command -v whiptail &> /dev/null; then
+    log_info "Installation de whiptail pour l'interface TUI..."
+    apt-get update -y >/dev/null 2>&1
+    apt-get install -y whiptail >/dev/null 2>&1
+  fi
+}
+
+# =============================================================================
+# Core System Functions (Fallbacks for script internals)
+# =============================================================================
+
+clean_system() {
+  log_info "Nettoyage des paquets orphelins..."
+  apt-get autoremove -y >/dev/null 2>&1
+  apt-get clean >/dev/null 2>&1
+  log_success "Nettoyage termine."
+}
+
+# =============================================================================
+# CLI & Argument Parsing
+# =============================================================================
 
 show_help() {
   echo "Setup script for Debian-based systems"
@@ -62,16 +138,9 @@ show_help() {
   echo "  -u, --user <login>       Identifiant universitaire/multipass"
   echo "  -p, --password <pass>    Mot de passe universitaire/multipass"
   echo "  -a, --ask                Demande le login et mot de passe interactivement"
-  echo "  -i, --interactive        Demande pour chaque étape si on souhaite l'installer [O/n]"
-  echo "      --vpn-only           Exécute uniquement la configuration du VPN"
+  echo "  -i, --interactive        Lance l'interface de selection (TUI)"
+  echo "      --vpn-only           Execute uniquement la configuration du VPN"
   echo ""
-}
-
-check_root() {
-  if [ "$EUID" -ne 0 ]; then
-    log_error "This script must be executed as root (sudo)."
-    exit 1
-  fi
 }
 
 parse_arguments() {
@@ -88,78 +157,143 @@ parse_arguments() {
   done
 }
 
-prompt_credentials() {
-  if [[ "$ASK_CRED" == true || "$INTERACTIVE" == true ]]; then
-    echo -e "\n${CYAN}=== Configuration des identifiants ===${NC}"
-    read -p "Entrez l'identifiant universitaire/multipass : " UNIV_USER </dev/tty
-    read -s -p "Entrez le mot de passe (laisser vide pour demander à la connexion) : " UNIV_PASS </dev/tty
-    echo ""
-    echo -e "${CYAN}======================================================${NC}\n"
-  fi
+# =============================================================================
+# TUI & Credential Handling
+# =============================================================================
+
+prompt_credentials_cli() {
+  echo -e "\n${CYAN}=== Configuration des identifiants ===${NC}"
+  read -p "Entrez l'identifiant universitaire/multipass : " UNIV_USER </dev/tty
+  read -s -p "Entrez le mot de passe (laisser vide pour demander a la connexion) : " UNIV_PASS </dev/tty
+  echo ""
+  echo -e "${CYAN}======================================================${NC}\n"
 }
 
-clean_system() {
-  log_info "Cleaning up unused packages..."
-  apt-get autoremove -y
-  apt-get clean
-  log_success "Cleaning complete."
+prompt_credentials_tui() {
+  UNIV_USER=$(whiptail --title "Ceci n'est pas un identifiant" \
+    --inputbox "Entrez l'identifiant universitaire (multipass) :" 10 60 3>&1 1>&2 2>&3)
+  if [ $? -ne 0 ]; then log_info "Annule par l'utilisateur."; exit 0; fi
+
+  UNIV_PASS=$(whiptail --title "Ceci n'est pas un mot de passe" \
+    --passwordbox "Entrez le mot de passe (laisser vide pour demander a la connexion) :" 10 60 3>&1 1>&2 2>&3)
+  if [ $? -ne 0 ]; then log_info "Annule par l'utilisateur."; exit 0; fi
 }
 
-run_step() {
-  local step_name="$1"
-  local step_function="$2"
-
-  if ! type "$step_function" &>/dev/null; then
-    log_error "Fonction $step_function introuvable. Module manquant ?"
-    return 1
-  fi
-
-  if [[ "$INTERACTIVE" == true ]]; then
-    while true; do
-      echo -en "${CYAN}Voulez-vous : ${step_name} ? [O/n]${NC}"
-      read -r yn </dev/tty
-      case $yn in
-        [Nn]* ) log_info "Étape ignorée : ${step_name}"; return 0 ;;
-        [Oo]* | [Yy]* | "" ) break ;;
-        * ) echo "Veuillez répondre par O (Oui) ou n (non)." ;;
-      esac
-    done
-  fi
+selection_requires_credentials() {
+  local selection="$1"
   
-  $step_function
+  for task in "${TASKS[@]}"; do
+    IFS='|' read -r id func desc state req_cred <<< "$task"
+    if [[ " $selection " =~ " $id " ]] && [[ "$req_cred" == "1" ]]; then
+      return 0
+    fi
+  done
+  
+  return 1
+}
+
+run_tui_selection() {
+  local whiptail_args=()
+  
+  for task in "${TASKS[@]}"; do
+    IFS='|' read -r id func desc state req_cred <<< "$task"
+    whiptail_args+=("$id" "$desc" "$state")
+  done
+
+  local raw_choices
+  raw_choices=$(whiptail --title "Ceci n'est pas une Linux Party" \
+    --backtitle "Post-Installation Etudiant - Configuration systeme" \
+    --checklist "\nSelectionnez les composants a configurer.\nUtilisez [Espace] pour cocher, et [Entree] pour valider (Apply)." \
+    22 80 12 "${whiptail_args[@]}" 3>&1 1>&2 2>&3)
+
+  if [ $? -ne 0 ]; then
+    log_info "Installation annulee par l'utilisateur."
+    exit 0
+  fi
+
+  TUI_CHOICES=$(echo "$raw_choices" | tr -d '"')
 }
 
 # =============================================================================
-# Main
+# Execution Engine
 # =============================================================================
+
+execute_selected_tasks() {
+  local selection="$1"
+  
+  echo -e "\n${CYAN}=== Debut de l'installation ===${NC}\n"
+
+  for task in "${TASKS[@]}"; do
+    IFS='|' read -r id func desc state req_cred <<< "$task"
+    
+    if [[ " $selection " =~ " $id " ]]; then
+      if type "$func" &>/dev/null; then
+        echo -e "${CYAN}-> Execution : ${desc}${NC}"
+        $func
+      else
+        log_error "Fonction $func introuvable. Module non charge."
+      fi
+    fi
+  done
+  
+  echo -e "\n${CYAN}=== Installation terminee ===${NC}\n"
+}
+
+# =============================================================================
+# Main Entry Point
+# =============================================================================
+
 main() {
   parse_arguments "$@"
   check_root
   
-  print_banner
-  prompt_credentials
+  if [[ "$INTERACTIVE" == true ]]; then
+    ensure_whiptail
+  else
+    print_banner
+  fi
 
-  if [[ -f ./modules/packages.sh ]]; then source ./modules/packages.sh; fi
-  if [[ -f ./modules/eduroam.sh ]];  then source ./modules/eduroam.sh;  fi
-  if [[ -f ./modules/certs.sh ]];    then source ./modules/certs.sh;    fi
-  if [[ -f ./modules/vpn.sh ]];      then source ./modules/vpn.sh;      fi
-  if [[ -f ./modules/sqlplus.sh ]];  then source ./modules/sqlplus.sh;  fi
+  load_modules
 
   if [[ "$VPN_ONLY" == true ]]; then
-    log_info "Mode VPN uniquement activé"
+    log_info "Mode VPN uniquement active."
+    if [[ -z "$UNIV_USER" ]]; then
+      if [[ "$INTERACTIVE" == true ]]; then prompt_credentials_tui; else prompt_credentials_cli; fi
+    fi
     setup_vpn
-    log_success "Configuration VPN terminée"
+    log_success "Configuration VPN terminee."
     exit 0
   fi
 
-  log_info "Starting setup..."
+  # Interactive Flow
+  if [[ "$INTERACTIVE" == true ]]; then
+    run_tui_selection
+    
+    if [[ -z "$TUI_CHOICES" ]]; then
+      log_info "Aucune action selectionnee. Sortie."
+      exit 0
+    fi
 
-  run_step "Mettre à jour et installer les paquets" install_apt
-  run_step "Configurer le réseau Eduroam" setup_eduroam
-  run_step "Installer les certificats DPI" install_dpi_certificates
-  run_step "Configurer le VPN du DPI" setup_vpn
-  run_step "Configurer Oracle SQLPlus" setup_oracle
-  run_step "Nettoyer le système (autoremove/clean)" clean_system
+    if selection_requires_credentials "$TUI_CHOICES"; then
+      prompt_credentials_tui
+    fi
+    
+    execute_selected_tasks "$TUI_CHOICES"
+    
+  # CLI Flow
+  else
+    local all_tasks=""
+    for task in "${TASKS[@]}"; do
+      IFS='|' read -r id func desc state req_cred <<< "$task"
+      all_tasks+="$id "
+    done
+    
+    if [[ "$ASK_CRED" == true ]] && selection_requires_credentials "$all_tasks"; then
+      prompt_credentials_cli
+    fi
+    
+    execute_selected_tasks "$all_tasks"
+  fi
 }
 
 main "$@"
