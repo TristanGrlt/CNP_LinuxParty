@@ -40,7 +40,7 @@ class SiteFooter extends HTMLElement {
                     <a href="index.html" title="Ceci n'est pas une Linux Party">
                         <img src="../visuels/logo/logo.png" alt="Logo CNP Linux Party" class="h-20 md:h-24 w-auto">
                     </a>
-                    <a href="https://atacc.fr" target="_blank" rel="noopener noreferrer" title="Association ATACC">
+                    <a href="https://atacc.org" target="_blank" rel="noopener noreferrer" title="Association ATACC">
                         <img src="../visuels/image/atacc_logo.svg" alt="Logo ATACC" class="h-16 md:h-20 w-auto">
                     </a>
                 </div>
