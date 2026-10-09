@@ -48,6 +48,13 @@ add_third_party_repos() {
   apt-get install -y software-properties-common wget curl gpg apt-transport-https ca-certificates
 
   add-apt-repository -y ppa:xtradeb/apps
+  add-apt-repository -y ppa:mozillateam/ppa
+
+  cat <<EOF > /etc/apt/preferences.d/mozillateamppa
+Package: thunderbird*
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+EOF
 
   # VSCodium
   install -m 0755 -d /etc/apt/keyrings

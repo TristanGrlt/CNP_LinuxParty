@@ -45,13 +45,13 @@ export NEWT_COLORS="
 
 # Format: "ID|Function_Name|Description|Default_State|Requires_Credentials(1/0)"
 TASKS=(
+  "nosnap|disable_snapd|Desactiver et bloquer Snap|ON|0"
   "apt|install_apt|Mettre a jour et installer les paquets|ON|0"
   "eduroam|setup_eduroam|Configurer le reseau Eduroam|ON|1"
   "certs|install_dpi_certificates|Installer les certificats DPI|ON|0"
   "vpn|setup_vpn|Configurer le VPN du DPI|ON|1"
   "oracle|setup_oracle|Configurer Oracle SQLPlus|ON|0"
   "timesync|setup_local_rtc|Configurer l'horloge locale (Dual-boot Windows)|ON|0"
-  "nosnap|disable_snapd|Desactiver et bloquer Snap|ON|0"
   "clean|clean_system|Nettoyer le systeme|ON|0"
 )
 
