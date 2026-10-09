@@ -50,6 +50,7 @@ TASKS=(
   "certs|install_dpi_certificates|Installer les certificats DPI|ON|0"
   "vpn|setup_vpn|Configurer le VPN du DPI|ON|1"
   "oracle|setup_oracle|Configurer Oracle SQLPlus|ON|0"
+  "timesync|setup_local_rtc|Configurer l'horloge locale (Dual-boot Windows)|ON|0"
   "clean|clean_system|Nettoyer le systeme|ON|0"
 )
 
@@ -97,7 +98,7 @@ check_root() {
 
 load_modules() {
   local module_dir="./modules"
-  local files=("packages.sh" "eduroam.sh" "certs.sh" "vpn.sh" "sqlplus.sh")
+  local files=("packages.sh" "eduroam.sh" "certs.sh" "vpn.sh" "sqlplus.sh" "time_sync.sh")
 
   for file in "${files[@]}"; do
     if [[ -f "$module_dir/$file" ]]; then
