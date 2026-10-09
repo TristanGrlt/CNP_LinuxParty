@@ -26,6 +26,7 @@
           ];
 
           shellHook = ''
+            export SOURCE_DATE_EPOCH=$(date +%s)
             echo "Ready !"
           '';
         };

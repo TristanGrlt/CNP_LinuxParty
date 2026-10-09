@@ -7,7 +7,6 @@
 #let h2-color = rgb("#5ec3f5")
 #let h3-color = rgb("#e459f5")
 
-
 // -----------------------------------------------------------------------------
 // Encarts
 // -----------------------------------------------------------------------------
@@ -29,11 +28,11 @@
 #let cnp_template(
   title: "",
   subtitle: none,
-  author: "",
+  authors: [],
   date: "",
   body
 ) = {
-  set document(title: title, author: author)
+  set document(title: title, author: authors)
 
   set page(
     paper: "a4",
@@ -125,6 +124,9 @@
       {
         align(center)[
           #text(font: "Space Grotesk", size: 26pt, weight: "bold", upper(title)) \
+          #align(center)[
+            #image("../visuels/logo/logo.png", width: 70pt)
+          ]
           #if subtitle != none {
             v(0.5em)
             block(
@@ -142,12 +144,25 @@
     #v(0.5em)
     #grid(
       columns: (1fr, 1fr),
-      align(left)[#text(font: "Space Mono", size: 10pt)[#author]],
-      align(right)[#text(font: "Space Mono", size: 10pt)[#date]]
+      align: left,
+      [
+        #for author in authors [
+          #text(font: "Space Mono", size: 10pt)[#author]
+          #linebreak()
+        ]
+      ],
+      [
+        #align(right)[
+          #text(font: "Space Mono", size: 10pt)[#date]
+        ]
+      ],
     )
+
   ]
 
   v(2em)
-
+  set heading(numbering: "1.")
+  outline()
+  pagebreak()
   body
 }
