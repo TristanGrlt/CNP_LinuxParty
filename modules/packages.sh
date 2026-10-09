@@ -1,6 +1,7 @@
 APT_APPS=(
   # Desktop & Web
   "thunderbird:Client de messagerie électronique"
+  "firefox:Navigateur web (version libre)"
   "chromium:Navigateur web (version libre)"
   # Editors & IDEs
   "vim:Éditeur de code en ligne de commande"
