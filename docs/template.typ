@@ -30,6 +30,7 @@
   subtitle: none,
   authors: [],
   date: "",
+  doOutline: true,
   body
 ) = {
   set document(title: title, author: authors)
@@ -48,7 +49,7 @@
       #v(2mm)
       #grid(
         columns: (1fr, 1fr),
-        align(left)[#text(font: "Space Mono", size: 9pt)[#title]],
+        align(left)[#text(font: "Space Mono", size: 9pt)[#eval(title, mode: "markup")]],
         align(right)[#context text(font: "Space Mono", size: 9pt)[Page #counter(page).display()]]
       )
     ]
@@ -123,7 +124,7 @@
       inset: (x: 2em),
       {
         align(center)[
-          #text(font: "Space Grotesk", size: 26pt, weight: "bold", upper(title)) \
+          #text(font: "Space Grotesk", size: 26pt, weight: "bold", upper(eval(title, mode: "markup"))) \
           #align(center)[
             #image("../visuels/logo/logo.png", width: 70pt)
           ]
@@ -162,7 +163,9 @@
 
   v(2em)
   set heading(numbering: "1.")
-  outline()
-  pagebreak()
+  if doOutline {
+    outline()
+    pagebreak()
+  }
   body
 }
