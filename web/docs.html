@@ -69,7 +69,16 @@
             <div class="bg-white strict-border p-6 flex flex-col bg-gray-100">
                 <h3 class="font-bold text-xl mb-3">Décharge de responsabilité</h3>
                 <p class="text-sm mb-6 flex-grow text-gray-600">Document légal et administratif à lire et signer avant toute manipulation sur votre machine par un de nos bénévoles.</p>
-                <button disabled class="inline-block text-center font-mono font-bold px-4 py-3 btn-strict opacity-50 cursor-not-allowed">Bientôt disponible (PDF)</button>
+                <iframe
+                  src="../docs/decharge/decharge.pdf"
+                  width="100%"
+                  height="600px"
+                  >
+                </iframe>
+                <div class="mt-3 flex flex-wrap gap-2 font-mono text-xs">
+                    <a href="../docs/decharge/decharge.pdf" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">PDF</a>
+                    <a href="../docs/decharge/decharge.typ" download class="px-3 py-1 strict-border hover:bg-offblack hover:text-offwhite">TYP</a>
+                </div>
             </div>
 
         </div>
