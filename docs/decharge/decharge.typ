@@ -12,6 +12,7 @@
 
 Je soussigné(e)
 
+#show table.cell: set text(size: 14pt)
 #table(
   columns: (auto, auto),
   stroke: none,
