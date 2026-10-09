@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Licence - CNP Linux Party</title>
+    <title>À propos - CNP Linux Party</title>
     <link rel="icon" type="image/png" href="../visuels/icon/icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,16 +24,34 @@
     <site-header></site-header>
 
     <main class="flex-grow container mx-auto px-4 py-12 max-w-4xl">
-        <h1 class="text-4xl font-bold mb-8 uppercase tracking-tighter border-b-2 border-offblack pb-4">Licence Libre & Open Source</h1>
+        <h1 class="text-4xl font-bold mb-8 uppercase tracking-tighter border-b-2 border-offblack pb-4">À propos de cet événement</h1>
+
+        <section class="bg-offwhite p-8 strict-border mb-12">
+            <h2 class="text-2xl font-bold mb-4 uppercase">L'équipe de bénévoles</h2>
+            <p class="mb-4 text-justify leading-relaxed">
+              Cet événement est organisé par les étudiants en Master Informatique de l'UFR des Sciences et Techniques afin de pallier l'annulation par l'UFR de l'édition habituelle de la Linux Party du Madrillet. Refusant de laisser les nouveaux arrivants sans accompagnement ni repères, nous avons choisi de prendre le relais. Voici les membres de notre équipe :
+            </p>
+            <ul>
+              <li>Edouard Haddag</li>
+              <li>Matéo Gagnon</li>
+              <li>Pierre-André Docquin</li>
+              <li>Sébastien de - Backer Cuvelier</li>
+              <li>Tristan Groult</li>
+              <li>Yohan Hery</li>
+            </ul>
+            <p class="mt-4 text-justify leading-relaxed">
+              Un grand merci à Monsieur Nicart pour son soutien précieux dans l'organisation de cet événement.
+            </p>
+        </section>
         
         <section class="bg-offwhite p-8 strict-border mb-12">
-            <h2 class="text-2xl font-bold mb-4 uppercase">Notre engagement</h2>
+            <h2 class="text-2xl font-bold mb-4 uppercase">Notre engagement : Licence Libre & Open Source</h2>
             <p class="mb-4 text-justify leading-relaxed">
-                Parce que cet événement fait la promotion du Libre, l'ensemble de notre travail suit la même philosophie. 
-                Que ce soit le script d'installation bash, les visuels, les logos, ou le code source de ce site web : <strong>absolument tout est distribué sous licence libre</strong>.
+                Parce que cet événement promeut la culture du Libre, l'ensemble de nos réalisations s'inscrit dans cette même démarche. 
+                Qu'il s'agisse des scripts d'installation Bash, des visuels, des logos ou du code source de ce site web : <strong>absolument tout est mis à disposition sous licence libre</strong>.
             </p>
             <p class="mb-4 text-justify leading-relaxed">
-                Vous pouvez retrouver l'intégralité du code source, des ressources et des scripts sur notre dépôt GitHub. N'hésitez pas à l'étudier, le copier ou proposer des améliorations.
+                Vous retrouverez l'intégralité du code source, des ressources graphiques et des scripts sur notre dépôt GitHub. N'hésitez pas à les explorer, les cloner ou à contribuer en proposant des améliorations.
             </p>
             <div class="text-center my-6">
                 <a href="https://github.com/TristanGrlt/CNP_LinuxParty" target="_blank" rel="noopener noreferrer" class="inline-block border-2 border-offblack bg-offblack text-offwhite font-mono font-bold px-6 py-3 hover:bg-offwhite hover:text-offblack transition-colors">
@@ -41,7 +59,7 @@
                 </a>
             </div>
             <p class="text-justify leading-relaxed">
-                Cela signifie que vous êtes totalement libres d'utiliser, de copier, de modifier et de redistribuer ces contenus pour vos propres événements, vos projets personnels ou au sein de vos associations étudiantes, sous réserve de respecter les termes de la <strong>GNU General Public License v3.0 (GPLv3)</strong> détaillée ci-dessous.
+                Vous êtes ainsi entièrement libres d'utiliser, de copier, de modifier et de redistribuer ces contenus pour vos propres événements, projets personnels ou associations étudiantes, dans le respect des termes de la <strong>GNU General Public License v3.0 (GPLv3)</strong> consultable ci-dessous.
             </p>
         </section>
 
@@ -66,7 +84,7 @@
                 document.getElementById('license-content').textContent = text;
             })
             .catch(error => {
-                document.getElementById('license-content').textContent = "Impossible de charger le fichier LICENSE automatiquement à cause des sécurités locales du navigateur.\nLe fichier se trouve à la racine du dépôt GitHub.";
+                document.getElementById('license-content').textContent = "Impossible de charger le fichier LICENSE automatiquement en raison des restrictions locales de sécurité du navigateur.\nLe fichier est accessible directement à la racine du dépôt GitHub.";
             });
     </script>
 </body>
