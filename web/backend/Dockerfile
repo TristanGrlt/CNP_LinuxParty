@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package.json bun.lockb* ./
 RUN bun install --production
 
-COPY index.ts ./
+COPY index.ts config.json ./
 
 ENV DATA_DIR="/data"
 EXPOSE 8086

@@ -6,7 +6,7 @@ const MAX_REQUESTS_PER_WINDOW = 5;
 const ipRequests = new Map<string, number[]>();
 
 const DATA_DIR = process.env.DATA_DIR || "/data";
-const CONFIG_FILE = `${DATA_DIR}/config.json`;
+const CONFIG_FILE = `config.json`;
 const RESERVATIONS_FILE = `${DATA_DIR}/reservations.json`;
 
 if (!existsSync(RESERVATIONS_FILE)) {
