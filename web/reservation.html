@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation - CNP Linux Party</title>
+    <link rel="icon" type="image/png" href="../visuels/icon/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['"Space Grotesk"', 'sans-serif'], mono: ['"Space Mono"', 'monospace'] }, colors: { offwhite: '#F4F4F0', offblack: '#1C1C1C' } } }
+        }
+    </script>
+    <style>
+        body { background-color: theme('colors.offwhite'); color: theme('colors.offblack'); }
+        .strict-border { border: 2px solid theme('colors.offblack'); }
+        .btn-strict { border: 2px solid theme('colors.offblack'); background-color: theme('colors.offblack'); color: theme('colors.offwhite'); transition: all 0.2s ease; }
+        .btn-strict:hover:not(:disabled) { background-color: theme('colors.offwhite'); color: theme('colors.offblack'); }
+        .btn-strict:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        /* Custom radio button styling for brutalist look */
+        input[type="radio"]:checked + div {
+            background-color: theme('colors.offblack');
+            color: theme('colors.offwhite');
+        }
+    </style>
+    <script src="components.js" defer></script>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col selection:bg-offblack selection:text-offwhite">
+    
+    <site-header></site-header>
+
+    <main class="flex-grow container mx-auto px-4 py-12 max-w-3xl">
+        <h1 class="text-4xl font-bold mb-8 uppercase tracking-tighter border-b-2 border-offblack pb-4">Réserver un créneau</h1>
+
+        <!-- STATE: Loading -->
+        <div id="ui-loading" class="text-center py-12 font-mono">
+            <p class="animate-pulse">>_ Connexion au serveur...</p>
+        </div>
+
+        <!-- STATE: Already Reserved (Cookie found) -->
+        <div id="ui-already-reserved" class="hidden bg-offwhite p-8 strict-border text-center">
+            <h2 class="text-2xl font-bold mb-4 uppercase">Réservation existante</h2>
+            <p class="mb-6">Vous avez déjà effectué une réservation pour cet événement sur cet appareil.</p>
+            <a href="index.html" class="inline-block px-6 py-3 btn-strict font-mono font-bold uppercase">>_ Retour à l'accueil</a>
+        </div>
+
+        <!-- STATE: Success -->
+        <div id="ui-success" class="hidden bg-offwhite p-8 strict-border text-center border-l-8 border-l-green-600">
+            <h2 class="text-2xl font-bold mb-4 uppercase">Réservation confirmée !</h2>
+            <p class="mb-4">Votre créneau a bien été enregistré. Merci de votre inscription.</p>
+            <p class="font-mono text-sm opacity-80 mb-6">N'oubliez pas votre chargeur et de sauvegarder vos données avant de venir.</p>
+            <a href="index.html" class="inline-block px-6 py-3 btn-strict font-mono font-bold uppercase">>_ Retour à l'accueil</a>
+        </div>
+
+        <!-- STATE: Reservation Form -->
+        <div id="ui-form-container" class="hidden">
+            
+            <!-- Global Waitlist Warning -->
+            <div class="bg-yellow-100 strict-border p-4 mb-8 text-sm">
+                <p class="font-bold flex items-center mb-1">
+                    <span class="mr-2">⚠️</span> Information importante
+                </p>
+                <p class="leading-relaxed">
+                    Si un créneau affiche "0 place", il est techniquement complet. Vous pouvez tout de même le sélectionner pour vous inscrire sur <strong>liste d'attente</strong>. Nous ferons notre maximum pour vous prendre en charge, mais l'attente pourra être plus longue.
+                </p>
+            </div>
+
+            <form id="reservation-form" class="space-y-8">
+                
+                <!-- Email Section -->
+                <div class="bg-offwhite p-6 strict-border">
+                    <label for="email" class="block text-xl font-bold mb-2 uppercase">Adresse Email Universitaire</label>
+                    <p class="font-mono text-xs mb-4 opacity-80">Uniquement les adresses @univ-rouen.fr sont acceptées.</p>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        pattern="^[a-zA-Z0-9._%+-]+@univ-rouen\.fr$" 
+                        placeholder="prenom.nom@univ-rouen.fr" 
+                        required 
+                        class="w-full p-3 strict-border bg-transparent outline-none focus:bg-white font-mono"
+                    >
+                    <p id="email-error" class="hidden text-red-600 font-mono text-xs mt-2 font-bold">L'email doit se terminer par @univ-rouen.fr</p>
+                </div>
+
+                <!-- Slots Section -->
+                <div class="bg-offwhite p-6 strict-border">
+                    <h2 class="text-xl font-bold mb-4 uppercase border-b-2 border-offblack pb-2">Choix du créneau</h2>
+                    <div id="slots-container" class="space-y-3 font-mono">
+                        <!-- Slots injected via JS -->
+                    </div>
+                    
+                    <!-- Dynamic warning when a full slot is selected -->
+                    <div id="waitlist-warning" class="hidden mt-4 p-3 border-2 border-dashed border-offblack bg-yellow-50 text-sm">
+                        >_ <strong>Attention :</strong> Vous avez sélectionné un créneau complet. Votre réservation sera placée sur liste d'attente.
+                    </div>
+                </div>
+
+                <!-- Requirements Section -->
+                <div class="bg-offwhite p-6 strict-border">
+                    <h2 class="text-xl font-bold mb-4 uppercase border-b-2 border-offblack pb-2">Engagements obligatoires</h2>
+                    <div class="space-y-4 text-sm leading-relaxed">
+                        <label class="flex items-start cursor-pointer hover:bg-gray-100 p-2 -ml-2 transition-colors">
+                            <input type="checkbox" required class="mt-1 mr-3 h-4 w-4 accent-offblack strict-border">
+                            <span>Je confirme avoir <strong>sauvegardé l'intégralité de mes données</strong> importantes sur un support externe. L'équipe décline toute responsabilité en cas de perte.</span>
+                        </label>
+                        <label class="flex items-start cursor-pointer hover:bg-gray-100 p-2 -ml-2 transition-colors">
+                            <input type="checkbox" required class="mt-1 mr-3 h-4 w-4 accent-offblack strict-border">
+                            <span>Je m'engage à apporter mon ordinateur avec sa <strong>batterie chargée et son chargeur secteur</strong>.</span>
+                        </label>
+                        <label class="flex items-start cursor-pointer hover:bg-gray-100 p-2 -ml-2 transition-colors">
+                            <input type="checkbox" required class="mt-1 mr-3 h-4 w-4 accent-offblack strict-border">
+                            <span>Je confirme avoir pris connaissance de la <a href="docs.html" class="underline font-bold">décharge de responsabilité</a> qui me sera demandée de signer sur place.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center pt-4">
+                    <button type="submit" id="submit-btn" class="w-full md:w-auto px-8 py-4 text-lg font-mono font-bold uppercase btn-strict">
+                        >_ Valider la réservation
+                    </button>
+                    <p id="server-error" class="hidden text-red-600 font-mono text-sm mt-4 font-bold border-2 border-red-600 p-2 bg-red-50"></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <site-footer></site-footer>
+
+    <script>
+        // Configuration
+        const API_URL = 'https://cnplp.grltt/api';
+        const COOKIE_NAME = 'has_reserved';
+
+        const uiLoading = document.getElementById('ui-loading');
+        const uiAlreadyReserved = document.getElementById('ui-already-reserved');
+        const uiFormContainer = document.getElementById('ui-form-container');
+        const uiSuccess = document.getElementById('ui-success');
+        
+        const form = document.getElementById('reservation-form');
+        const slotsContainer = document.getElementById('slots-container');
+        const waitlistWarning = document.getElementById('waitlist-warning');
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('email-error');
+        const serverError = document.getElementById('server-error');
+        const submitBtn = document.getElementById('submit-btn');
+
+        function getCookie(name) {
+            return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+        }
+
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;Secure`;
+        }
+
+        async function init() {
+            if (getCookie(COOKIE_NAME)) {
+                uiLoading.classList.add('hidden');
+                uiAlreadyReserved.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/slots`);
+                if (!response.ok) throw new Error('Erreur de communication avec le serveur');
+                
+                const slots = await response.json();
+                renderSlots(slots);
+                
+                uiLoading.classList.add('hidden');
+                uiFormContainer.classList.remove('hidden');
+            } catch (error) {
+                uiLoading.innerHTML = `<p class="text-red-600 border-2 border-red-600 p-4 bg-white inline-block">Erreur : Impossible de charger les créneaux. Réessayez plus tard.</p>`;
+                console.error('Fetch slots error:', error);
+            }
+        }
+
+        function renderSlots(slots) {
+            if (slots.length === 0) {
+                slotsContainer.innerHTML = '<p class="opacity-50">Aucun créneau configuré pour le moment.</p>';
+                return;
+            }
+
+            slotsContainer.innerHTML = slots.map(slot => {
+                const isFull = slot.remaining === 0;
+                const statusText = isFull ? "COMPLET (Liste d'attente)" : `${slot.remaining} place(s) restante(s)`;
+                
+                return `
+                    <label class="block cursor-pointer group">
+                        <input type="radio" name="slot_id" value="${slot.id}" required class="peer sr-only" data-full="${isFull}">
+                        <div class="strict-border p-4 transition-colors group-hover:bg-gray-200 flex justify-between items-center ${isFull ? 'bg-gray-100 opacity-80' : 'bg-white'}">
+                            <span class="font-bold text-lg">${slot.label}</span>
+                            <span class="text-sm ${isFull ? 'text-red-600 font-bold' : ''}">[ ${statusText} ]</span>
+                        </div>
+                    </label>
+                `;
+            }).join('');
+
+            document.querySelectorAll('input[name="slot_id"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (e.target.dataset.full === "true") {
+                        waitlistWarning.classList.remove('hidden');
+                    } else {
+                        waitlistWarning.classList.add('hidden');
+                    }
+                });
+            });
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            emailError.classList.add('hidden');
+            serverError.classList.add('hidden');
+            
+            const email = emailInput.value.trim();
+            const slot_id = document.querySelector('input[name="slot_id"]:checked').value;
+
+            if (!email.match(/^[a-zA-Z0-9._%+-]+@univ-rouen\.fr$/)) {
+                emailError.classList.remove('hidden');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '>_ Traitement...';
+
+            try {
+                const response = await fetch(`${API_URL}/reserve`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, slot_id })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    setCookie(COOKIE_NAME, 'true', 365);
+                    uiFormContainer.classList.add('hidden');
+                    uiSuccess.classList.remove('hidden');
+                } else {
+                    serverError.textContent = `Erreur : ${data.error || 'Une erreur est survenue.'}`;
+                    serverError.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '>_ Valider la réservation';
+                }
+            } catch (error) {
+                serverError.textContent = 'Erreur réseau. Impossible de contacter le serveur.';
+                serverError.classList.remove('hidden');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '>_ Valider la réservation';
+                console.error('Submit error:', error);
+            }
+        });
+
+        init();
+    </script>
+</body>
+</html>

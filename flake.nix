@@ -23,6 +23,7 @@
             gnumake
             img2pdf
             imagemagick
+            bun
           ];
 
           shellHook = ''

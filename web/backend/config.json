@@ -1,0 +1,7 @@
+{
+  "date": "Vendredi 16 Octobre 2026",
+  "slots": [
+    { "id": "0900", "label": "9h - 9h30", "capacity": 5 },
+    { "id": "0930", "label": "9h30 - 10h", "capacity": 3 }
+  ]
+}
