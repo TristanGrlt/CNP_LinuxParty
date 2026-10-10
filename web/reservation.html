@@ -80,7 +80,7 @@
                         pattern="^[a-zA-Z0-9._%+-]+@univ-rouen\.fr$" 
                         placeholder="prenom.nom@univ-rouen.fr" 
                         required 
-                        class="w-full p-3 strict-border bg-transparent outline-none focus:bg-white font-mono"
+                        class="w-full p-3 strict-border outline-none bg-white font-mono"
                     >
                     <p id="email-error" class="hidden text-red-600 font-mono text-xs mt-2 font-bold">L'email doit se terminer par @univ-rouen.fr</p>
                 </div>
@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="text-center pt-4">
-                    <button type="submit" id="submit-btn" class="w-full md:w-auto px-8 py-4 text-lg font-mono font-bold uppercase btn-strict">
+                    <button type="submit" id="submit-btn" class="bg-offblack text-offwhite w-full md:w-auto px-8 py-4 text-lg font-mono font-bold uppercase btn-strict">
                         >_ Valider la réservation
                     </button>
                     <p id="server-error" class="hidden text-red-600 font-mono text-sm mt-4 font-bold border-2 border-red-600 p-2 bg-red-50"></p>
@@ -192,7 +192,7 @@
                 return `
                     <label class="block cursor-pointer group">
                         <input type="radio" name="slot_id" value="${slot.id}" required class="peer sr-only" data-full="${isFull}">
-                        <div class="strict-border p-4 transition-colors group-hover:bg-gray-200 flex justify-between items-center ${isFull ? 'bg-gray-100 opacity-80' : 'bg-white'}">
+                          <div class="strict-border p-4 transition-colors group-hover:bg-gray-200 flex justify-between items-center ${isFull ? 'bg-gray-100 opacity-80' : 'bg-white'} peer-checked:bg-offblack peer-checked:text-offwhite">
                             <span class="font-bold text-lg">${slot.label}</span>
                             <span class="text-sm ${isFull ? 'text-red-600 font-bold' : ''}">[ ${statusText} ]</span>
                         </div>
