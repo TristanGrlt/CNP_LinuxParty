@@ -1,6 +1,6 @@
 services:
   cnplp-api:
-    image: ghcr.io/tristangrlt/cnp_linuxparty:latest
+    image: ghcr.io/tristangrlt/cnp_linuxparty_backend:latest
     container_name: cnplp-api
     restart: unless-stopped
     ports:
