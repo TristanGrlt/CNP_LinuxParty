@@ -1,7 +1,23 @@
 {
   "date": "Vendredi 16 Octobre 2026",
   "slots": [
-    { "id": "0900", "label": "9h - 9h30", "capacity": 5 },
-    { "id": "0930", "label": "9h30 - 10h", "capacity": 3 }
+    { "id": "0900", "label": "09h00 - 09h30", "capacity": 10 },
+    { "id": "0930", "label": "09h30 - 10h00", "capacity": 10 },
+    { "id": "1000", "label": "10h00 - 10h30", "capacity": 10 },
+    { "id": "1030", "label": "10h30 - 11h00", "capacity": 10 },
+    { "id": "1100", "label": "11h00 - 11h30", "capacity": 10 },
+    { "id": "1130", "label": "11h30 - 12h00", "capacity": 10 },
+    
+    { "id": "1200", "label": "12h00 - 12h30", "capacity": 8 },
+    { "id": "1230", "label": "12h30 - 13h00", "capacity": 8 },
+    
+    { "id": "1300", "label": "13h00 - 13h30", "capacity": 6 },
+    { "id": "1330", "label": "13h30 - 14h00", "capacity": 6 },
+    { "id": "1400", "label": "14h00 - 14h30", "capacity": 6 },
+    { "id": "1430", "label": "14h30 - 15h00", "capacity": 6 },
+    { "id": "1500", "label": "15h00 - 15h30", "capacity": 6 },
+    { "id": "1530", "label": "15h30 - 16h00", "capacity": 6 },
+    { "id": "1600", "label": "16h00 - 16h30", "capacity": 6 },
+    { "id": "1630", "label": "16h30 - 17h00", "capacity": 6 }
   ]
 }
