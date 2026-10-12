@@ -4,8 +4,7 @@ run_geany_config_script() {
   sudo add-apt-repository -y ppa:ubuntuhandbook1/geany
   apt-get update -y >/dev/null 2>&1
   apt upgrade -y
-  apt-get install -y uncrustify
-
+  apt-get install -y uncrustify valgrind
   if [[ -x "$geany_config" ]]; then
     log_info "Lancement de $geany_config..."
     "$geany_config"
