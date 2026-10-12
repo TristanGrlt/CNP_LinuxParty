@@ -53,6 +53,7 @@ TASKS=(
   "oracle|setup_oracle|Configurer Oracle SQLPlus|ON|0"
   "timesync|setup_local_rtc|Configurer l'horloge locale (Dual-boot Windows)|ON|0"
   "clean|clean_system|Nettoyer le systeme|ON|0"
+  "geany_config|run_geany_config_script|Configurer le geany|ON|0"
 )
 
 # =============================================================================
@@ -125,6 +126,23 @@ clean_system() {
   apt-get autoremove -y >/dev/null 2>&1
   apt-get clean >/dev/null 2>&1
   log_success "Nettoyage termine."
+}
+
+run_geany_config_script() {
+  local geany_config="./modules/config/config.sh"
+
+  if [[ -x "$geany_config" ]]; then
+    log_info "Lancement de $geany_config..."
+    "$geany_config"
+    log_success "Script execute avec succes."
+  elif [[ -f "$geany_config" ]]; then
+    log_info "Execution via bash de $geany_config..."
+    bash "$geany_config"
+    log_success "Script execute avec succes."
+  else
+    log_error "Fichier introuvable : $geany_config"
+    return 1
+  fi
 }
 
 # =============================================================================
