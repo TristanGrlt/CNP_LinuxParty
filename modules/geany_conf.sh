@@ -1,7 +1,7 @@
 run_geany_config_script() {
   local geany_config="./modules/config/config.sh"
 
-  sudo add-apt-repository ppa:ubuntuhandbook1/geany
+  sudo add-apt-repository -y ppa:ubuntuhandbook1/geany
   apt-get update -y >/dev/null 2>&1
   apt upgrade -y
   apt-get install -y uncrustify
