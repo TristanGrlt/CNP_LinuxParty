@@ -2,7 +2,7 @@
 
 #show: cnp_template.with(
   title: "Ceci n'est pas une procédure d'installation",
-  subtitle: "Ce guide fait référence à l'événement organisé le 16 Octobre 2026 par les étudiants du master informatique de l'UFR Sciences et Techniques du Madrillet",
+  subtitle: "Ce guide fait référence à l'événement organisé le (L'événement est reporté) par les étudiants du master informatique de l'UFR Sciences et Techniques du Madrillet",
   authors: (
     "Repris de F. Nicart",
     "S. de - Backer Cuvelier",

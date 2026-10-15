@@ -2,7 +2,7 @@
 
 #show: cnp_template.with(
   title: "Ceci #strike[n']est #strike[pas] une décharge de responsabilité",
-  subtitle: "Cette décharge fait référence à l'événement organisé le 16 Octobre 2026 par les étudiants du master informatique de l'UFR Sciences et Techniques du Madrillet",
+  subtitle: "Cette décharge fait référence à l'événement organisé le (L'événement est reporté) par les étudiants du master informatique de l'UFR Sciences et Techniques du Madrillet",
   authors: (
     "Repris de F. Nicart",
   ),

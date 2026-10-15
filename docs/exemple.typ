@@ -5,7 +5,7 @@
   title: "Ceci n'est pas une procédure d'installation",
   subtitle: "Consectetur adipiscing elit sed do eiusmod",
   authors: ("Lorem Ipsum",),
-  date: "16 Octobre 2026"
+  date: "L'événement est reporté"
 )
 
 = Lorem ipsum dolor sit
