@@ -19,7 +19,6 @@
         .btn-strict { border: 2px solid theme('colors.offblack'); background-color: theme('colors.offblack'); color: theme('colors.offwhite'); transition: all 0.2s ease; }
         .btn-strict:hover { background-color: theme('colors.offwhite'); color: theme('colors.offblack'); }
     </style>
-    <!-- Importation de nos Web Components -->
     <script src="components.js" defer></script>
 </head>
 <body class="font-sans antialiased min-h-screen flex flex-col selection:bg-offblack selection:text-offwhite">
@@ -29,7 +28,9 @@
     <main class="flex-grow container mx-auto px-4 py-16 max-w-4xl">
         <header class="mb-16 text-center">
             <h1 class="text-5xl md:text-6xl font-bold mb-4 uppercase tracking-tighter">Ceci n'est pas<br>une Linux Party</h1>
-            <p class="font-mono text-lg font-bold border-t-2 border-b-2 border-offblack py-2 inline-block mt-4">L'événement est reporté</p>
+            <p class="font-mono text-lg font-bold border-t-2 border-b-2 border-offblack py-2 inline-block mt-4">
+              <img src="../visuels/reporte/reporte.png" alt="Bannière H" class="max-h-full w-auto object-contain">
+            </p>
         </header>
 
         <section class="text-center mb-16">
