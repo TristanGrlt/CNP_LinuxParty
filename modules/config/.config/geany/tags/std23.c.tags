@@ -1,5 +1,6 @@
 # format=pipe
-# std23.c.tags 24.10.1
+# std23.c.tags 25.08.0
+# standard part
 abort|[[noreturn]] void|(void)|
 abs|int|(int j)|
 acos|double|(double x)|
@@ -113,8 +114,16 @@ atomic_compare_exchange_weak|bool|(volatile <A> *object, <C> *expected, <C> desi
 atomic_compare_exchange_weak_explicit|bool|(volatile <A> *object, <C> *expected, <C> desired, memory_order success, memory_order failure)|
 atomic_exchange|<C>|(volatile <A> *object, <C> desired)|
 atomic_exchange_explicit|<C>|(volatile <A> *object, <C> desired, memory_order order)|
-atomic_fetch_<key>|<C>|(volatile <A> *object, <M> operand)|
-atomic_fetch_<key>_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
+atomic_fetch_add|<C>|(volatile <A> *object, <M> operand)|
+atomic_fetch_add_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
+atomic_fetch_and|<C>|(volatile <A> *object, <M> operand)|
+atomic_fetch_and_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
+atomic_fetch_or|<C>|(volatile <A> *object, <M> operand)|
+atomic_fetch_or_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
+atomic_fetch_sub|<C>|(volatile <A> *object, <M> operand)|
+atomic_fetch_sub_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
+atomic_fetch_xor|<C>|(volatile <A> *object, <M> operand)|
+atomic_fetch_xor_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
 atomic_flag|||
 atomic_flag_clear|void|(volatile atomic_flag *object)|
 atomic_flag_clear_explicit|void|(volatile atomic_flag *object, memory_order order)|
@@ -170,9 +179,9 @@ atomic_wchar_t|||
 ATOMIC_WCHAR_T_LOCK_FREE|||
 at_quick_exit|int|(void (*func)(void))|
 auto|||
-BINTINT_MAXWIDTH|||
 bitand|||
 _BitInt||(<constant-integer-expression>)|
+BITINT_MAXWIDTH|||
 bitor|||
 bool|||
 _Bool|||
@@ -328,7 +337,6 @@ cproj|double complex|(double complex z)|
 cproj|<real-floating>|(<complex-floating> z)|
 cprojf|float complex|(float complex z)|
 cprojl|long double complex|(long double complex z)|
-CR_DECIMAL_DIG|||
 creal|double|(double complex z)|
 creal|<real-floating>|(<complex-floating> z)|
 crealf|float|(float complex z)|
@@ -382,6 +390,7 @@ d64sub|_Decimal64|(<decimal-floating> x, <decimal-floating> y)|
 d64subd128|_Decimal64|(_Decimal128 x, _Decimal128 y)|
 dadd|double|(<real-floating> x, <real-floating> y)|
 daddl|double|(long double x, long double y)|
+__DATE__|||
 DBL_DECIMAL_DIG|||
 DBL_DIG|||
 DBL_EPSILON|||
@@ -403,31 +412,30 @@ DEC128_EPSILON|||
 DEC128_MANT_DIG|||
 DEC128_MAX|||
 DEC128_MAX_EXP|||
-DEC128_MI128_EXP|||
 DEC128_MIN|||
+DEC128_MIN_EXP|||
 DEC128_SNAN|||
 DEC128_TRUE_MIN|||
 DEC32_EPSILON|||
 DEC32_MANT_DIG|||
 DEC32_MAX|||
 DEC32_MAX_EXP|||
-DEC32_MI32_EXP|||
 DEC32_MIN|||
+DEC32_MIN_EXP|||
 DEC32_SNAN|||
 DEC32_TRUE_MIN|||
 DEC64_EPSILON|||
 DEC64_MANT_DIG|||
 DEC64_MAX|||
 DEC64_MAX_EXP|||
-DEC64_MI64_EXP|||
 DEC64_MIN|||
+DEC64_MIN_EXP|||
 DEC64_SNAN|||
 DEC64_TRUE_MIN|||
+DEC_EVAL_METHOD|||
 _Decimal128|||
 _Decimal32|||
-_Decimal32_t|||
 _Decimal64|||
-_Decimal64_t|||
 DECIMAL_DIG|||
 DEC_INFINITY|||
 DEC_NAN|||
@@ -580,7 +588,8 @@ fegetexceptflag|int|(fexcept_t *flagp, int excepts)|
 fegetmode|int|(femode_t *modep)|
 fegetround|int|(void)|
 feholdexcept|int|(fenv_t *envp)|
-FE_INEXACTFE_INVALID|||
+FE_INEXACT|||
+FE_INVALID|||
 femode_t|||
 FENV_ACCESS|||
 FENV_DEC_ROUND|||
@@ -595,6 +604,7 @@ fesetexcept|int|(int excepts)|
 fesetexceptflag|int|(const fexcept_t *flagp, int excepts)|
 fesetmode|int|(const femode_t *modep)|
 fesetround|int|(int rnd)|
+FE_SNANS_ALWAYS_SIGNAL|||
 fetestexcept|int|(int excepts)|
 fetestexceptflag|int|(const fexcept_t * flagp, int excepts)|
 FE_TONEAREST|||
@@ -613,6 +623,7 @@ fgetpos|int|(FILE * restrict stream, fpos_t * restrict pos)|
 fgets|char *|(char * restrict s, int n, FILE * restrict stream)|
 fgetwc|wint_t|(FILE *stream)|
 fgetws|wchar_t *|(wchar_t * restrict s, int n, FILE * restrict stream)|
+__FILE__|||
 FILE|||
 FILENAME_MAX|||
 float|||
@@ -787,6 +798,7 @@ fsub|float|(double x, double y)|
 fsub|float|(<real-floating> x, <real-floating> y)|
 fsubl|float|(long double x, long double y)|
 ftell|long int|(FILE *stream)|
+__func__|||
 fwide|int|(FILE *stream, int mode)|
 fwprintf|int|(FILE * restrict stream, const wchar_t * restrict format, ...)|
 fwrite|size_t|(const void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream)|
@@ -795,12 +807,6 @@ _Generic||(<assignment-expression>, <generic-assoc-list>)|
 getc|int|(FILE *stream)|
 getchar|int|(void)|
 getenv|char *|(const char *name)|
-getpayload|double|(const double *x)|
-getpayloadd128|_Decimal128|(const _Decimal128 *x)|
-getpayloadd32|_Decimal32|(const _Decimal32 *x)|
-getpayloadd64|_Decimal64|(const _Decimal64 *x)|
-getpayloadf|float|(const float *x)|
-getpayloadl|long double|(const long double *x)|
 getwc|wint_t|(FILE *stream)|
 getwchar|wint_t|(void)|
 gmtime|struct tm *|(const time_t *timer)|
@@ -812,9 +818,6 @@ __has_embed|<0-1>|(<header-name-tokens> <pp-balanced-token-sequence opt>)|
 __has_include|<0-1>|(<header-name>)|
 __has_include|<0-1>|(<header-name-tokens>)|
 HUGE_VAL|||
-HUGE_VAL_D128|||
-HUGE_VAL_D32|||
-HUGE_VAL_D64|||
 HUGE_VALF|||
 HUGE_VALL|||
 hypot|double|(double x, double y)|
@@ -993,6 +996,7 @@ lgammad64|_Decimal64|(_Decimal64 x)|
 lgammaf|float|(float x)|
 lgammal|long double|(long double x)|
 line|||
+__LINE__|||
 llabs|long long int|(long long int j)|
 lldiv|lldiv_t|(long long int numer, long long int denom)|
 lldiv_t|||
@@ -1494,18 +1498,6 @@ SEEK_SET|||
 setbuf|void|(FILE * restrict stream, char * restrict buf)|
 setjmp|int|(jmp_buf env)|
 setlocale|char *|(int category, const char *locale)|
-setpayload|int|(double *res, double pl)|
-setpayloadd128|int|(_Decimal128 *res, _Decimal128 pl)|
-setpayloadd32|int|(_Decimal32 *res, _Decimal32 pl)|
-setpayloadd64|int|(_Decimal64 *res, _Decimal64 pl)|
-setpayloadf|int|(float *res, float pl)|
-setpayloadl|int|(long double *res, long double pl)|
-setpayloadsig|int|(double *res, double pl)|
-setpayloadsigd128|int|(_Decimal128 *res, _Decimal128 pl)|
-setpayloadsigd32|int|(_Decimal32 *res, _Decimal32 pl)|
-setpayloadsigd64|int|(_Decimal64 *res, _Decimal64 pl)|
-setpayloadsigf|int|(float *res, float pl)|
-setpayloadsigl|int|(long double *res, long double pl)|
 setvbuf|int|(FILE * restrict stream, char * restrict buf, int mode, size_t size)|
 short|||
 SHRT_MAX|||
@@ -1570,7 +1562,9 @@ static_assert||(<constant-expression>)|
 static_assert||(<constant-expression>, <string-litteral>)|
 _Static_assert||(<constant-expression>)|
 _Static_assert||(<constant-expression>, <string-litteral>)|
+__STDC__|||
 STDC|||
+__STDC_ANALYZABLE__|||
 stdc_bit_ceil|generic_value_type|(generic_value_type value)|
 stdc_bit_ceil_uc|unsigned char|(unsigned char value)|
 stdc_bit_ceil_ui|unsigned int|(unsigned int value)|
@@ -1601,6 +1595,9 @@ stdc_count_zeros_ui|unsigned int|(unsigned int value)|
 stdc_count_zeros_ul|unsigned int|(unsigned long value)|
 stdc_count_zeros_ull|unsigned int|(unsigned long long value)|
 stdc_count_zeros_us|unsigned int|(unsigned short value)|
+__STDC_EMBED_EMPTY__|||
+__STDC_EMBED_FOUND__|||
+__STDC_EMBED_NOT_FOUND__|||
 __STDC_ENDIAN_BIG__|||
 __STDC_ENDIAN_LITTLE__|||
 __STDC_ENDIAN_NATIVE__|||
@@ -1634,7 +1631,14 @@ stdc_has_single_bit_ui|bool|(unsigned int value)|
 stdc_has_single_bit_ul|bool|(unsigned long value)|
 stdc_has_single_bit_ull|bool|(unsigned long long value)|
 stdc_has_single_bit_us|bool|(unsigned short value)|
+__STDC_HOSTED__|||
+__STDC_IEC_559__|||
+__STDC_IEC_559_COMPLEX__|||
+__STDC_IEC_60559_BFP__|||
+__STDC_IEC_60559_COMPLEX__|||
 __STDC_IEC_60559_DFP__|||
+__STDC_IEC_60559_TYPES__|||
+__STDC_ISO_10646__|||
 stdc_leading_ones|generic_return_type|(generic_value_type value)|
 stdc_leading_ones_uc|unsigned int|(unsigned char value)|
 stdc_leading_ones_ui|unsigned int|(unsigned int value)|
@@ -1647,9 +1651,12 @@ stdc_leading_zeros_ui|unsigned int|(unsigned int value)|
 stdc_leading_zeros_ul|unsigned int|(unsigned long value)|
 stdc_leading_zeros_ull|unsigned int|(unsigned long long value)|
 stdc_leading_zeros_us|unsigned int|(unsigned short value)|
+__STDC_LIB_EXT1__|||
+__STDC_MB_MIGHT_NEQ_WC__|||
 __STDC_NO_ATOMICS__|||
 __STDC_NO_COMPLEX__|||
 __STDC_NO_THREADS__|||
+__STDC_NO_VLA__|||
 stdc_trailing_ones|generic_return_type|(generic_value_type value)|
 stdc_trailing_ones_uc|unsigned int|(unsigned char value)|
 stdc_trailing_ones_ui|unsigned int|(unsigned int value)|
@@ -1662,8 +1669,12 @@ stdc_trailing_zeros_ui|unsigned int|(unsigned int value)|
 stdc_trailing_zeros_ul|unsigned int|(unsigned long value)|
 stdc_trailing_zeros_ull|unsigned int|(unsigned long long value)|
 stdc_trailing_zeros_us|unsigned int|(unsigned short value)|
+__STDC_UTF_16__|||
+__STDC_UTF_32__|||
+__STDC_VERSION__|||
 __STDC_VERSION_ASSERT_H__|||
 __STDC_VERSION_COMPLEX_H__|||
+__STDC_VERSION_FENV_H__|||
 __STDC_VERSION_FLOAT_H__|||
 __STDC_VERSION_LIMITS_H__|||
 __STDC_VERSION_MATH_H__|||
@@ -1681,7 +1692,6 @@ __STDC_VERSION_TGMATH_H__|||
 __STDC_VERSION_TIME_H__|||
 __STDC_VERSION_UCHAR_H__|||
 __STDC_VERSION_WCHAR_H__|||
-__STDC_WANT_IEC_60559_EXT__|||
 stderr|||
 stdin|||
 stdout|||
@@ -1771,6 +1781,7 @@ thrd_yield|void|(void)|
 thread_local|||
 _Thread_local|||
 time|time_t|(time_t *timer)|
+__TIME__|||
 TIME_ACTIVE|||
 timegm|time_t|(struct tm *timeptr)|
 TIME_MONOTONIC|||
@@ -1781,22 +1792,19 @@ time_t|||
 TIME_THREAD_ACTIVE|||
 TIME_UTC|||
 tm|||
+tm_hour|||
+tm_isdst|||
+tm_mday|||
+tm_min|||
+tm_mon|||
 tmpfile|FILE *|(void)|
 TMP_MAX|||
 tmpnam|char *|(char *s)|
+tm_sec|||
+tm_wday|||
+tm_yday|||
+tm_year|||
 tolower|int|(int c)|
-totalorder|int|(const double *x, const double *y)|
-totalorderd128|int|(const _Decimal128 *x, const _Decimal128 *y)|
-totalorderd32|int|(const _Decimal32 *x, const _Decimal32 *y)|
-totalorderd64|int|(const _Decimal64 *x, const _Decimal64 *y)|
-totalorderf|int|(const float *x, const float *y)|
-totalorderl|int|(const long double *x, const long double *y)|
-totalordermag|int|(const double *x, const double *y)|
-totalordermagd128|int|(const _Decimal128 *x, const _Decimal128 *y)|
-totalordermagd32|int|(const _Decimal32 *x, const _Decimal32 *y)|
-totalordermagd64|int|(const _Decimal64 *x, const _Decimal64 *y)|
-totalordermagf|int|(const float *x, const float *y)|
-totalordermagl|int|(const long double *x, const long double *y)|
 toupper|int|(int c)|
 towctrans|wint_t|(wint_t wc, wctrans_t desc)|
 towlower|wint_t|(wint_t wc)|
