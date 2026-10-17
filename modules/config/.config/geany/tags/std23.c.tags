@@ -1,0 +1,1981 @@
+# format=pipe
+# std23.c.tags 25.08.0
+# standard part
+abort|[[noreturn]] void|(void)|
+abs|int|(int j)|
+acos|double|(double x)|
+acos|<real-floating>|(<real-floating> x)|
+acosd128|_Decimal128|(_Decimal128 x)|
+acosd32|_Decimal32|(_Decimal32 x)|
+acosd64|_Decimal64|(_Decimal64 x)|
+acosf|float|(float x)|
+acosh|double|(double x)|
+acosh|<real-floating>|(<real-floating> x)|
+acoshd128|_Decimal128|(_Decimal128 x)|
+acoshd32|_Decimal32|(_Decimal32 x)|
+acoshd64|_Decimal64|(_Decimal64 x)|
+acoshf|float|(float x)|
+acoshl|long double|(long double x)|
+acosl|long double|(long double x)|
+acospi|double|(double x)|
+acospi|<real-floating>|(<real-floating> x)|
+acospid128|_Decimal128|(_Decimal128 x)|
+acospid32|_Decimal32|(_Decimal32 x)|
+acospid64|_Decimal64|(_Decimal64 x)|
+acospif|float|(float x)|
+acospil|long double|(long double x)|
+alignas||(<constant-expression>)|
+alignas||(<type-name>)|
+_Alignas||(<constant-expression>)|
+_Alignas||(<type-name>)|
+aligned_alloc|void *|(size_t alignment, size_t size)|
+alignof|size_t|(<type-name>)|
+_Alignof|size_t|(<type-name>)|
+and|||
+and_eq|||
+asctime|[[deprecated]] char *|(const struct tm *timeptr)|
+asin|double|(double x)|
+asin|<real-floating>|(<real-floating> x)|
+asind128|_Decimal128|(_Decimal128 x)|
+asind32|_Decimal32|(_Decimal32 x)|
+asind64|_Decimal64|(_Decimal64 x)|
+asinf|float|(float x)|
+asinh|double|(double x)|
+asinh|<real-floating>|(<real-floating> x)|
+asinhd128|_Decimal128|(_Decimal128 x)|
+asinhd32|_Decimal32|(_Decimal32 x)|
+asinhd64|_Decimal64|(_Decimal64 x)|
+asinhf|float|(float x)|
+asinhl|long double|(long double x)|
+asinl|long double|(long double x)|
+asinpi|double|(double x)|
+asinpi|<real-floating>|(<real-floating> x)|
+asinpid128|_Decimal128|(_Decimal128 x)|
+asinpid32|_Decimal32|(_Decimal32 x)|
+asinpid64|_Decimal64|(_Decimal64 x)|
+asinpif|float|(float x)|
+asinpil|long double|(long double x)|
+assert|void|(<scalar> expression)|
+atan|double|(double x)|
+atan|<real-floating>|(<real-floating> x)|
+atan2|double|(double y, double x)|
+atan2|<real-floating>|(<real-floating> x)|
+atan2d128|_Decimal128|(_Decimal128 y, _Decimal128 x)|
+atan2d32|_Decimal32|(_Decimal32 y, _Decimal32 x)|
+atan2d64|_Decimal64|(_Decimal64 y, _Decimal64 x)|
+atan2f|float|(float y, float x)|
+atan2l|long double|(long double y, long double x)|
+atan2pi|double|(double y, double x)|
+atan2pi|<real-floating>|(<real-floating> x)|
+atan2pid128|_Decimal128|(_Decimal128 y, _Decimal128 x)|
+atan2pid32|_Decimal32|(_Decimal32 y, _Decimal32 x)|
+atan2pid64|_Decimal64|(_Decimal64 y, _Decimal64 x)|
+atan2pif|float|(float y, float x)|
+atan2pil|long double|(long double y, long double x)|
+atand128|_Decimal128|(_Decimal128 x)|
+atand32|_Decimal32|(_Decimal32 x)|
+atand64|_Decimal64|(_Decimal64 x)|
+atanf|float|(float x)|
+atanh|double|(double x)|
+atanh|<real-floating>|(<real-floating> x)|
+atanhd128|_Decimal128|(_Decimal128 x)|
+atanhd32|_Decimal32|(_Decimal32 x)|
+atanhd64|_Decimal64|(_Decimal64 x)|
+atanhf|float|(float x)|
+atanhl|long double|(long double x)|
+atanl|long double|(long double x)|
+atanpi|double|(double x)|
+atanpi|<real-floating>|(<real-floating> x)|
+atanpid128|_Decimal128|(_Decimal128 x)|
+atanpid32|_Decimal32|(_Decimal32 x)|
+atanpid64|_Decimal64|(_Decimal64 x)|
+atanpif|float|(float x)|
+atanpil|long double|(long double x)|
+atexit|int|(void (*func)(void))|
+atof|double|(const char *nptr)|
+atoi|int|(const char *nptr)|
+atol|long int|(const char *nptr)|
+atoll|long long int|(const char *nptr)|
+_Atomic|||
+_Atomic|<type>|(<type-name>)|
+atomic_bool|||
+ATOMIC_BOOL_LOCK_FREE|||
+atomic_char|||
+atomic_char16_t|||
+ATOMIC_CHAR16_T_LOCK_FREE|||
+atomic_char32_t|||
+ATOMIC_CHAR32_T_LOCK_FREE|||
+atomic_char8_t|||
+ATOMIC_CHAR8_T_LOCK_FREE|||
+ATOMIC_CHAR_LOCK_FREE|||
+atomic_compare_exchange_strong|bool|(volatile <A> *object, <C> *expected, <C> desired)|
+atomic_compare_exchange_strong_explicit|bool|(volatile <A> *object, <C> *expected, <C> desired, memory_order success, memory_order failure)|
+atomic_compare_exchange_weak|bool|(volatile <A> *object, <C> *expected, <C> desired)|
+atomic_compare_exchange_weak_explicit|bool|(volatile <A> *object, <C> *expected, <C> desired, memory_order success, memory_order failure)|
+atomic_exchange|<C>|(volatile <A> *object, <C> desired)|
+atomic_exchange_explicit|<C>|(volatile <A> *object, <C> desired, memory_order order)|
+atomic_fetch_add|<C>|(volatile <A> *object, <M> operand)|
+atomic_fetch_add_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
+atomic_fetch_and|<C>|(volatile <A> *object, <M> operand)|
+atomic_fetch_and_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
+atomic_fetch_or|<C>|(volatile <A> *object, <M> operand)|
+atomic_fetch_or_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
+atomic_fetch_sub|<C>|(volatile <A> *object, <M> operand)|
+atomic_fetch_sub_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
+atomic_fetch_xor|<C>|(volatile <A> *object, <M> operand)|
+atomic_fetch_xor_explicit|<C>|(volatile <A> *object, <M> operand, memory_order order)|
+atomic_flag|||
+atomic_flag_clear|void|(volatile atomic_flag *object)|
+atomic_flag_clear_explicit|void|(volatile atomic_flag *object, memory_order order)|
+ATOMIC_FLAG_INIT|||
+atomic_flag_test_and_set|bool|(volatile atomic_flag *object)|
+atomic_flag_test_and_set_explicit|bool|(volatile atomic_flag *object, memory_order order)|
+atomic_init|void|(volatile <A> *obj, <C> value)|
+atomic_int|||
+atomic_int_fast16_t|||
+atomic_int_fast32_t|||
+atomic_int_fast64_t|||
+atomic_int_fast8_t|||
+atomic_int_least16_t|||
+atomic_int_least32_t|||
+atomic_int_least64_t|||
+atomic_int_least8_t|||
+ATOMIC_INT_LOCK_FREE|||
+atomic_intmax_t|||
+atomic_intptr_t|||
+atomic_is_lock_free|bool|(const volatile <A> *obj)|
+atomic_llong|||
+ATOMIC_LLONG_LOCK_FREE|||
+atomic_load|<C>|(const volatile <A> *object)|
+atomic_load_explicit|<C>|(const volatile <A> *object, memory_order order)|
+atomic_long|||
+ATOMIC_LONG_LOCK_FREE|||
+ATOMIC_POINTER_LOCK_FREE|||
+atomic_ptrdiff_t|||
+atomic_schar|||
+atomic_short|||
+ATOMIC_SHORT_LOCK_FREE|||
+atomic_signal_fence|void|(memory_order order)|
+atomic_size_t|||
+atomic_store|void|(volatile <A> *object, <C> desired)|
+atomic_store_explicit|void|(volatile <A> *object, <C> desired, memory_order order)|
+atomic_thread_fence|void|(memory_order order)|
+atomic_uchar|||
+atomic_uint|||
+atomic_uint_fast16_t|||
+atomic_uint_fast32_t|||
+atomic_uint_fast64_t|||
+atomic_uint_fast8_t|||
+atomic_uint_least16_t|||
+atomic_uint_least32_t|||
+atomic_uint_least64_t|||
+atomic_uint_least8_t|||
+atomic_uintmax_t|||
+atomic_uintptr_t|||
+atomic_ullong|||
+atomic_ulong|||
+atomic_ushort|||
+atomic_wchar_t|||
+ATOMIC_WCHAR_T_LOCK_FREE|||
+at_quick_exit|int|(void (*func)(void))|
+auto|||
+bitand|||
+_BitInt||(<constant-integer-expression>)|
+BITINT_MAXWIDTH|||
+bitor|||
+bool|||
+_Bool|||
+BOOL_MAX|||
+__bool_true_false_are_defined|||
+BOOL_WIDTH|||
+break|||
+bsearch|<QVoid> *|(const void *key, <QVoid> *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *))|
+btowc|wint_t|(int c)|
+BUFSIZ|||
+c16rtomb|size t|(char * restrict s, char16_t c16, mbstate_t * restrict ps)|
+c32rtomb|size_t|(char * restrict s, char32_t c32, mbstate_t * restrict ps)|
+c8rtomb|size_t|(char * restrict s, char8_t c8, mbstate_t * restrict ps)|
+cabs|double|(double complex z)|
+cabsf|float|(float complex z)|
+cabsl|long double|(long double complex z)|
+cacos|double complex|(double complex z)|
+cacosf|float complex|(float complex z)|
+cacosh|double complex|(double complex z)|
+cacoshf|float complex|(float complex z)|
+cacoshl|long double complex|(long double complex z)|
+cacosl|long double complex|(long double complex z)|
+calloc|void *|(size_t nmemb, size_t size)|
+call_once|void|(once_flag *flag, void (*func)(void))|
+canonicalize|int|(double * cx, const double * x)|
+canonicalized128|int|(_Decimal128 *cx, const _Decimal128 *x)|
+canonicalized32|int|(_Decimal32 *cx, const _Decimal32 *x)|
+canonicalized64|int|(_Decimal64 *cx, const _Decimal64 *x)|
+canonicalizef|int|(float * cx, const float * x)|
+canonicalizel|int|(long double * cx, const long double * x)|
+carg|double|(double complex z)|
+carg|<real-floating>|(<complex-floating> z)|
+cargf|float|(float complex z)|
+cargl|long double|(long double complex z)|
+case|||
+casin|double complex|(double complex z)|
+casinf|float complex|(float complex z)|
+casinh|double complex|(double complex z)|
+casinhf|float complex|(float complex z)|
+casinhl|long double complex|(long double complex z)|
+casinl|long double complex|(long double complex z)|
+catan|double complex|(double complex z)|
+catanf|float complex|(float complex z)|
+catanh|double complex|(double complex z)|
+catanhf|float complex|(float complex z)|
+catanhl|long double complex|(long double complex z)|
+catanl|long double complex|(long double complex z)|
+cbrt|double|(double x)|
+cbrt|<real-floating>|(<real-floating> x)|
+cbrtd128|_Decimal128|(_Decimal128 x)|
+cbrtd32|_Decimal32|(_Decimal32 x)|
+cbrtd64|_Decimal64|(_Decimal64 x)|
+cbrtf|float|(float x)|
+cbrtl|long double|(long double x)|
+ccos|double complex|(double complex z)|
+ccosf|float complex|(float complex z)|
+ccosh|double complex|(double complex z)|
+ccoshf|float complex|(float complex z)|
+ccoshl|long double complex|(long double complex z)|
+ccosl|long double complex|(long double complex z)|
+ceil|double|(double x)|
+ceil|<real-floating>|(<real-floating> x)|
+ceild128|_Decimal128|(_Decimal128 x)|
+ceild32|_Decimal32|(_Decimal32 x)|
+ceild64|_Decimal64|(_Decimal64 x)|
+ceilf|float|(float x)|
+ceill|long double|(long double x)|
+cexp|double complex|(double complex z)|
+cexpf|float complex|(float complex z)|
+cexpl|long double complex|(long double complex z)|
+char|||
+char16_t|||
+char32_t|||
+char8_t|||
+CHAR_BIT|||
+CHAR_MAX|||
+CHAR_MIN|||
+CHAR_WIDTH|||
+cimag|double|(double complex z)|
+cimag|<real-floating>|(<complex-floating> z)|
+cimagf|float|(float complex z)|
+cimagl|long double|(long double complex z)|
+ckd_add|bool|(<type1> *result, <type2> a, <type3> b)|
+ckd_mul|bool|(<type1> *result, <type2> a, <type3> b)|
+ckd_sub|bool|(<type1> *result, <type2> a, <type3> b)|
+clearerr|void|(FILE *stream)|
+clock|clock_t|(void)|
+CLOCKS_PER_SEC|||
+clock_t|||
+clog|double complex|(double complex z)|
+clogf|float complex|(float complex z)|
+clogl|long double complex|(long double complex z)|
+CMPLX|double complex|(double x, double y)|
+CMPLXF|float complex|(float x, float y)|
+CMPLXL|long double complex|(long double x, long double y)|
+cnd_broadcast|int|(cnd_t *cond)|
+cnd_destroy|void|(cnd_t *cond)|
+cnd_init|int|(cnd_t *cond)|
+cnd_signal|int|(cnd_t *cond)|
+cnd_t|||
+cnd_timedwait|int|(cnd_t * restrict cond, mtx_t * restrict mtx, const struct timespec * restrict ts)|
+cnd_wait|int|(cnd_t *cond, mtx_t *mtx)|
+compl|||
+complex|||
+_Complex|||
+_Complex_I|||
+compoundn|double|(double x, long long int n)|
+compoundn|<real-floating>|(<real-floating> x, long long int n)|
+compoundnd128|_Decimal128|(_Decimal128 x, long long int n)|
+compoundnd32|_Decimal32|(_Decimal32 x, long long int n)|
+compoundnd64|_Decimal64|(_Decimal64 x, long long int n)|
+compoundnf|float|(float x, long long int n)|
+compoundnl|long double|(long double x, long long int n)|
+conj|double complex|(double complex z)|
+conj|<real-floating>|(<complex-floating> z)|
+conjf|float complex|(float complex z)|
+conjl|long double complex|(long double complex z)|
+const|||
+constexpr|||
+continue|||
+copysign|double|(double x, double y)|
+copysign|<real-floating>|(<real-floating> x, <real-floating> y)|
+copysignd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+copysignd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+copysignd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+copysignf|float|(float x, float y)|
+copysignl|long double|(long double x, long double y)|
+cos|double|(double x)|
+cos|<real-floating>|(<real-floating> x)|
+cosd128|_Decimal128|(_Decimal128 x)|
+cosd32|_Decimal32|(_Decimal32 x)|
+cosd64|_Decimal64|(_Decimal64 x)|
+cosf|float|(float x)|
+cosh|double|(double x)|
+cosh|<real-floating>|(<real-floating> x)|
+coshd128|_Decimal128|(_Decimal128 x)|
+coshd32|_Decimal32|(_Decimal32 x)|
+coshd64|_Decimal64|(_Decimal64 x)|
+coshf|float|(float x)|
+coshl|long double|(long double x)|
+cosl|long double|(long double x)|
+cospi|double|(double x)|
+cospi|<real-floating>|(<real-floating> x)|
+cospid128|_Decimal128|(_Decimal128 x)|
+cospid32|_Decimal32|(_Decimal32 x)|
+cospid64|_Decimal64|(_Decimal64 x)|
+cospif|float|(float x)|
+cospil|long double|(long double x)|
+cpow|double complex|(double complex x, double complex y)|
+cpowf|float complex|(float complex x, float complex y)|
+cpowl|long double complex|(long double complex x, long double complex y)|
+cproj|double complex|(double complex z)|
+cproj|<real-floating>|(<complex-floating> z)|
+cprojf|float complex|(float complex z)|
+cprojl|long double complex|(long double complex z)|
+creal|double|(double complex z)|
+creal|<real-floating>|(<complex-floating> z)|
+crealf|float|(float complex z)|
+creall|long double|(long double complex z)|
+csin|double complex|(double complex z)|
+csinf|float complex|(float complex z)|
+csinh|double complex|(double complex z)|
+csinhf|float complex|(float complex z)|
+csinhl|long double complex|(long double complex z)|
+csinl|long double complex|(long double complex z)|
+csqrt|double complex|(double complex z)|
+csqrtf|float complex|(float complex z)|
+csqrtl|long double complex|(long double complex z)|
+ctan|double complex|(double complex z)|
+ctanf|float complex|(float complex z)|
+ctanh|double complex|(double complex z)|
+ctanhf|float complex|(float complex z)|
+ctanhl|long double complex|(long double complex z)|
+ctanl|long double complex|(long double complex z)|
+ctime|[[deprecated]] char *|(const time_t *timer)|
+CX_LIMITED_RANGE|||
+d32add|_Decimal32|(<decimal-floating> x, <decimal-floating> y)|
+d32addd128|_Decimal32|(_Decimal128 x, _Decimal128 y)|
+d32addd64|_Decimal32|(_Decimal64 x, _Decimal64 y)|
+d32div|_Decimal32|(<decimal-floating> x, <decimal-floating> y)|
+d32divd128|_Decimal32|(_Decimal128 x, _Decimal128 y)|
+d32divd64|_Decimal32|(_Decimal64 x, _Decimal64 y)|
+d32fma|_Decimal32|(<decimal-floating> x, <decimal-floating> y, <decimal-floating> z)|
+d32fmad128|_Decimal32|(_Decimal128 x, _Decimal128 y, _Decimal128 z)|
+d32fmad64|_Decimal32|(_Decimal64 x, _Decimal64 y, _Decimal64 z)|
+d32mul|_Decimal32|(<decimal-floating> x, <decimal-floating> y)|
+d32muld128|_Decimal32|(_Decimal128 x, _Decimal128 y)|
+d32muld64|_Decimal32|(_Decimal64 x, _Decimal64 y)|
+d32sqrt|_Decimal32|(<decimal-floating> x)|
+d32sqrtd128|_Decimal32|(_Decimal128 x)|
+d32sqrtd64|_Decimal32|(_Decimal64 x)|
+d32sub|_Decimal32|(<decimal-floating> x, <decimal-floating> y)|
+d32subd128|_Decimal32|(_Decimal128 x, _Decimal128 y)|
+d32subd64|_Decimal32|(_Decimal64 x, _Decimal64 y)|
+d64add|_Decimal64|(<decimal-floating> x, <decimal-floating> y)|
+d64addd128|_Decimal64|(_Decimal128 x, _Decimal128 y)|
+d64div|_Decimal64|(<decimal-floating> x, <decimal-floating> y)|
+d64divd128|_Decimal64|(_Decimal128 x, _Decimal128 y)|
+d64fma|_Decimal64|(<decimal-floating> x, <decimal-floating> y, <decimal-floating> z)|
+d64fmad128|_Decimal64|(_Decimal128 x, _Decimal128 y, _Decimal128 z)|
+d64mul|_Decimal64|(<decimal-floating> x, <decimal-floating> y)|
+d64muld128|_Decimal64|(_Decimal128 x, _Decimal128 y)|
+d64sqrt|_Decimal64|(<decimal-floating> x)|
+d64sqrtd128|_Decimal64|(_Decimal128 x)|
+d64sub|_Decimal64|(<decimal-floating> x, <decimal-floating> y)|
+d64subd128|_Decimal64|(_Decimal128 x, _Decimal128 y)|
+dadd|double|(<real-floating> x, <real-floating> y)|
+daddl|double|(long double x, long double y)|
+__DATE__|||
+DBL_DECIMAL_DIG|||
+DBL_DIG|||
+DBL_EPSILON|||
+DBL_HAS_SUBNORM|||
+DBL_IS_IEC_60559|||
+DBL_MANT_DIG|||
+DBL_MAX|||
+DBL_MAX_10_EXP|||
+DBL_MAX_EXP|||
+DBL_MIN|||
+DBL_MIN_10_EXP|||
+DBL_MIN_EXP|||
+DBL_NORM_MAX|||
+DBL_SNAN|||
+DBL_TRUE_MIN|||
+ddiv|double|(<real-floating> x, <real-floating> y)|
+ddivl|double|(long double x, long double y)|
+DEC128_EPSILON|||
+DEC128_MANT_DIG|||
+DEC128_MAX|||
+DEC128_MAX_EXP|||
+DEC128_MIN|||
+DEC128_MIN_EXP|||
+DEC128_SNAN|||
+DEC128_TRUE_MIN|||
+DEC32_EPSILON|||
+DEC32_MANT_DIG|||
+DEC32_MAX|||
+DEC32_MAX_EXP|||
+DEC32_MIN|||
+DEC32_MIN_EXP|||
+DEC32_SNAN|||
+DEC32_TRUE_MIN|||
+DEC64_EPSILON|||
+DEC64_MANT_DIG|||
+DEC64_MAX|||
+DEC64_MAX_EXP|||
+DEC64_MIN|||
+DEC64_MIN_EXP|||
+DEC64_SNAN|||
+DEC64_TRUE_MIN|||
+DEC_EVAL_METHOD|||
+_Decimal128|||
+_Decimal32|||
+_Decimal64|||
+DECIMAL_DIG|||
+DEC_INFINITY|||
+DEC_NAN|||
+decodebind128|void|(_Decimal128 * restrict xptr, const unsigned char encptr[restrict static 16])|
+decodebind32|void|(_Decimal32 * restrict xptr, const unsigned char encptr[restrict static 4])|
+decodebind64|void|(_Decimal64 * restrict xptr, const unsigned char encptr[restrict static 8])|
+decodedecd128|void|(_Decimal128 * restrict xptr, const unsigned char encptr[restrict static 16])|
+decodedecd32|void|(_Decimal32 * restrict xptr, const unsigned char encptr[restrict static 4])|
+decodedecd64|void|(_Decimal64 * restrict xptr, const unsigned char encptr[restrict static 8])|
+default|||
+DEFAULT|||
+define|||
+defined|||
+defined|<0-1>|(<identifier>)|
+deprecated|||
+dfma|double|(<real-floating> x, <real-floating> y, <real-floating> z)|
+dfmal|double|(long double x, long double y, long double z)|
+difftime|double|(time_t time1, time_t time0)|
+div|div_t|(int numer, int denom)|
+div_t|||
+dmul|double|(<real-floating> x, <real-floating> y)|
+dmull|double|(long double x, long double y)|
+do|||
+double|||
+double_t|||
+dsqrt|double|(<real-floating> x)|
+dsqrtl|double|(long double x)|
+dsub|double|(<real-floating> x, <real-floating> y)|
+dsubl|double|(long double x, long double y)|
+EDOM|||
+EILSEQ|||
+elif|||
+elifdef|||
+elifndef|||
+else|||
+embed|||
+encodebind128|void|(unsigned char encptr[restrict static 16], const _Decimal128 * restrict xptr)|
+encodebind32|void|(unsigned char encptr[restrict static 4], const _Decimal32 * restrict xptr)|
+encodebind64|void|(unsigned char encptr[restrict static 8], const _Decimal64 * restrict xptr)|
+encodedecd128|void|(unsigned char encptr[restrict static 16], const _Decimal128 * restrict xptr)|
+encodedecd32|void|(unsigned char encptr[restrict static 4], const _Decimal32 * restrict xptr)|
+encodedecd64|void|(unsigned char encptr[restrict static 8], const _Decimal64 * restrict xptr)|
+endif|||
+enum|||
+EOF|||
+ERANGE|||
+erf|double|(double x)|
+erf|<real-floating>|(<real-floating> x)|
+erfc|double|(double x)|
+erfc|<real-floating>|(<real-floating> x)|
+erfcd128|_Decimal128|(_Decimal128 x)|
+erfcd32|_Decimal32|(_Decimal32 x)|
+erfcd64|_Decimal64|(_Decimal64 x)|
+erfcf|float|(float x)|
+erfcl|long double|(long double x)|
+erfd128|_Decimal128|(_Decimal128 x)|
+erfd32|_Decimal32|(_Decimal32 x)|
+erfd64|_Decimal64|(_Decimal64 x)|
+erff|float|(float x)|
+erfl|long double|(long double x)|
+errno|||
+error|||
+exit|[[noreturn]] void|(int status)|
+_Exit|[[noreturn]] void|(int status)|
+EXIT_FAILURE|||
+EXIT_SUCCESS|||
+exp|double|(double x)|
+exp|<real-floating>|(<real-floating> x)|
+exp10|double|(double x)|
+exp10|<real-floating>|(<real-floating> x)|
+exp10d128|_Decimal128|(_Decimal128 x)|
+exp10d32|_Decimal32|(_Decimal32 x)|
+exp10d64|_Decimal64|(_Decimal64 x)|
+exp10f|float|(float x)|
+exp10l|long double|(long double x)|
+exp10m1|double|(double x)|
+exp10m1|<real-floating>|(<real-floating> x)|
+exp10m1d128|_Decimal128|(_Decimal128 x)|
+exp10m1d32|_Decimal32|(_Decimal32 x)|
+exp10m1d64|_Decimal64|(_Decimal64 x)|
+exp10m1f|float|(float x)|
+exp10m1l|long double|(long double x)|
+exp2|double|(double x)|
+exp2|<real-floating>|(<real-floating> x)|
+exp2d128|_Decimal128|(_Decimal128 x)|
+exp2d32|_Decimal32|(_Decimal32 x)|
+exp2d64|_Decimal64|(_Decimal64 x)|
+exp2f|float|(float x)|
+exp2l|long double|(long double x)|
+exp2m1|double|(double x)|
+exp2m1|<real-floating>|(<real-floating> x)|
+exp2m1d128|_Decimal128|(_Decimal128 x)|
+exp2m1d32|_Decimal32|(_Decimal32 x)|
+exp2m1d64|_Decimal64|(_Decimal64 x)|
+exp2m1f|float|(float x)|
+exp2m1l|long double|(long double x)|
+expd128|_Decimal128|(_Decimal128 x)|
+expd32|_Decimal32|(_Decimal32 x)|
+expd64|_Decimal64|(_Decimal64 x)|
+expf|float|(float x)|
+expl|long double|(long double x)|
+expm1|double|(double x)|
+expm1|<real-floating>|(<real-floating> x)|
+expm1d128|_Decimal128|(_Decimal128 x)|
+expm1d32|_Decimal32|(_Decimal32 x)|
+expm1d64|_Decimal64|(_Decimal64 x)|
+expm1f|float|(float x)|
+expm1l|long double|(long double x)|
+extern|||
+fabs|double|(double x)|
+fabs|<real-floating>|(<real-floating> x)|
+fabsd128|_Decimal128|(_Decimal128 x)|
+fabsd32|_Decimal32|(_Decimal32 x)|
+fabsd64|_Decimal64|(_Decimal64 x)|
+fabsf|float|(float x)|
+fabsl|long double|(long double x)|
+fadd|float|(double x, double y)|
+fadd|float|(<real-floating> x, <real-floating> y)|
+faddl|float|(long double x, long double y)|
+fallthrough|||
+false|||
+fclose|int|(FILE *stream)|
+fdim|double|(double x, double y)|
+fdim|<real-floating>|(<real-floating> x, long long int n)|
+fdimd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fdimd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fdimd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fdimf|float|(float x, float y)|
+fdiml|long double|(long double x, long double y)|
+fdiv|float|(double x, double y)|
+fdiv|float|(<real-floating> x, <real-floating> y)|
+fdivl|float|(long double x, long double y)|
+FE_ALL_EXCEPT|||
+feclearexcept|int|(int excepts)|
+FE_DEC_DOWNWARD|||
+FE_DEC_DYNAMIC|||
+fe_dec_getround|int|(void)|
+fe_dec_setround|int|(int rnd)|
+FE_DEC_TONEAREST|||
+FE_DEC_TONEARESTFROMZERO|||
+FE_DEC_TOWARDZERO|||
+FE_DEC_UPWARD|||
+FE_DFL_ENV|||
+FE_DFL_MODE|||
+FE_DIVBYZERO|||
+FE_DOWNWARD|||
+FE_DYNAMIC|||
+fegetenv|int|(fenv_t *envp)|
+fegetexceptflag|int|(fexcept_t *flagp, int excepts)|
+fegetmode|int|(femode_t *modep)|
+fegetround|int|(void)|
+feholdexcept|int|(fenv_t *envp)|
+FE_INEXACT|||
+FE_INVALID|||
+femode_t|||
+FENV_ACCESS|||
+FENV_DEC_ROUND|||
+FENV_ROUND|||
+fenv_t|||
+feof|int|(FILE *stream)|
+FE_OVERFLOW|||
+feraiseexcept|int|(int excepts)|
+ferror|int|(FILE *stream)|
+fesetenv|int|(const fenv_t *envp)|
+fesetexcept|int|(int excepts)|
+fesetexceptflag|int|(const fexcept_t *flagp, int excepts)|
+fesetmode|int|(const femode_t *modep)|
+fesetround|int|(int rnd)|
+FE_SNANS_ALWAYS_SIGNAL|||
+fetestexcept|int|(int excepts)|
+fetestexceptflag|int|(const fexcept_t * flagp, int excepts)|
+FE_TONEAREST|||
+FE_TONEARESTFROMZERO|||
+FE_TOWARDZERO|||
+FE_UNDERFLOW|||
+feupdateenv|int|(const fenv_t *envp)|
+FE_UPWARD|||
+fexcept_t|||
+fflush|int|(FILE *stream)|
+ffma|float|(double x, double y, double z)|
+ffma|float|(<real-floating> x, <real-floating> y, <real-floating> z)|
+ffmal|float|(long double x, long double y, long double z)|
+fgetc|int|(FILE *stream)|
+fgetpos|int|(FILE * restrict stream, fpos_t * restrict pos)|
+fgets|char *|(char * restrict s, int n, FILE * restrict stream)|
+fgetwc|wint_t|(FILE *stream)|
+fgetws|wchar_t *|(wchar_t * restrict s, int n, FILE * restrict stream)|
+__FILE__|||
+FILE|||
+FILENAME_MAX|||
+float|||
+float_t|||
+floor|double|(double x)|
+floor|<real-floating>|(<real-floating> x)|
+floord128|_Decimal128|(_Decimal128 x)|
+floord32|_Decimal32|(_Decimal32 x)|
+floord64|_Decimal64|(_Decimal64 x)|
+floorf|float|(float x)|
+floorl|long double|(long double x)|
+FLT_DECIMAL_DIG|||
+FLT_DIG|||
+FLT_EPSILON|||
+FLT_EVAL_METHOD|||
+FLT_HAS_SUBNORM|||
+FLT_IS_IEC_60559|||
+FLT_MANT_DIG|||
+FLT_MAX|||
+FLT_MAX_10_EXP|||
+FLT_MAX_EXP|||
+FLT_MIN|||
+FLT_MIN_10_EXP|||
+FLT_MIN_EXP|||
+FLT_NORM_MAX|||
+FLT_RADIX|||
+FLT_ROUNDS|||
+FLT_SNAN|||
+FLT_TRUE_MIN|||
+fma|double|(double x, double y, double z)|
+fma|<real-floating>|(<real-floating> x, <real-floating> y, <real-floating> z)|
+fmad128|_Decimal128|(_Decimal128 x, _Decimal128 y, _Decimal128 z)|
+fmad32|_Decimal32|(_Decimal32 x, _Decimal32 y, _Decimal32 z)|
+fmad64|_Decimal64|(_Decimal64 x, _Decimal64 y, _Decimal64 z)|
+fmaf|float|(float x, float y, float z)|
+fmal|long double|(long double x, long double y, long double z)|
+fmax|double|(double x, double y)|
+fmax|<real-floating>|(<real-floating> x, <real-floating> y)|
+fmaxd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fmaxd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fmaxd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fmaxf|float|(float x, float y)|
+fmaximum|double|(double x, double y)|
+fmaximum|<real-floating>|(<real-floating> x, <real-floating> y)|
+fmaximumd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fmaximumd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fmaximumd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fmaximumf|float|(float x, float y)|
+fmaximuml|long double|(long double x, long double y)|
+fmaximum_mag|double|(double x, double y)|
+fmaximum_mag|<real-floating>|(<real-floating> x, <real-floating> y)|
+fmaximum_magd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fmaximum_magd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fmaximum_magd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fmaximum_magf|float|(float x, float y)|
+fmaximum_magl|long double|(long double x, long double y)|
+fmaximum_mag_num|double|(double x, double y)|
+fmaximum_mag_num|<real-floating>|(<real-floating> x, <real-floating> y)|
+fmaximum_mag_numd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fmaximum_mag_numd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fmaximum_mag_numd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fmaximum_mag_numf|float|(float x, float y)|
+fmaximum_mag_numl|long double|(long double x, long double y)|
+fmaximum_num|double|(double x, double y)|
+fmaximum_num|<real-floating>|(<real-floating> x, <real-floating> y)|
+fmaximum_numd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fmaximum_numd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fmaximum_numd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fmaximum_numf|float|(float x, float y)|
+fmaximum_numl|long double|(long double x, long double y)|
+fmaxl|long double|(long double x, long double y)|
+fmin|double|(double x, double y)|
+fmin|<real-floating>|(<real-floating> x, <real-floating> y)|
+fmind128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fmind32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fmind64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fminf|float|(float x, float y)|
+fminimum|double|(double x, double y)|
+fminimum|<real-floating>|(<real-floating> x, <real-floating> y)|
+fminimumd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fminimumd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fminimumd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fminimumf|float|(float x, float y)|
+fminimuml|long double|(long double x, long double y)|
+fminimum_mag|double|(double x, double y)|
+fminimum_mag|<real-floating>|(<real-floating> x, <real-floating> y)|
+fminimum_magd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fminimum_magd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fminimum_magd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fminimum_magf|float|(float x, float y)|
+fminimum_magl|long double|(long double x, long double y)|
+fminimum_mag_num|double|(double x, double y)|
+fminimum_mag_num|<real-floating>|(<real-floating> x, <real-floating> y)|
+fminimum_mag_numd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fminimum_mag_numd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fminimum_mag_numd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fminimum_mag_numf|float|(float x, float y)|
+fminimum_mag_numl|long double|(long double x, long double y)|
+fminimum_num|double|(double x, double y)|
+fminimum_num|<real-floating>|(<real-floating> x, <real-floating> y)|
+fminimum_numd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fminimum_numd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fminimum_numd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fminimum_numf|float|(float x, float y)|
+fminimum_numl|long double|(long double x, long double y)|
+fminl|long double|(long double x, long double y)|
+fmod|double|(double x, double y)|
+fmod|<real-floating>|(<real-floating> x, <real-floating> y)|
+fmodd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+fmodd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+fmodd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+fmodf|float|(float x, float y)|
+fmodl|long double|(long double x, long double y)|
+fmul|float|(double x, double y)|
+fmul|float|(<real-floating> x, <real-floating> y)|
+fmull|float|(long double x, long double y)|
+fndef|||
+fopen|FILE *|(const char * restrict filename, const char * restrict mode)|
+FOPEN_MAX|||
+for|||
+fpclassify|int|(<real-floating> x)|
+FP_CONTRACT|||
+FP_FAST_FMA|||
+FP_FAST_FMAF|||
+FP_FAST_FMAL|||
+FP_ILOGB0|||
+FP_ILOGBNAN|||
+FP_INFINITE|||
+FP_NAN|||
+FP_NORMAL|||
+fpos_t|||
+fprintf|int|(FILE * restrict stream, const char * restrict format, ...)|
+FP_SUBNORMAL|||
+fputc|int|(int c, FILE *stream)|
+fputs|int|(const char * restrict s, FILE * restrict stream)|
+fputwc|wint_t|(wchar_t c, FILE *stream)|
+fputws|int|(const wchar_t * restrict s, FILE * restrict stream)|
+FP_ZERO|||
+fread|size_t|(void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream)|
+free|void|(void *ptr)|
+free_aligned_sized|void|(void *ptr, size_t alignment, size_t size)|
+free_sized|void|(void *ptr, size_t size)|
+freopen|FILE *|(const char * restrict filename, const char * restrict mode, FILE * restrict stream)|
+frexp|double|(double value, int *p)|
+frexp|<real-floating>|(<real-floating> value, int *p)|
+frexpd128|_Decimal128|(_Decimal128 value, int *p)|
+frexpd32|_Decimal32|(_Decimal32 value, int *p)|
+frexpd64|_Decimal64|(_Decimal64 value, int *p)|
+frexpf|float|(float value, int *p)|
+frexpl|long double|(long double value, int *p)|
+fromfp|double|(double x, int rnd, unsigned int width)|
+fromfp|<real-floating>|(<real-floating> x, int rnd, unsigned int width)|
+fromfpd128|_Decimal128|(_Decimal128 x, int rnd, unsigned int width)|
+fromfpd32|_Decimal32|(_Decimal32 x, int rnd, unsigned int width)|
+fromfpd64|_Decimal64|(_Decimal64 x, int rnd, unsigned int width)|
+fromfpf|float|(float x, int rnd, unsigned int width)|
+fromfpl|long double|(long double x, int rnd, unsigned int width)|
+fromfpx|double|(double x, int rnd, unsigned int width)|
+fromfpx|<real-floating>|(<real-floating> x, int rnd, unsigned int width)|
+fromfpxd128|_Decimal128|(_Decimal128 x, int rnd, unsigned int width)|
+fromfpxd32|_Decimal32|(_Decimal32 x, int rnd, unsigned int width)|
+fromfpxd64|_Decimal64|(_Decimal64 x, int rnd, unsigned int width)|
+fromfpxf|float|(float x, int rnd, unsigned int width)|
+fromfpxl|long double|(long double x, int rnd, unsigned int width)|
+fscanf|int|(FILE * restrict stream, const char * restrict format, ...)|
+fseek|int|(FILE *stream, long int offset, int whence)|
+fsetpos|int|(FILE *stream, const fpos_t *pos)|
+fsqrt|float|(double x)|
+fsqrt|float|(<real-floating> x)|
+fsqrtl|float|(long double x)|
+fsub|float|(double x, double y)|
+fsub|float|(<real-floating> x, <real-floating> y)|
+fsubl|float|(long double x, long double y)|
+ftell|long int|(FILE *stream)|
+__func__|||
+fwide|int|(FILE *stream, int mode)|
+fwprintf|int|(FILE * restrict stream, const wchar_t * restrict format, ...)|
+fwrite|size_t|(const void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream)|
+fwscanf|int|(FILE * restrict stream, const wchar_t * restrict format, ...)|
+_Generic||(<assignment-expression>, <generic-assoc-list>)|
+getc|int|(FILE *stream)|
+getchar|int|(void)|
+getenv|char *|(const char *name)|
+getwc|wint_t|(FILE *stream)|
+getwchar|wint_t|(void)|
+gmtime|struct tm *|(const time_t *timer)|
+gmtime_r|struct tm *|(const time_t *timer, struct tm *buf)|
+goto|||
+__has_c_attribute|<0-1>|(<pp-tokens>)|
+__has_embed|<0-1>|(<header-name> <embed-parameter-sequence opt>)|
+__has_embed|<0-1>|(<header-name-tokens> <pp-balanced-token-sequence opt>)|
+__has_include|<0-1>|(<header-name>)|
+__has_include|<0-1>|(<header-name-tokens>)|
+HUGE_VAL|||
+HUGE_VALF|||
+HUGE_VALL|||
+hypot|double|(double x, double y)|
+hypot|<real-floating>|(<real-floating> x, <real-floating> y)|
+hypotd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+hypotd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+hypotd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+hypotf|float|(float x, float y)|
+hypotl|long double|(long double x, long double y)|
+I|||
+if|||
+ifdef|||
+ilogb|int|(double x)|
+ilogb|int|(<real-floating> x)|
+ilogbd128|int|(_Decimal128 x)|
+ilogbd32|int|(_Decimal32 x)|
+ilogbd64|int|(_Decimal64 x)|
+ilogbf|int|(float x)|
+ilogbl|int|(long double x)|
+imaginary|||
+_Imaginary|||
+_Imaginary_I|||
+imaxabs|intmax_t|(intmax_t j)|
+imaxdiv|imaxdiv_t|(intmax_t numer, intmax_t denom)|
+imaxdiv_t|||
+include|||
+INFINITY|||
+inline|||
+int|||
+INT16_C|int16_t|(<value>)|
+INT16_MAX|||
+INT16_MIN|||
+int16_t|||
+INT16_WIDTH|||
+INT32_C|int32_t|(<value>)|
+INT32_MAX|||
+INT32_MIN|||
+int32_t|||
+INT32_WIDTH|||
+INT64_C|int64_t|(<value>)|
+INT64_MAX|||
+INT64_MIN|||
+int64_t|||
+INT64_WIDTH|||
+INT8_C|int8_t|(<value>)|
+INT8_MAX|||
+INT8_MIN|||
+int8_t|||
+INT8_WIDTH|||
+INT_FAST16_MAX|||
+INT_FAST16_MIN|||
+int_fast16_t|||
+INT_FAST16_WIDTH|||
+INT_FAST32_MAX|||
+INT_FAST32_MIN|||
+int_fast32_t|||
+INT_FAST32_WIDTH|||
+INT_FAST64_MAX|||
+INT_FAST64_MIN|||
+int_fast64_t|||
+INT_FAST64_WIDTH|||
+INT_FAST8_MAX|||
+INT_FAST8_MIN|||
+int_fast8_t|||
+INT_FAST8_WIDTH|||
+INT_LEAST16_MAX|||
+INT_LEAST16_MIN|||
+int_least16_t|||
+INT_LEAST16_WIDTH|||
+INT_LEAST32_MAX|||
+INT_LEAST32_MIN|||
+int_least32_t|||
+INT_LEAST32_WIDTH|||
+INT_LEAST64_MAX|||
+INT_LEAST64_MIN|||
+int_least64_t|||
+INT_LEAST64_WIDTH|||
+INT_LEAST8_MAX|||
+INT_LEAST8_MIN|||
+int_least8_t|||
+INT_LEAST8_WIDTH|||
+INT_MAX|||
+INTMAX_C|intmax_t|(<value>)|
+INTMAX_MAX|||
+INTMAX_MIN|||
+intmax_t|||
+INTMAX_WIDTH|||
+INT_MIN|||
+INTPTR_MAX|||
+INTPTR_MIN|||
+intptr_t|||
+INTPTR_WIDTH|||
+INT_WIDTH|||
+_IOFBF|||
+_IOLBF|||
+_IONBF|||
+isalnum|int|(int c)|
+isalpha|int|(int c)|
+isblank|int|(int c)|
+iscanonical|int|(<real-floating> x)|
+iscntrl|int|(int c)|
+isdigit|int|(int c)|
+iseqsig|int|(<real-floating> x, <real-floating> y)|
+isfinite|int|(<real-floating> x)|
+isgraph|int|(int c)|
+isgreater|int|(<real-floating> x, <real-floating> y)|
+isgreaterequal|int|(<real-floating> x, <real-floating> y)|
+isinf|int|(<real-floating> x)|
+isless|int|(<real-floating> x, <real-floating> y)|
+islessequal|int|(<real-floating> x, <real-floating> y)|
+islessgreater|int|(<real-floating> x, <real-floating> y)|
+islower|int|(int c)|
+isnan|int|(<real-floating> x)|
+isnormal|int|(<real-floating> x)|
+isprint|int|(int c)|
+ispunct|int|(int c)|
+issignaling|int|(<real-floating> x)|
+isspace|int|(int c)|
+issubnormal|int|(<real-floating> x)|
+isunordered|int|(<real-floating> x, <real-floating> y)|
+isupper|int|(int c)|
+iswalnum|int|(wint_t wc)|
+iswalpha|int|(wint_t wc)|
+iswblank|int|(wint_t wc)|
+iswcntrl|int|(wint_t wc)|
+iswctype|int|(wint_t wc, wctype_t desc)|
+iswdigit|int|(wint_t wc)|
+iswgraph|int|(wint_t wc)|
+iswlower|int|(wint_t wc)|
+iswprint|int|(wint_t wc)|
+iswpunct|int|(wint_t wc)|
+iswspace|int|(wint_t wc)|
+iswupper|int|(wint_t wc)|
+iswxdigit|int|(wint_t wc)|
+isxdigit|int|(int c)|
+iszero|int|(<real-floating> x)|
+jmp_buf|||
+kill_dependency|<type>|(<type> y)|
+labs|long int|(long int j)|
+LC_ALL|||
+LC_COLLATE|||
+LC_CTYPE|||
+LC_MONETARY|||
+LC_NUMERIC|||
+lconv|||
+LC_TIME|||
+LDBL_DECIMAL_DIG|||
+LDBL_DIG|||
+LDBL_EPSILON|||
+LDBL_HAS_SUBNORM|||
+LDBL_IS_IEC_60559|||
+LDBL_MANT_DIG|||
+LDBL_MAX|||
+LDBL_MAX_10_EXP|||
+LDBL_MAX_EXP|||
+LDBL_MIN|||
+LDBL_MIN_10_EXP|||
+LDBL_MIN_EXP|||
+LDBL_NORM_MAX|||
+LDBL_SNAN|||
+LDBL_TRUE_MIN|||
+ldexp|double|(double x, int p)|
+ldexp|<real-floating>|(<real-floating> x, int p)|
+ldexpd128|_Decimal128|(_Decimal128 x, int p)|
+ldexpd32|_Decimal32|(_Decimal32 x, int p)|
+ldexpd64|_Decimal64|(_Decimal64 x, int p)|
+ldexpf|float|(float x, int p)|
+ldexpl|long double|(long double x, int p)|
+ldiv|ldiv_t|(long int numer, long int denom)|
+ldiv_t|||
+lgamma|double|(double x)|
+lgamma|<real-floating>|(<real-floating> x)|
+lgammad128|_Decimal128|(_Decimal128 x)|
+lgammad32|_Decimal32|(_Decimal32 x)|
+lgammad64|_Decimal64|(_Decimal64 x)|
+lgammaf|float|(float x)|
+lgammal|long double|(long double x)|
+line|||
+__LINE__|||
+llabs|long long int|(long long int j)|
+lldiv|lldiv_t|(long long int numer, long long int denom)|
+lldiv_t|||
+llogb|long int|(double x)|
+llogb|long int|(<real-floating> x)|
+llogbd128|long int|(_Decimal128 x)|
+llogbd32|long int|(_Decimal32 x)|
+llogbd64|long int|(_Decimal64 x)|
+llogbf|long int|(float x)|
+llogbl|long int|(long double x)|
+LLONG_MAX|||
+LLONG_MIN|||
+LLONG_WIDTH|||
+llquantexp|long long int|(<decimal-floating> x)|
+llquantexpd128|long long int|(_Decimal128 x)|
+llquantexpd32|long long int|(_Decimal32 x)|
+llquantexpd64|long long int|(_Decimal64 x)|
+llrint|long long int|(double x)|
+llrint|long long int|(<real-floating> x)|
+llrintd128|long long int|(_Decimal128 x)|
+llrintd32|long long int|(_Decimal32 x)|
+llrintd64|long long int|(_Decimal64 x)|
+llrintf|long long int|(float x)|
+llrintl|long long int|(long double x)|
+llround|long long int|(double x)|
+llround|long long int|(<real-floating> x)|
+llroundd128|long long int|(_Decimal128 x)|
+llroundd32|long long int|(_Decimal32 x)|
+llroundd64|long long int|(_Decimal64 x)|
+llroundf|long long int|(float x)|
+llroundl|long long int|(long double x)|
+localeconv|struct lconv *|(void)|
+localtime|struct tm *|(const time_t *timer)|
+localtime_r|struct tm *|(const time_t *timer, struct tm *buf)|
+log|double|(double x)|
+log|<real-floating>|(<real-floating> x)|
+log10|double|(double x)|
+log10|<real-floating>|(<real-floating> x)|
+log10d128|_Decimal128|(_Decimal128 x)|
+log10d32|_Decimal32|(_Decimal32 x)|
+log10d64|_Decimal64|(_Decimal64 x)|
+log10f|float|(float x)|
+log10l|long double|(long double x)|
+log10p1|double|(double x)|
+log10p1|<real-floating>|(<real-floating> x)|
+log10p1d128|_Decimal128|(_Decimal128 x)|
+log10p1d32|_Decimal32|(_Decimal32 x)|
+log10p1d64|_Decimal64|(_Decimal64 x)|
+log10p1f|float|(float x)|
+log10p1l|long double|(long double x)|
+log1p|double|(double x)|
+log1p|<real-floating>|(<real-floating> x)|
+log1pd128|_Decimal128|(_Decimal128 x)|
+log1pd32|_Decimal32|(_Decimal32 x)|
+log1pd64|_Decimal64|(_Decimal64 x)|
+log1pf|float|(float x)|
+log1pl|long double|(long double x)|
+log2|double|(double x)|
+log2|<real-floating>|(<real-floating> x)|
+log2d128|_Decimal128|(_Decimal128 x)|
+log2d32|_Decimal32|(_Decimal32 x)|
+log2d64|_Decimal64|(_Decimal64 x)|
+log2f|float|(float x)|
+log2l|long double|(long double x)|
+log2p1|double|(double x)|
+log2p1|<real-floating>|(<real-floating> x)|
+log2p1d128|_Decimal128|(_Decimal128 x)|
+log2p1d32|_Decimal32|(_Decimal32 x)|
+log2p1d64|_Decimal64|(_Decimal64 x)|
+log2p1f|float|(float x)|
+log2p1l|long double|(long double x)|
+logb|double|(double x)|
+logb|<real-floating>|(<real-floating> x)|
+logbd128|_Decimal128|(_Decimal128 x)|
+logbd32|_Decimal32|(_Decimal32 x)|
+logbd64|_Decimal64|(_Decimal64 x)|
+logbf|float|(float x)|
+logbl|long double|(long double x)|
+logd128|_Decimal128|(_Decimal128 x)|
+logd32|_Decimal32|(_Decimal32 x)|
+logd64|_Decimal64|(_Decimal64 x)|
+logf|float|(float x)|
+logl|long double|(long double x)|
+logp1|double|(double x)|
+logp1|<real-floating>|(<real-floating> x)|
+logp1d128|_Decimal128|(_Decimal128 x)|
+logp1d32|_Decimal32|(_Decimal32 x)|
+logp1d64|_Decimal64|(_Decimal64 x)|
+logp1f|float|(float x)|
+logp1l|long double|(long double x)|
+long|||
+longjmp|[[noreturn]] void|(jmp_buf env, int val)|
+LONG_MAX|||
+LONG_MIN|||
+LONG_WIDTH|||
+lrint|long int|(double x)|
+lrint|long int|(<real-floating> x)|
+lrintd128|long int|(_Decimal128 x)|
+lrintd32|long int|(_Decimal32 x)|
+lrintd64|long int|(_Decimal64 x)|
+lrintf|long int|(float x)|
+lrintl|long int|(long double x)|
+lround|long int|(double x)|
+lround|long int|(<real-floating> x)|
+lroundd128|long int|(_Decimal128 x)|
+lroundd32|long int|(_Decimal32 x)|
+lroundd64|long int|(_Decimal64 x)|
+lroundf|long int|(float x)|
+lroundl|long int|(long double x)|
+L_tmpnam|||
+malloc|void *|(size_t size)|
+MATH_ERREXCEPT|||
+math_errhandling|||
+MATH_ERRNO|||
+max_align_t|||
+maybe_unused|||
+MB_CUR_MAX|||
+mblen|int|(const char *s, size_t n)|
+MB_LEN_MAX|||
+mbrlen|size_t|(const char * restrict s, size_t n, mbstate_t * restrict ps)|
+mbrtoc16|size_t|(char16_t * restrict pc16, const char * restrict s, size_t n, mbstate_t * restrict ps)|
+mbrtoc32|size_t|(char32_t * restrict pc32, const char * restrict s, size_t n, mbstate_t * restrict ps)|
+mbrtoc8|size_t|(char8_t * restrict pc8, const char * restrict s, size_t n, mbstate_t * restrict ps)|
+mbrtowc|size_t|(wchar_t * restrict pwc, const char * restrict s, size_t n, mbstate_t * restrict ps)|
+mbsinit|int|(const mbstate_t *ps)|
+mbsrtowcs|size_t|(wchar_t * restrict dst, const char ** restrict src, size_t len, mbstate_t * restrict ps)|
+mbstate_t|||
+mbstowcs|size_t|(wchar_t * restrict pwcs, const char * restrict s, size_t n)|
+mbtowc|int|(wchar_t * restrict pwc, const char * restrict s, size_t n)|
+memalignment|size_t|(const void * p)|
+memccpy|void *|(void * restrict s1, const void * restrict s2, int c, size_t n)|
+memchr|<QVoid> *|(<QVoid> *s, int c, size_t n)|
+memcmp|int|(const void *s1, const void *s2, size_t n)|
+memcpy|void *|(void * restrict s1, const void * restrict s2, size_t n)|
+memmove|void *|(void *s1, const void *s2, size_t n)|
+memory_order|||
+memory_order_acq_rel|||
+memory_order_acquire|||
+memory_order_consume|||
+memory_order_relaxed|||
+memory_order_release|||
+memory_order_seq_cst|||
+memset|void *|(void *s, int c, size_t n)|
+memset_explicit|void *|(void *s, int c, size_t n)|
+mktime|time_t|(struct tm *timeptr)|
+modf|double|(double value, double *iptr)|
+modfd128|_Decimal128|(_Decimal128 x, _Decimal128 *iptr)|
+modfd32|_Decimal32|(_Decimal32 x, _Decimal32 *iptr)|
+modfd64|_Decimal64|(_Decimal64 x, _Decimal64 *iptr)|
+modff|float|(float value, float *iptr)|
+modfl|long double|(long double value, long double *iptr)|
+mtx_destroy|void|(mtx_t *mtx)|
+mtx_init|int|(mtx_t *mtx, int type)|
+mtx_lock|int|(mtx_t *mtx)|
+mtx_plain|||
+mtx_recursive|||
+mtx_t|||
+mtx_timed|||
+mtx_timedlock|int|(mtx_t * restrict mtx, const struct timespec * restrict ts)|
+mtx_trylock|int|(mtx_t *mtx)|
+mtx_unlock|int|(mtx_t *mtx)|
+nan|double|(const char *tagp)|
+NAN|||
+nand128|_Decimal128|(const char *tagp)|
+nand32|_Decimal32|(const char *tagp)|
+nand64|_Decimal64|(const char *tagp)|
+nanf|float|(const char *tagp)|
+nanl|long double|(const char *tagp)|
+NDEBUG|||
+nearbyint|double|(double x)|
+nearbyint|<real-floating>|(<real-floating> x)|
+nearbyintd128|_Decimal128|(_Decimal128 x)|
+nearbyintd32|_Decimal32|(_Decimal32 x)|
+nearbyintd64|_Decimal64|(_Decimal64 x)|
+nearbyintf|float|(float x)|
+nearbyintl|long double|(long double x)|
+nextafter|double|(double x, double y)|
+nextafter|<real-floating>|(<real-floating> x, <real-floating> y)|
+nextafterd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+nextafterd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+nextafterd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+nextafterf|float|(float x, float y)|
+nextafterl|long double|(long double x, long double y)|
+nextdown|double|(double x)|
+nextdown|<real-floating>|(<real-floating> x)|
+nextdownd128|_Decimal128|(_Decimal128 x)|
+nextdownd32|_Decimal32|(_Decimal32 x)|
+nextdownd64|_Decimal64|(_Decimal64 x)|
+nextdownf|float|(float x)|
+nextdownl|long double|(long double x)|
+nexttoward|double|(double x, long double y)|
+nexttoward|<real-floating>|(<real-floating> x, <real-floating> y)|
+nexttowardd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+nexttowardd32|_Decimal32|(_Decimal32 x, _Decimal128 y)|
+nexttowardd64|_Decimal64|(_Decimal64 x, _Decimal128 y)|
+nexttowardf|float|(float x, long double y)|
+nexttowardl|long double|(long double x, long double y)|
+nextup|double|(double x)|
+nextup|<real-floating>|(<real-floating> x)|
+nextupd128|_Decimal128|(_Decimal128 x)|
+nextupd32|_Decimal32|(_Decimal32 x)|
+nextupd64|_Decimal64|(_Decimal64 x)|
+nextupf|float|(float x)|
+nextupl|long double|(long double x)|
+nodiscard|||
+noreturn|||
+_Noreturn|||
+not|||
+not_eq|||
+NULL|||
+nullptr|||
+nullptr_t|||
+OFF|||
+offsetof|size_t|(<type>, <member-designator>)|
+ON|||
+once_flag|||
+ONCE_FLAG_INIT|||
+or|||
+or_eq|||
+perror|void|(const char *s)|
+pow|double|(double x, double y)|
+powd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+powd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+powd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+powf|float|(float x, float y)|
+powg|<real-floating>|(<real-floating> x, <real-floating> y)|
+powl|long double|(long double x, long double y)|
+pown|double|(double x, long long int n)|
+pown|<real-floating>|(<real-floating> x, long long int n)|
+pownd128|_Decimal128|(_Decimal128 x, long long int n)|
+pownd32|_Decimal32|(_Decimal32 x, long long int n)|
+pownd64|_Decimal64|(_Decimal64 x, long long int n)|
+pownf|float|(float x, long long int n)|
+pownl|long double|(long double x, long long int n)|
+powr|double|(double y, double x)|
+powr|<real-floating>|(<real-floating> x, <real-floating> y)|
+powrd128|_Decimal128|(_Decimal128 y, _Decimal128 x)|
+powrd32|_Decimal32|(_Decimal32 y, _Decimal32 x)|
+powrd64|_Decimal64|(_Decimal64 y, _Decimal64 x)|
+powrf|float|(float y, float x)|
+powrl|long double|(long double y, long double x)|
+pragma|||
+PRId16|||
+PRId32|||
+PRId64|||
+PRId8|||
+PRIdFAST16|||
+PRIdFAST32|||
+PRIdFAST64|||
+PRIdFAST8|||
+PRIdLEAST16|||
+PRIdLEAST32|||
+PRIdLEAST64|||
+PRIdLEAST8|||
+PRIdMAX|||
+PRIdPTR|||
+PRIi16|||
+PRIi32|||
+PRIi64|||
+PRIi8|||
+PRIiFAST16|||
+PRIiFAST32|||
+PRIiFAST64|||
+PRIiFAST8|||
+PRIiLEAST16|||
+PRIiLEAST32|||
+PRIiLEAST64|||
+PRIiLEAST8|||
+PRIiMAX|||
+PRIiPTR|||
+printf|int|(const char * restrict format, ...)|
+_PRINTF_NAN_LEN_MAX|||
+PRIo16|||
+PRIo32|||
+PRIo64|||
+PRIo8|||
+PRIoFAST16|||
+PRIoFAST32|||
+PRIoFAST64|||
+PRIoFAST8|||
+PRIoLEAST16|||
+PRIoLEAST32|||
+PRIoLEAST64|||
+PRIoLEAST8|||
+PRIoMAX|||
+PRIoPTR|||
+PRIu16|||
+PRIu32|||
+PRIu64|||
+PRIu8|||
+PRIuFAST16|||
+PRIuFAST32|||
+PRIuFAST64|||
+PRIuFAST8|||
+PRIuLEAST16|||
+PRIuLEAST32|||
+PRIuLEAST64|||
+PRIuLEAST8|||
+PRIuMAX|||
+PRIuPTR|||
+PRIx16|||
+PRIX16|||
+PRIx32|||
+PRIX32|||
+PRIx64|||
+PRIX64|||
+PRIx8|||
+PRIX8|||
+PRIxFAST16|||
+PRIXFAST16|||
+PRIxFAST32|||
+PRIXFAST32|||
+PRIxFAST64|||
+PRIXFAST64|||
+PRIxFAST8|||
+PRIXFAST8|||
+PRIxLEAST16|||
+PRIXLEAST16|||
+PRIxLEAST32|||
+PRIXLEAST32|||
+PRIxLEAST64|||
+PRIXLEAST64|||
+PRIxLEAST8|||
+PRIXLEAST8|||
+PRIxMAX|||
+PRIXMAX|||
+PRIxPTR|||
+PRIXPTR|||
+PTRDIFF_MAX|||
+PTRDIFF_MIN|||
+ptrdiff_t|||
+putc|int|(int c, FILE *stream)|
+putchar|int|(int c)|
+puts|int|(const char *s)|
+putwc|wint_t|(wchar_t c, FILE *stream)|
+putwchar|wint_t|(wchar_t c)|
+qsort|void|(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *))|
+quantize|<decimal-floating>|(<decimal-floating> x, <decimal-floating> y)|
+quantized128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+quantized32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+quantized64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+quantum|<decimal-floating>|(<decimal-floating> x)|
+quantumd128|_Decimal128|(_Decimal128 x)|
+quantumd32|_Decimal32|(_Decimal32 x)|
+quantumd64|_Decimal64|(_Decimal64 x)|
+quick_exit|[[noreturn]] void|(int status)|
+raise|int|(int sig)|
+rand|int|(void)|
+RAND_MAX|||
+realloc|void *|(void *ptr, size_t size)|
+register|||
+remainder|double|(double x, double y)|
+remainder|<real-floating>|(<real-floating> x, <real-floating> y)|
+remainderd128|_Decimal128|(_Decimal128 x, _Decimal128 y)|
+remainderd32|_Decimal32|(_Decimal32 x, _Decimal32 y)|
+remainderd64|_Decimal64|(_Decimal64 x, _Decimal64 y)|
+remainderf|float|(float x, float y)|
+remainderl|long double|(long double x, long double y)|
+remove|int|(const char *filename)|
+remquo|double|(double x, double y, int *quo)|
+remquo|<real-floating>|(<real-floating> x, <real-floating> y, int *quo)|
+remquof|float|(float x, float y, int *quo)|
+remquol|long double|(long double x, long double y, int *quo)|
+rename|int|(const char *old, const char *new)|
+reproducible|||
+restrict|||
+return|||
+rewind|void|(FILE *stream)|
+rint|double|(double x)|
+rint|<real-floating>|(<real-floating> x)|
+rintd128|_Decimal128|(_Decimal128 x)|
+rintd32|_Decimal32|(_Decimal32 x)|
+rintd64|_Decimal64|(_Decimal64 x)|
+rintf|float|(float x)|
+rintl|long double|(long double x)|
+rootn|double|(double x, long long int n)|
+rootn|<real-floating>|(<real-floating> x, long long int n)|
+rootnd128|_Decimal128|(_Decimal128 x, long long int n)|
+rootnd32|_Decimal32|(_Decimal32 x, long long int n)|
+rootnd64|_Decimal64|(_Decimal64 x, long long int n)|
+rootnf|float|(float x, long long int n)|
+rootnl|long double|(long double x, long long int n)|
+round|double|(double x)|
+round|<real-floating>|(<real-floating> x)|
+roundd128|_Decimal128|(_Decimal128 x)|
+roundd32|_Decimal32|(_Decimal32 x)|
+roundd64|_Decimal64|(_Decimal64 x)|
+roundeven|double|(double x)|
+roundeven|<real-floating>|(<real-floating> x)|
+roundevend128|_Decimal128|(_Decimal128 x)|
+roundevend32|_Decimal32|(_Decimal32 x)|
+roundevend64|_Decimal64|(_Decimal64 x)|
+roundevenf|float|(float x)|
+roundevenl|long double|(long double x)|
+roundf|float|(float x)|
+roundl|long double|(long double x)|
+rsqrt|double|(double x)|
+rsqrt|<real-floating>|(<real-floating> x)|
+rsqrtd128|_Decimal128|(_Decimal128 x)|
+rsqrtd32|_Decimal32|(_Decimal32 x)|
+rsqrtd64|_Decimal64|(_Decimal64 x)|
+rsqrtf|float|(float x)|
+rsqrtl|long double|(long double x)|
+samequantum|bool|(<decimal-floating> x, <decimal-floating> y)|
+samequantumd128|bool|(_Decimal128 x, _Decimal128 y)|
+samequantumd32|bool|(_Decimal32 x, _Decimal32 y)|
+samequantumd64|bool|(_Decimal64 x, _Decimal64 y)|
+scalbln|double|(double x, long int n)|
+scalbln|<real-floating>|(<real-floating> x, long int n)|
+scalblnd128|_Decimal128|(_Decimal128 x, long int n)|
+scalblnd32|_Decimal32|(_Decimal32 x, long int n)|
+scalblnd64|_Decimal64|(_Decimal64 x, long int n)|
+scalblnf|float|(float x, long int n)|
+scalblnl|long double|(long double x, long int n)|
+scalbn|double|(double x, int n)|
+scalbn|<real-floating>|(<real-floating> x, int n)|
+scalbnd128|_Decimal128|(_Decimal128 x, int n)|
+scalbnd32|_Decimal32|(_Decimal32 x, int n)|
+scalbnd64|_Decimal64|(_Decimal64 x, int n)|
+scalbnf|float|(float x, int n)|
+scalbnl|long double|(long double x, int n)|
+scanf|int|(const char * restrict format, ...)|
+SCHAR_MAX|||
+SCHAR_MIN|||
+SCHAR_WIDTH|||
+SCNd16|||
+SCNd32|||
+SCNd64|||
+SCNd8|||
+SCNdFAST16|||
+SCNdFAST32|||
+SCNdFAST64|||
+SCNdFAST8|||
+SCNdLEAST16|||
+SCNdLEAST32|||
+SCNdLEAST64|||
+SCNdLEAST8|||
+SCNdMAX|||
+SCNdPTR|||
+SCNi16|||
+SCNi32|||
+SCNi64|||
+SCNi8|||
+SCNiFAST16|||
+SCNiFAST32|||
+SCNiFAST64|||
+SCNiFAST8|||
+SCNiLEAST16|||
+SCNiLEAST32|||
+SCNiLEAST64|||
+SCNiLEAST8|||
+SCNiMAX|||
+SCNiPTR|||
+SCNo16|||
+SCNo32|||
+SCNo64|||
+SCNo8|||
+SCNoFAST16|||
+SCNoFAST32|||
+SCNoFAST64|||
+SCNoFAST8|||
+SCNoLEAST16|||
+SCNoLEAST32|||
+SCNoLEAST64|||
+SCNoLEAST8|||
+SCNoMAX|||
+SCNoPTR|||
+SCNu16|||
+SCNu32|||
+SCNu64|||
+SCNu8|||
+SCNuFAST16|||
+SCNuFAST32|||
+SCNuFAST64|||
+SCNuFAST8|||
+SCNuLEAST16|||
+SCNuLEAST32|||
+SCNuLEAST64|||
+SCNuLEAST8|||
+SCNuMAX|||
+SCNuPTR|||
+SCNx16|||
+SCNx32|||
+SCNx64|||
+SCNx8|||
+SCNxFAST16|||
+SCNxFAST32|||
+SCNxFAST64|||
+SCNxFAST8|||
+SCNxLEAST16|||
+SCNxLEAST32|||
+SCNxLEAST64|||
+SCNxLEAST8|||
+SCNxMAX|||
+SCNxPTR|||
+SEEK_CUR|||
+SEEK_END|||
+SEEK_SET|||
+setbuf|void|(FILE * restrict stream, char * restrict buf)|
+setjmp|int|(jmp_buf env)|
+setlocale|char *|(int category, const char *locale)|
+setvbuf|int|(FILE * restrict stream, char * restrict buf, int mode, size_t size)|
+short|||
+SHRT_MAX|||
+SHRT_MIN|||
+SHRT_WIDTH|||
+SIGABRT|||
+SIG_ATOMIC_MAX|||
+SIG_ATOMIC_MIN|||
+sig_atomic_t|||
+SIG_ATOMIC_WIDTH|||
+SIG_DFL|||
+SIG_ERR|||
+SIGFPE|||
+SIG_IGN|||
+SIGILL|||
+SIGINT|||
+signal|void (*|(int sig, void (*func)(int)))(int)|
+signbit|int|(<real-floating> x)|
+signed|||
+SIGSEGV|||
+SIGTERM|||
+sin|double|(double x)|
+sin|<real-floating>|(<real-floating> x)|
+sind128|_Decimal128|(_Decimal128 x)|
+sind32|_Decimal32|(_Decimal32 x)|
+sind64|_Decimal64|(_Decimal64 x)|
+sinf|float|(float x)|
+sinh|double|(double x)|
+sinh|<real-floating>|(<real-floating> x)|
+sinhd128|_Decimal128|(_Decimal128 x)|
+sinhd32|_Decimal32|(_Decimal32 x)|
+sinhd64|_Decimal64|(_Decimal64 x)|
+sinhf|float|(float x)|
+sinhl|long double|(long double x)|
+sinl|long double|(long double x)|
+sinpi|double|(double x)|
+sinpi|<real-floating>|(<real-floating> x)|
+sinpid128|_Decimal128|(_Decimal128 x)|
+sinpid32|_Decimal32|(_Decimal32 x)|
+sinpid64|_Decimal64|(_Decimal64 x)|
+sinpif|float|(float x)|
+sinpil|long double|(long double x)|
+SIZE_MAX|||
+sizeof|||
+sizeof|size_t|(<expression>)|
+sizeof|size_t|(<type-name>)|
+size_t|||
+SIZE_WIDTH|||
+snprintf|int|(char * restrict s, size_t n, const char * restrict format, ...)|
+sprintf|int|(char * restrict s, const char * restrict format, ...)|
+sqrt|double|(double x)|
+sqrt|<real-floating>|(<real-floating> x)|
+sqrtd128|_Decimal128|(_Decimal128 x)|
+sqrtd32|_Decimal32|(_Decimal32 x)|
+sqrtd64|_Decimal64|(_Decimal64 x)|
+sqrtf|float|(float x)|
+sqrtl|long double|(long double x)|
+srand|void|(unsigned int seed)|
+sscanf|int|(const char * restrict s, const char * restrict format, ...)|
+static|||
+static_assert||(<constant-expression>)|
+static_assert||(<constant-expression>, <string-litteral>)|
+_Static_assert||(<constant-expression>)|
+_Static_assert||(<constant-expression>, <string-litteral>)|
+__STDC__|||
+STDC|||
+__STDC_ANALYZABLE__|||
+stdc_bit_ceil|generic_value_type|(generic_value_type value)|
+stdc_bit_ceil_uc|unsigned char|(unsigned char value)|
+stdc_bit_ceil_ui|unsigned int|(unsigned int value)|
+stdc_bit_ceil_ul|unsigned long|(unsigned long value)|
+stdc_bit_ceil_ull|unsigned long long|(unsigned long long value)|
+stdc_bit_ceil_us|unsigned short|(unsigned short value)|
+stdc_bit_floor|generic_value_type|(generic_value_type value)|
+stdc_bit_floor_uc|unsigned char|(unsigned char value)|
+stdc_bit_floor_ui|unsigned int|(unsigned int value)|
+stdc_bit_floor_ul|unsigned long|(unsigned long value)|
+stdc_bit_floor_ull|unsigned long long|(unsigned long long value)|
+stdc_bit_floor_us|unsigned short|(unsigned short value)|
+stdc_bit_width|generic_return_type|(generic_value_type value)|
+stdc_bit_width_uc|unsigned int|(unsigned char value)|
+stdc_bit_width_ui|unsigned int|(unsigned int value)|
+stdc_bit_width_ul|unsigned int|(unsigned long value)|
+stdc_bit_width_ull|unsigned int|(unsigned long long value)|
+stdc_bit_width_us|unsigned int|(unsigned short value)|
+stdc_count_ones|generic_return_type|(generic_value_type value)|
+stdc_count_ones_uc|unsigned int|(unsigned char value)|
+stdc_count_ones_ui|unsigned int|(unsigned int value)|
+stdc_count_ones_ul|unsigned int|(unsigned long value)|
+stdc_count_ones_ull|unsigned int|(unsigned long long value)|
+stdc_count_ones_us|unsigned int|(unsigned short value)|
+stdc_count_zeros|generic_return_type|(generic_value_type value)|
+stdc_count_zeros_uc|unsigned int|(unsigned char value)|
+stdc_count_zeros_ui|unsigned int|(unsigned int value)|
+stdc_count_zeros_ul|unsigned int|(unsigned long value)|
+stdc_count_zeros_ull|unsigned int|(unsigned long long value)|
+stdc_count_zeros_us|unsigned int|(unsigned short value)|
+__STDC_EMBED_EMPTY__|||
+__STDC_EMBED_FOUND__|||
+__STDC_EMBED_NOT_FOUND__|||
+__STDC_ENDIAN_BIG__|||
+__STDC_ENDIAN_LITTLE__|||
+__STDC_ENDIAN_NATIVE__|||
+stdc_first_leading_one|generic_return_type|(generic_value_type value)|
+stdc_first_leading_one_uc|unsigned int|(unsigned char value)|
+stdc_first_leading_one_ui|unsigned int|(unsigned int value)|
+stdc_first_leading_one_ul|unsigned int|(unsigned long value)|
+stdc_first_leading_one_ull|unsigned int|(unsigned long long value)|
+stdc_first_leading_one_us|unsigned int|(unsigned short value)|
+stdc_first_leading_zero|generic_return_type|(generic_value_type value)|
+stdc_first_leading_zero_uc|unsigned int|(unsigned char value)|
+stdc_first_leading_zero_ui|unsigned int|(unsigned int value)|
+stdc_first_leading_zero_ul|unsigned int|(unsigned long value)|
+stdc_first_leading_zero_ull|unsigned int|(unsigned long long value)|
+stdc_first_leading_zero_us|unsigned int|(unsigned short value)|
+stdc_first_trailing_one|generic_return_type|(generic_value_type value)|
+stdc_first_trailing_one_uc|unsigned int|(unsigned char value)|
+stdc_first_trailing_one_ui|unsigned int|(unsigned int value)|
+stdc_first_trailing_one_ul|unsigned int|(unsigned long value)|
+stdc_first_trailing_one_ull|unsigned int|(unsigned long long value)|
+stdc_first_trailing_one_us|unsigned int|(unsigned short value)|
+stdc_first_trailing_zero|generic_return_type|(generic_value_type value)|
+stdc_first_trailing_zero_uc|unsigned int|(unsigned char value)|
+stdc_first_trailing_zero_ui|unsigned int|(unsigned int value)|
+stdc_first_trailing_zero_ul|unsigned int|(unsigned long value)|
+stdc_first_trailing_zero_ull|unsigned int|(unsigned long long value)|
+stdc_first_trailing_zero_us|unsigned int|(unsigned short value)|
+stdc_has_single_bit|bool|(generic_value_type value)|
+stdc_has_single_bit_uc|bool|(unsigned char value)|
+stdc_has_single_bit_ui|bool|(unsigned int value)|
+stdc_has_single_bit_ul|bool|(unsigned long value)|
+stdc_has_single_bit_ull|bool|(unsigned long long value)|
+stdc_has_single_bit_us|bool|(unsigned short value)|
+__STDC_HOSTED__|||
+__STDC_IEC_559__|||
+__STDC_IEC_559_COMPLEX__|||
+__STDC_IEC_60559_BFP__|||
+__STDC_IEC_60559_COMPLEX__|||
+__STDC_IEC_60559_DFP__|||
+__STDC_IEC_60559_TYPES__|||
+__STDC_ISO_10646__|||
+stdc_leading_ones|generic_return_type|(generic_value_type value)|
+stdc_leading_ones_uc|unsigned int|(unsigned char value)|
+stdc_leading_ones_ui|unsigned int|(unsigned int value)|
+stdc_leading_ones_ul|unsigned int|(unsigned long value)|
+stdc_leading_ones_ull|unsigned int|(unsigned long long value)|
+stdc_leading_ones_us|unsigned int|(unsigned short value)|
+stdc_leading_zeros|generic_return_type|(generic_value_type value)|
+stdc_leading_zeros_uc|unsigned int|(unsigned char value)|
+stdc_leading_zeros_ui|unsigned int|(unsigned int value)|
+stdc_leading_zeros_ul|unsigned int|(unsigned long value)|
+stdc_leading_zeros_ull|unsigned int|(unsigned long long value)|
+stdc_leading_zeros_us|unsigned int|(unsigned short value)|
+__STDC_LIB_EXT1__|||
+__STDC_MB_MIGHT_NEQ_WC__|||
+__STDC_NO_ATOMICS__|||
+__STDC_NO_COMPLEX__|||
+__STDC_NO_THREADS__|||
+__STDC_NO_VLA__|||
+stdc_trailing_ones|generic_return_type|(generic_value_type value)|
+stdc_trailing_ones_uc|unsigned int|(unsigned char value)|
+stdc_trailing_ones_ui|unsigned int|(unsigned int value)|
+stdc_trailing_ones_ul|unsigned int|(unsigned long value)|
+stdc_trailing_ones_ull|unsigned int|(unsigned long long value)|
+stdc_trailing_ones_us|unsigned int|(unsigned short value)|
+stdc_trailing_zeros|generic_return_type|(generic_value_type value)|
+stdc_trailing_zeros_uc|unsigned int|(unsigned char value)|
+stdc_trailing_zeros_ui|unsigned int|(unsigned int value)|
+stdc_trailing_zeros_ul|unsigned int|(unsigned long value)|
+stdc_trailing_zeros_ull|unsigned int|(unsigned long long value)|
+stdc_trailing_zeros_us|unsigned int|(unsigned short value)|
+__STDC_UTF_16__|||
+__STDC_UTF_32__|||
+__STDC_VERSION__|||
+__STDC_VERSION_ASSERT_H__|||
+__STDC_VERSION_COMPLEX_H__|||
+__STDC_VERSION_FENV_H__|||
+__STDC_VERSION_FLOAT_H__|||
+__STDC_VERSION_LIMITS_H__|||
+__STDC_VERSION_MATH_H__|||
+__STDC_VERSION_SETJMP_H__|||
+__STDC_VERSION_STDARG_H__|||
+__STDC_VERSION_STDATOMIC_H__|||
+__STDC_VERSION_STDBIT_H__|||
+__STDC_VERSION_STDCKDINT_H__|||
+__STDC_VERSION_STDDEF_H__|||
+__STDC_VERSION_STDINT_H__|||
+__STDC_VERSION_STDIO_H__|||
+__STDC_VERSION_STDLIB_H__|||
+__STDC_VERSION_STRING_H__|||
+__STDC_VERSION_TGMATH_H__|||
+__STDC_VERSION_TIME_H__|||
+__STDC_VERSION_UCHAR_H__|||
+__STDC_VERSION_WCHAR_H__|||
+stderr|||
+stdin|||
+stdout|||
+strcat|char *|(char * restrict s1, const char * restrict s2)|
+strchr|<QChar> *|(<QChar> *s, int c)|
+strcmp|int|(const char *s1, const char *s2)|
+strcoll|int|(const char *s1, const char *s2)|
+strcpy|char *|(char * restrict s1, const char * restrict s2)|
+strcspn|size_t|(const char *s1, const char *s2)|
+strdup|char *|(const char *s)|
+strerror|char *|(int errnum)|
+strfromd|int|(char * restrict s, size_t n, const char * restrict format, double fp)|
+strfromd128|int|(char * restrict s, size_t n, const char * restrict format, _Decimal128 fp)|
+strfromd32|int|(char * restrict s, size_t n, const char * restrict format, _Decimal32 fp)|
+strfromd64|int|(char * restrict s, size_t n, const char * restrict format, _Decimal64 fp)|
+strfromf|int|(char * restrict s, size_t n, const char * restrict format, float fp)|
+strfroml|int|(char * restrict s, size_t n, const char * restrict format, long double fp)|
+strftime|size_t|(char * restrict s, size_t maxsize, const char * restrict format, const struct tm * restrict timeptr)|
+strlen|size_t|(const char *s)|
+strncat|char *|(char * restrict s1, const char * restrict s2, size_t n)|
+strncmp|int|(const char *s1, const char *s2, size_t n)|
+strncpy|char *|(char * restrict s1, const char * restrict s2, size_t n)|
+strndup|char *|(const char *s, size_t size)|
+strpbrk|<QChar> *|(<QChar> *s1, const char *s2)|
+strrchr|<QChar> *|(<QChar> *s, int c)|
+strspn|size_t|(const char *s1, const char *s2)|
+strstr|<QChar> *|(<QChar> *s1, const char *s2)|
+strtod|double|(const char * restrict nptr, char ** restrict endptr)|
+strtof|float|(const char * restrict nptr, char ** restrict endptr)|
+strtoimax|intmax_t|(const char * restrict nptr, char ** restrict endptr, int base)|
+strtok|char *|(char * restrict s1, const char * restrict s2)|
+strtol|long int|(const char * restrict nptr, char ** restrict endptr, int base)|
+strtold|long double|(const char * restrict nptr, char ** restrict endptr)|
+strtoll|long long int|(const char * restrict nptr, char ** restrict endptr, int base)|
+strtoul|unsigned long int|(const char * restrict nptr, char ** restrict endptr, int base)|
+strtoull|unsigned long long int|(const char * restrict nptr, char ** restrict endptr, int base)|
+strtoumax|uintmax_t|(const char * restrict nptr, char ** restrict endptr, int base)|
+struct|||
+strxfrm|size_t|(char * restrict s1, const char * restrict s2, size_t n)|
+switch|||
+swprintf|int|(wchar_t * restrict s, size_t n, const wchar_t * restrict format, ...)|
+swscanf|int|(const wchar_t * restrict s, const wchar_t * restrict format, ...)|
+system|int|(const char *string)|
+tan|double|(double x)|
+tan|<real-floating>|(<real-floating> x)|
+tand128|_Decimal128|(_Decimal128 x)|
+tand32|_Decimal32|(_Decimal32 x)|
+tand64|_Decimal64|(_Decimal64 x)|
+tanf|float|(float x)|
+tanh|double|(double x)|
+tanh|<real-floating>|(<real-floating> x)|
+tanhd128|_Decimal128|(_Decimal128 x)|
+tanhd32|_Decimal32|(_Decimal32 x)|
+tanhd64|_Decimal64|(_Decimal64 x)|
+tanhf|float|(float x)|
+tanhl|long double|(long double x)|
+tanl|long double|(long double x)|
+tanpi|double|(double x)|
+tanpi|<real-floating>|(<real-floating> x)|
+tanpid128|_Decimal128|(_Decimal128 x)|
+tanpid32|_Decimal32|(_Decimal32 x)|
+tanpid64|_Decimal64|(_Decimal64 x)|
+tanpif|float|(float x)|
+tanpil|long double|(long double x)|
+tgamma|double|(double x)|
+tgamma|<real-floating>|(<real-floating> x)|
+tgammad128|_Decimal128|(_Decimal128 x)|
+tgammad32|_Decimal32|(_Decimal32 x)|
+tgammad64|_Decimal64|(_Decimal64 x)|
+tgammaf|float|(float x)|
+tgammal|long double|(long double x)|
+thrd_busy|||
+thrd_create|int|(thrd_t *thr, thrd_start_t func, void *arg)|
+thrd_current|thrd_t|(void)|
+thrd_detach|int|(thrd_t thr)|
+thrd_equal|int|(thrd_t thr0, thrd_t thr1)|
+thrd_error|||
+thrd_exit|[[noreturn]] void|(int res)|
+thrd_join|int|(thrd_t thr, int *res)|
+thrd_nomem|||
+thrd_sleep|int|(const struct timespec *duration, struct timespec *remaining)|
+thrd_start_t|||
+thrd_success|||
+thrd_t|||
+thrd_timedout|||
+thrd_yield|void|(void)|
+thread_local|||
+_Thread_local|||
+time|time_t|(time_t *timer)|
+__TIME__|||
+TIME_ACTIVE|||
+timegm|time_t|(struct tm *timeptr)|
+TIME_MONOTONIC|||
+timespec|||
+timespec_get|int|(struct timespec *ts, int base)|
+timespec_getres|int|(struct timespec *ts, int base)|
+time_t|||
+TIME_THREAD_ACTIVE|||
+TIME_UTC|||
+tm|||
+tm_hour|||
+tm_isdst|||
+tm_mday|||
+tm_min|||
+tm_mon|||
+tmpfile|FILE *|(void)|
+TMP_MAX|||
+tmpnam|char *|(char *s)|
+tm_sec|||
+tm_wday|||
+tm_yday|||
+tm_year|||
+tolower|int|(int c)|
+toupper|int|(int c)|
+towctrans|wint_t|(wint_t wc, wctrans_t desc)|
+towlower|wint_t|(wint_t wc)|
+towupper|wint_t|(wint_t wc)|
+true|||
+trunc|double|(double x)|
+trunc|<real-floating>|(<real-floating> x)|
+truncd128|_Decimal128|(_Decimal128 x)|
+truncd32|_Decimal32|(_Decimal32 x)|
+truncd64|_Decimal64|(_Decimal64 x)|
+truncf|float|(float x)|
+truncl|long double|(long double x)|
+tss_create|int|(tss_t *key, tss_dtor_t dtor)|
+tss_delete|void|(tss_t key)|
+TSS_DTOR_ITERATIONS|||
+tss_dtor_t|||
+tss_get|void *|(tss_t key)|
+tss_set|int|(tss_t key, void *val)|
+tss_t|||
+typedef|||
+typeof|<type>|(<typeof-specifier-argument>)|
+typeof_unqual|<type>|(<typeof-specifier-argument>)|
+UCHAR_MAX|||
+UCHAR_WIDTH|||
+ufromfp|double|(double x, int rnd, unsigned int width)|
+ufromfp|<real-floating>|(<real-floating> x, int rnd, unsigned int width)|
+ufromfpd128|_Decimal128|(_Decimal128 x, int rnd, unsigned int width)|
+ufromfpd32|_Decimal32|(_Decimal32 x, int rnd, unsigned int width)|
+ufromfpd64|_Decimal64|(_Decimal64 x, int rnd, unsigned int width)|
+ufromfpf|float|(float x, int rnd, unsigned int width)|
+ufromfpl|long double|(long double x, int rnd, unsigned int width)|
+ufromfpx|double|(double x, int rnd, unsigned int width)|
+ufromfpx|<real-floating>|(<real-floating> x, int rnd, unsigned int width)|
+ufromfpxd128|_Decimal128|(_Decimal128 x, int rnd, unsigned int width)|
+ufromfpxd32|_Decimal32|(_Decimal32 x, int rnd, unsigned int width)|
+ufromfpxd64|_Decimal64|(_Decimal64 x, int rnd, unsigned int width)|
+ufromfpxf|float|(float x, int rnd, unsigned int width)|
+ufromfpxl|long double|(long double x, int rnd, unsigned int width)|
+UINT16_C|uint16_t|(<value>)|
+UINT16_MAX|||
+uint16_t|||
+UINT16_WIDTH|||
+UINT32_C|uint32_t|(<value>)|
+UINT32_MAX|||
+uint32_t|||
+UINT32_WIDTH|||
+UINT64_C|uint64_t|(<value>)|
+UINT64_MAX|||
+uint64_t|||
+UINT64_WIDTH|||
+UINT8_C|uint8_t|(<value>)|
+UINT8_MAX|||
+uint8_t|||
+UINT8_WIDTH|||
+UINT_FAST16_MAX|||
+uint_fast16_t|||
+UINT_FAST16_WIDTH|||
+UINT_FAST32_MAX|||
+uint_fast32_t|||
+UINT_FAST32_WIDTH|||
+UINT_FAST64_MAX|||
+uint_fast64_t|||
+UINT_FAST64_WIDTH|||
+UINT_FAST8_MAX|||
+uint_fast8_t|||
+UINT_FAST8_WIDTH|||
+UINT_LEAST16_MAX|||
+uint_least16_t|||
+UINT_LEAST16_WIDTH|||
+UINT_LEAST32_MAX|||
+uint_least32_t|||
+UINT_LEAST32_WIDTH|||
+UINT_LEAST64_MAX|||
+uint_least64_t|||
+UINT_LEAST64_WIDTH|||
+UINT_LEAST8_MAX|||
+uint_least8_t|||
+UINT_LEAST8_WIDTH|||
+UINT_MAX|||
+UINTMAX_C|uintmax_t|(<value>)|
+UINTMAX_MAX|||
+uintmax_t|||
+UINTMAX_WIDTH|||
+UINTPTR_MAX|||
+uintptr_t|||
+UINTPTR_WIDTH|||
+UINT_WIDTH|||
+ULLONG_MAX|||
+ULLONG_WIDTH|||
+ULONG_MAX|||
+ULONG_WIDTH|||
+undef|||
+ungetc|int|(int c, FILE *stream)|
+ungetwc|wint_t|(wint_t c, FILE *stream)|
+union|||
+unreachable|void|(void)|
+unsequenced|||
+unsigned|||
+USHRT_MAX|||
+USHRT_WIDTH|||
+va_arg|<type>|(va_list ap, <type>)|
+__VA_ARGS__|||
+va_copy|void|(va_list dest, va_list src)|
+va_end|void|(va_list ap)|
+va_list|||
+__VA_OPT__|<nothing-or-pp-tokens>|(<pp-tokens opt>)|
+va_start|void|(va_list ap, ...)|
+vfprintf|int|(FILE * restrict stream, const char * restrict format, va_list arg)|
+vfscanf|int|(FILE * restrict stream, const char * restrict format, va_list arg)|
+vfwprintf|int|(FILE * restrict stream, const wchar_t * restrict format, va_list arg)|
+vfwscanf|int|(FILE * restrict stream, const wchar_t * restrict format, va_list arg)|
+void|||
+volatile|||
+vprintf|int|(const char * restrict format, va_list arg)|
+vscanf|int|(const char * restrict format, va_list arg)|
+vsnprintf|int|(char * restrict s, size_t n, const char * restrict format, va_list arg)|
+vsprintf|int|(char * restrict s, const char * restrict format, va_list arg)|
+vsscanf|int|(const char * restrict s, const char * restrict format, va_list arg)|
+vswprintf|int|(wchar_t * restrict s, size_t n, const wchar_t * restrict format, va_list arg)|
+vswscanf|int|(const wchar_t * restrict s, const wchar_t * restrict format, va_list arg)|
+vwprintf|int|(const wchar_t * restrict format, va_list arg)|
+vwscanf|int|(const wchar_t * restrict format, va_list arg)|
+warning|||
+WCHAR_MAX|||
+WCHAR_MIN|||
+wchar_t|||
+WCHAR_WIDTH|||
+wcrtomb|size_t|(char * restrict s, wchar_t wc, mbstate_t * restrict ps)|
+wcscat|wchar_t *|(wchar_t * restrict s1, const wchar_t * restrict s2)|
+wcschr|<QWchar_t> *|(<QWchar_t> *s, wchar_t c)|
+wcscmp|int|(const wchar_t *s1, const wchar_t *s2)|
+wcscoll|int|(const wchar_t *s1, const wchar_t *s2)|
+wcscpy|wchar_t *|(wchar_t * restrict s1, const wchar_t * restrict s2)|
+wcscspn|size_t|(const wchar_t *s1, const wchar_t *s2)|
+wcsftime|size_t|(wchar_t * restrict s, size_t maxsize, const wchar_t * restrict format, const struct tm * restrict timeptr)|
+wcslen|size_t|(const wchar_t *s)|
+wcsncat|wchar_t *|(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n)|
+wcsncmp|int|(const wchar_t *s1, const wchar_t *s2, size_t n)|
+wcsncpy|wchar_t *|(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n)|
+wcspbrk|<QWchar_t> *|(<QWchar_t> *s1, const wchar_t *s2)|
+wcsrchr|<QWchar_t> *|(<QWchar_t> *s, wchar_t c)|
+wcsrtombs|size_t|(char * restrict dst, const wchar_t ** restrict src, size_t len, mbstate_t * restrict ps)|
+wcsspn|size_t|(const wchar_t *s1, const wchar_t *s2)|
+wcsstr|<QWchar_t> *|(<QWchar_t> *s1, const wchar_t *s2)|
+wcstoimax|intmax_t|(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base)|
+wcstok|wchar_t *|(wchar_t * restrict s1, const wchar_t * restrict s2, wchar_t ** restrict ptr)|
+wcstol|long int|(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base)|
+wcstoll|long long int|(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base)|
+wcstombs|size_t|(char * restrict s, const wchar_t * restrict pwcs, size_t n)|
+wcstoul|unsigned long int|(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base)|
+wcstoull|unsigned long long int|(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base)|
+wcstoumax|uintmax_t|(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base)|
+wcsxfrm|size_t|(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n)|
+wctob|int|(wint_t c)|
+wctomb|int|(char *s, wchar_t wc)|
+wctrans|wctrans_t|(const char *property)|
+wctrans_t|||
+wctype|wctype_t|(const char *property)|
+wctype_t|||
+WEOF|||
+while|||
+WINT_MAX|||
+WINT_MIN|||
+wint_t|||
+WINT_WIDTH|||
+wmemchr|<QWchar_t> *|(<QWchar_t> *s, wchar_t c, size_t n)|
+wmemcmp|int|(const wchar_t *s1, const wchar_t *s2, size_t n)|
+wmemcpy|wchar_t *|(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n)|
+wmemmove|wchar_t *|(wchar_t *s1, const wchar_t *s2, size_t n)|
+wmemset|wchar_t *|(wchar_t *s, wchar_t c, size_t n)|
+wprintf|int|(const wchar_t * restrict format, ...)|
+wscanf|int|(const wchar_t * restrict format, ...)|
+xor|||
+xor_eq|||
