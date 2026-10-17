@@ -5,7 +5,6 @@ run_geany_config_script() {
   apt upgrade -y
   apt-get install -y uncrustify geany valgrind
 
->>>>>>> b0919e2 (fix: use the right geany)
   if [[ -x "$geany_config" ]]; then
     log_info "Lancement de $geany_config..."
     "$geany_config"
