@@ -39,7 +39,7 @@ CUSTOM_APPS=(
 update_system() {
   log_info "Updating package lists and upgrading system..."
   apt-get update -y
-  apt-get upgrade -y
+  apt-get upgrade -y --allow-downgrades
   log_success "System is now up to date."
 }
 
