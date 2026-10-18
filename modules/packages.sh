@@ -94,6 +94,6 @@ install_apt() {
     packages+=("${item%%:*}")
   done
 
-  apt-get install -y "${packages[@]}"
+  apt-get install -y --allow-downgrades "${packages[@]}"
   print_recap
 }
