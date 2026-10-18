@@ -1,5 +1,10 @@
 #!/bin/bash
-#
+
+
+# Se placer automatiquement dans le dossier du script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR" || exit 1
+
 for cmd in "geany" "gcc" "uncrustify"; do
   type -P $cmd &> /dev/null
   if [ $? != 0 ]; then
