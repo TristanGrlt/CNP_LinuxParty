@@ -25,7 +25,7 @@ Party 2026"** par des bénévoles étudiants des Masters d'informatique de l'UFR
 sciences et techniques de l'Université de Rouen Normandie **car l'UFR ne veut
 plus financer l'événement officiel.**
 
-Page web statique de l'événement : https://tristangrlt.github.io/CNP_LinuxParty/
+Page web de l'événement : https://tristangrlt.github.io/CNP_LinuxParty/
 
 ## Script de post-installation
 
